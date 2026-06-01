@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1080" />
+  <title>Creative Instagram — Studio Web</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      font-family: 'Manrope', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background: #0F172A;
+    }
+
+    .canvas {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      background: #0F172A;
+    }
+
+    /* Background blobs */
+    .blob-1 {
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(3,105,161,0.35) 0%, transparent 70%);
+      top: -200px; right: -150px;
+    }
+    .blob-2 {
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(14,165,233,0.18) 0%, transparent 70%);
+      bottom: -100px; left: -100px;
+    }
+    .grid-dots {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 0);
+      background-size: 36px 36px;
+    }
+
+    /* Content */
+    .content {
+      position: relative; z-index: 10;
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 80px;
+    }
+
+    /* Top bar */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 60px;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 14px;
+      font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+      font-weight: 800; font-size: 28px; color: #fff;
+      letter-spacing: -0.5px;
+    }
+    .logo-icon {
+      width: 52px; height: 52px;
+      background: rgba(255,255,255,0.12);
+      border: 1.5px solid rgba(255,255,255,0.18);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo-icon svg { width: 26px; height: 26px; color: #fff; }
+    .logo span { color: #38BDF8; }
+    .badge {
+      background: rgba(3,105,161,0.25);
+      border: 1px solid rgba(56,189,248,0.3);
+      border-radius: 100px;
+      padding: 10px 22px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #7DD3FC;
+      letter-spacing: 0.5px;
+    }
+
+    /* Headline */
+    .headline {
+      font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 86px;
+      line-height: 1.0;
+      letter-spacing: -2.5px;
+      color: #fff;
+      margin-bottom: 40px;
+    }
+    .headline .accent { color: #38BDF8; }
+
+    .sub {
+      font-size: 26px;
+      line-height: 1.55;
+      color: #94A3B8;
+      max-width: 580px;
+      margin-bottom: 60px;
+    }
+
+    /* Stat pills */
+    .stats {
+      display: flex;
+      gap: 20px;
+      margin-bottom: auto;
+    }
+    .stat {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 22px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .stat-num {
+      font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 42px;
+      color: #38BDF8;
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 17px;
+      color: #64748B;
+      font-weight: 500;
+    }
+
+    /* Bottom */
+    .bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 50px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .cta-pill {
+      background: #0369A1;
+      border-radius: 100px;
+      padding: 20px 48px;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 12px 32px rgba(3,105,161,0.5);
+    }
+    .cta-pill svg { width: 22px; height: 22px; }
+    .handle {
+      font-size: 20px;
+      color: #475569;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    /* Floating mockup */
+    .mockup-wrap {
+      position: absolute;
+      right: 60px;
+      top: 50%;
+      transform: translateY(-45%);
+      z-index: 5;
+    }
+    .browser-card {
+      width: 380px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 20px;
+      padding: 16px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    }
+    .browser-bar {
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 14px;
+    }
+    .dot { width: 11px; height: 11px; border-radius: 50%; }
+    .dot-r { background: #FF5F57; }
+    .dot-y { background: #FEBC2E; }
+    .dot-g { background: #28C840; }
+    .browser-body {
+      background: #F8FAFC;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .hero-strip {
+      height: 100px;
+      background: linear-gradient(135deg, #0369A1, #0EA5E9);
+      padding: 16px 18px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .sk { border-radius: 4px; background: rgba(255,255,255,0.6); }
+    .sk-w { width: 100%; }
+    .sk-70 { width: 70%; }
+    .sk-h8 { height: 8px; }
+    .sk-h6 { height: 6px; }
+    .browser-content { padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+    .grid-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+    .mini-card {
+      height: 40px; border-radius: 8px;
+      background: #E2E8F0;
+    }
+    .fake-btn {
+      height: 36px; width: 120px;
+      border-radius: 8px;
+      background: #0369A1;
+      margin-top: 4px;
+    }
+
+    /* Score badge on mockup */
+    .score-badge {
+      position: absolute;
+      top: -24px; right: -24px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 16px 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .score-label { font-size: 13px; color: #64748B; font-weight: 500; }
+    .score-val {
+      font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+      font-weight: 800; font-size: 28px; color: #0369A1; line-height: 1;
+    }
+
+    .perf-badge {
+      position: absolute;
+      bottom: -20px; left: -20px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 14px 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .perf-icon {
+      width: 36px; height: 36px;
+      background: #DCFCE7;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .perf-icon svg { width: 18px; height: 18px; color: #16A34A; }
+    .perf-text .t1 { font-size: 12px; color: #64748B; }
+    .perf-text .t2 { font-size: 20px; font-weight: 800; color: #0F172A;
+      font-family: 'Bricolage Grotesque', system-ui, sans-serif; line-height: 1.1; }
+  </style>
+</head>
+<body>
+<div class="canvas">
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+  <div class="grid-dots"></div>
+
+  <div class="content">
+    <div class="topbar">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+        Studio<span>Web</span>
+      </div>
+      <div class="badge">Création de sites web</div>
+    </div>
+
+    <div class="headline">
+      Votre site<br />web,<br /><span class="accent">enfin</span><br />rentable.
+    </div>
+
+    <div class="sub">Design sur mesure · SEO · Livraison en 14 jours</div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">+187%</div>
+        <div class="stat-label">taux de conversion</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">98</div>
+        <div class="stat-label">score PageSpeed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">14j</div>
+        <div class="stat-label">délai de livraison</div>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <div class="cta-pill">
+        Devis gratuit sous 24h
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </div>
+      <div class="handle">@studioweb.fr</div>
+    </div>
+  </div>
+
+  <!-- Floating mockup -->
+  <div class="mockup-wrap">
+    <div class="browser-card" style="position:relative">
+      <div class="score-badge">
+        <div class="score-label">PageSpeed</div>
+        <div class="score-val">98/100</div>
+      </div>
+      <div class="browser-bar">
+        <div class="dot dot-r"></div>
+        <div class="dot dot-y"></div>
+        <div class="dot dot-g"></div>
+      </div>
+      <div class="browser-body">
+        <div class="hero-strip">
+          <div class="sk sk-70 sk-h8"></div>
+          <div class="sk sk-w sk-h6"></div>
+        </div>
+        <div class="browser-content">
+          <div class="sk sk-w sk-h6"></div>
+          <div class="sk sk-70 sk-h6"></div>
+          <div class="grid-cards">
+            <div class="mini-card"></div>
+            <div class="mini-card"></div>
+            <div class="mini-card"></div>
+          </div>
+          <div class="fake-btn"></div>
+        </div>
+      </div>
+      <div class="perf-badge">
+        <div class="perf-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+            <polyline points="16 7 22 7 22 13"/>
+          </svg>
+        </div>
+        <div class="perf-text">
+          <div class="t1">Conversion</div>
+          <div class="t2">+187%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

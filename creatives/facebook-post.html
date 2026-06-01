@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1200" />
+  <title>Creative Facebook — Studio Web</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 1200px;
+      height: 628px;
+      overflow: hidden;
+      font-family: 'Manrope', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .canvas {
+      width: 1200px;
+      height: 628px;
+      display: flex;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Left panel — dark */
+    .left {
+      width: 560px;
+      height: 100%;
+      background: #0F172A;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 52px 52px 44px;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .left-blob {
+      position: absolute;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(3,105,161,0.4) 0%, transparent 65%);
+      top: -140px; left: -100px;
+      pointer-events: none;
+    }
+    .left-blob-2 {
+      position: absolute;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(14,165,233,0.15) 0%, transparent 65%);
+      bottom: -80px; right: -60px;
+      pointer-events: none;
+    }
+    .dots-bg {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 0);
+      background-size: 30px 30px;
+      pointer-events: none;
+    }
+
+    .logo {
+      display: flex; align-items: center; gap: 12px;
+      font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+      font-weight: 800; font-size: 22px; color: #fff;
+      position: relative; z-index: 5;
+      margin-bottom: 36px;
+    }
+    .logo-box {
+      width: 42px; height: 42px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      display: grid; place-items: center;
+    }
+    .logo-box svg { width: 20px; height: 20px; color: #fff; }
+    .logo span { color: #38BDF8; }
+
+    .headline {
+      font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 52px;
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      color: #fff;
+      position: relative; z-index: 5;
+      margin-bottom: 22px;
+    }
+    .headline .accent { color: #38BDF8; }
+
+    .sub {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #94A3B8;
+      position: relative; z-index: 5;
+      margin-bottom: auto;
+      max-width: 380px;
+    }
+
+    .cta-row {
+      display: flex; align-items: center; gap: 20px;
+      position: relative; z-index: 5;
+      margin-top: 32px;
+    }
+    .cta-btn {
+      background: #0369A1;
+      border-radius: 100px;
+      padding: 14px 32px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      display: flex; align-items: center; gap: 10px;
+      box-shadow: 0 8px 24px rgba(3,105,161,0.55);
+    }
+    .cta-btn svg { width: 17px; height: 17px; }
+    .handle { font-size: 14px; color: #475569; font-weight: 500; }
+
+    /* Right panel — light */
+    .right {
+      flex: 1;
+      background: #F1F5F9;
+      position: relative;
+      overflow: hidden;
+    }
+    .right-inner {
+      position: absolute; inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+    }
+
+    /* Browser mockup */
+    .browser {
+      width: 520px;
+      background: #fff;
+      border-radius: 18px;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 20px 60px rgba(15,23,42,0.13);
+      overflow: hidden;
+    }
+    .bar {
+      background: #F8FAFC;
+      border-bottom: 1px solid #E2E8F0;
+      padding: 12px 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .d { width: 10px; height: 10px; border-radius: 50%; }
+    .d-r { background: #FF5F57; }
+    .d-y { background: #FEBC2E; }
+    .d-g { background: #28C840; }
+    .url-bar {
+      flex: 1;
+      margin-left: 8px;
+      background: #E2E8F0;
+      border-radius: 6px;
+      height: 22px;
+    }
+    .page-hero {
+      height: 130px;
+      background: linear-gradient(135deg, #0F172A 0%, #0369A1 100%);
+      padding: 20px 24px;
+      display: flex; flex-direction: column; gap: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute; right: -30px; top: -30px;
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      background: rgba(56,189,248,0.15);
+    }
+    .sk { border-radius: 4px; }
+    .sk-w { background: rgba(255,255,255,0.7); height: 10px; width: 60%; }
+    .sk-sub { background: rgba(255,255,255,0.4); height: 7px; width: 80%; }
+    .sk-btn { background: #38BDF8; height: 28px; width: 100px; border-radius: 6px; }
+    .page-body { padding: 18px 24px; display: flex; flex-direction: column; gap: 12px; }
+    .cards-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    .mini { height: 50px; background: #F1F5F9; border-radius: 10px; border: 1px solid #E2E8F0; }
+    .text-sk { background: #E2E8F0; border-radius: 4px; height: 8px; }
+    .text-sk.s70 { width: 70%; }
+    .text-sk.s50 { width: 50%; }
+    .text-sk.sfu { width: 100%; }
+    .cta-sk { background: #0369A1; height: 36px; width: 130px; border-radius: 8px; }
+
+    /* Floating badges */
+    .badge-float {
+      position: absolute;
+      background: #fff;
+      border-radius: 14px;
+      padding: 12px 18px;
+      box-shadow: 0 8px 28px rgba(15,23,42,0.14);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .badge-float .icon {
+      width: 32px; height: 32px;
+      border-radius: 9px;
+      display: grid; place-items: center;
+    }
+    .badge-float .icon svg { width: 16px; height: 16px; }
+    .badge-float .label { font-size: 11px; color: #64748B; }
+    .badge-float .val {
+      font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+      font-weight: 800; font-size: 22px; color: #0F172A; line-height: 1;
+    }
+    .b1 { top: 24px; right: 24px; }
+    .b1 .icon { background: #DBEAFE; }
+    .b1 .icon svg { color: #2563EB; }
+    .b2 { bottom: 24px; left: 24px; }
+    .b2 .icon { background: #DCFCE7; }
+    .b2 .icon svg { color: #16A34A; }
+
+    /* Accent strip on right edge */
+    .right-accent {
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 6px;
+      background: linear-gradient(180deg, #0369A1, #38BDF8);
+    }
+  </style>
+</head>
+<body>
+<div class="canvas">
+  <!-- LEFT -->
+  <div class="left">
+    <div class="left-blob"></div>
+    <div class="left-blob-2"></div>
+    <div class="dots-bg"></div>
+
+    <div class="logo">
+      <div class="logo-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="16 18 22 12 16 6"/>
+          <polyline points="8 6 2 12 8 18"/>
+        </svg>
+      </div>
+      Studio<span>Web</span>
+    </div>
+
+    <div class="headline">
+      Un site web<br />qui vous<br />rapporte<br /><span class="accent">vraiment.</span>
+    </div>
+
+    <div class="sub">Création sur mesure, SEO et lancement en 14 jours. Devis gratuit sous 24h.</div>
+
+    <div class="cta-row">
+      <div class="cta-btn">
+        Demander un devis
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </div>
+      <div class="handle">@studioweb.fr</div>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+    <div class="right-inner">
+      <div class="browser">
+        <div class="bar">
+          <div class="d d-r"></div>
+          <div class="d d-y"></div>
+          <div class="d d-g"></div>
+          <div class="url-bar"></div>
+        </div>
+        <div class="page-hero">
+          <div class="sk sk-w"></div>
+          <div class="sk sk-sub"></div>
+          <div class="sk sk-btn"></div>
+        </div>
+        <div class="page-body">
+          <div class="cards-row">
+            <div class="mini"></div>
+            <div class="mini"></div>
+            <div class="mini"></div>
+          </div>
+          <div class="text-sk sfu"></div>
+          <div class="text-sk s70"></div>
+          <div class="text-sk s50"></div>
+          <div class="cta-sk"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating badges -->
+    <div class="badge-float b1">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+        </svg>
+      </div>
+      <div>
+        <div class="label">PageSpeed</div>
+        <div class="val">98/100</div>
+      </div>
+    </div>
+
+    <div class="badge-float b2">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+          <polyline points="16 7 22 7 22 13"/>
+        </svg>
+      </div>
+      <div>
+        <div class="label">Conversions</div>
+        <div class="val">+187%</div>
+      </div>
+    </div>
+
+    <div class="right-accent"></div>
+  </div>
+</div>
+</body>
+</html>
