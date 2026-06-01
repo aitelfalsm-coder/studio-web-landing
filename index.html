@@ -340,39 +340,66 @@
           </div>
 
           <!-- Floating: Conversion rate -->
-          <div class="hero-card-left absolute -left-8 bottom-16 hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-softLg sm:block">
-            <div class="flex items-center gap-3">
-              <span class="grid h-10 w-10 place-items-center rounded-xl bg-emerald-100 text-emerald-600">
-                <i data-lucide="trending-up" class="h-5 w-5"></i>
+          <div class="hero-card-left absolute -left-8 bottom-16 hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-softLg sm:block" style="min-width:160px">
+            <div class="mb-2 flex items-center justify-between">
+              <span class="text-xs font-medium text-secondary">Taux de conversion</span>
+              <span class="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100">
+                <i data-lucide="trending-up" class="h-3 w-3 text-emerald-600"></i>
               </span>
-              <div>
-                <div class="text-xs text-secondary">Taux de conversion</div>
-                <div class="text-lg font-bold text-primary">+187%</div>
-              </div>
             </div>
+            <div class="flex items-end gap-2">
+              <span class="text-2xl font-bold text-primary">+<span id="convCount">0</span>%</span>
+              <svg width="56" height="24" viewBox="0 0 56 24" fill="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#10b981" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <polygon points="0,22 8,19 16,16 26,12 36,8 46,4 56,1 56,24 0,24" fill="url(#sparkGrad)"/>
+                <polyline id="sparkline" points="0,22 8,19 16,16 26,12 36,8 46,4 56,1"
+                  stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  fill="none" style="stroke-dasharray:90;stroke-dashoffset:90"/>
+              </svg>
+            </div>
+            <div class="mt-1 text-[10px] font-semibold text-emerald-600">↑ vs mois précédent</div>
           </div>
 
           <!-- Floating: PageSpeed -->
           <div class="hero-card-right absolute -right-6 top-6 hidden rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-softLg sm:block">
-            <div class="flex items-center gap-2">
-              <span class="grid h-8 w-8 place-items-center rounded-lg bg-sky-100 text-cta">
-                <i data-lucide="gauge" class="h-4 w-4"></i>
-              </span>
+            <div class="flex items-center gap-3">
+              <!-- Arc SVG -->
+              <div class="relative h-12 w-12 shrink-0">
+                <svg class="h-12 w-12 -rotate-90" viewBox="0 0 36 36" aria-hidden="true">
+                  <circle cx="18" cy="18" r="14" fill="none" stroke="#e2e8f0" stroke-width="3"/>
+                  <circle id="speedArc" cx="18" cy="18" r="14" fill="none"
+                    stroke="#0369A1" stroke-width="3" stroke-linecap="round"
+                    stroke-dasharray="87.96" stroke-dashoffset="87.96"
+                    style="transition:stroke-dashoffset 1.2s cubic-bezier(0.16,1,0.3,1)"/>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span id="speedScore" class="text-xs font-bold text-primary">0</span>
+                </div>
+              </div>
               <div>
-                <div class="text-xs text-secondary">PageSpeed</div>
-                <div class="text-lg font-bold text-primary">98/100</div>
+                <div class="text-xs font-medium text-secondary">PageSpeed</div>
+                <div class="text-sm font-bold text-emerald-600">Excellent</div>
+                <div class="mt-0.5 text-[10px] text-slate-400">Score /100</div>
               </div>
             </div>
           </div>
 
           <!-- Floating: Livraison -->
-          <div class="hero-card-bottom absolute left-6 -bottom-5 hidden items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2.5 shadow-softLg sm:flex">
+          <div class="hero-card-bottom absolute left-6 -bottom-5 hidden items-center gap-2.5 rounded-xl border border-slate-200 bg-white px-3 py-2.5 shadow-softLg sm:flex">
             <span class="grid h-7 w-7 place-items-center rounded-lg bg-violet-100 text-violet-600">
               <i data-lucide="rocket" class="h-4 w-4"></i>
             </span>
             <div>
               <div class="text-[10px] text-secondary">Livraison garantie</div>
-              <div class="text-sm font-bold text-primary">2–3 semaines</div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-sm font-bold text-primary">2–3 semaines</span>
+                <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500"></span>
+              </div>
             </div>
           </div>
         </div>
@@ -830,6 +857,53 @@
   <script>
     // Icons
     lucide.createIcons();
+
+    // Hero stat counters — run after card entrance animations complete
+    (function () {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
+
+      function animateCount(el, target, duration, prefix, suffix, onTick) {
+        if (prefersReduced) { el.textContent = target; if (onTick) onTick(1); return; }
+        const start = performance.now();
+        function tick(now) {
+          const p = Math.min((now - start) / duration, 1);
+          const ease = easeOutQuart(p);
+          el.textContent = Math.round(ease * target);
+          if (onTick) onTick(ease);
+          if (p < 1) requestAnimationFrame(tick);
+          else el.textContent = target;
+        }
+        requestAnimationFrame(tick);
+      }
+
+      // PageSpeed arc + counter (starts 700ms after page load)
+      setTimeout(function () {
+        const scoreEl = document.getElementById('speedScore');
+        const arc = document.getElementById('speedArc');
+        const circumference = 87.96;
+        if (!scoreEl || !arc) return;
+        animateCount(scoreEl, 98, 1200, '', '', function (ease) {
+          arc.style.strokeDashoffset = circumference * (1 - ease * 0.98);
+        });
+        if (prefersReduced) arc.style.strokeDashoffset = circumference * 0.02;
+      }, 700);
+
+      // Conversion counter + sparkline draw (starts 900ms after page load)
+      setTimeout(function () {
+        const convEl = document.getElementById('convCount');
+        const spark  = document.getElementById('sparkline');
+        if (!convEl) return;
+        animateCount(convEl, 187, 1000, '', '');
+        if (spark && !prefersReduced) {
+          spark.style.transition = 'stroke-dashoffset 1s cubic-bezier(0.16,1,0.3,1)';
+          spark.style.strokeDashoffset = '0';
+        } else if (spark) {
+          spark.style.strokeDashoffset = '0';
+        }
+      }, 900);
+    })();
 
     // Mobile menu
     const menuBtn = document.getElementById('menuBtn');
