@@ -59,10 +59,81 @@
     }
     h1, h2, h3 { font-family: 'Bricolage Grotesque', system-ui, sans-serif; }
     .accent-text { color: #0369A1; }
+    /* Hero animation system */
+    :root { --ease-expo: cubic-bezier(0.16, 1, 0.3, 1); }
+
+    @keyframes heroEnter {
+      from { opacity: 0; transform: translateY(40px) scale(0.96); filter: blur(4px); }
+      to   { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+    }
+    @keyframes cardLeft {
+      from { opacity: 0; transform: translateX(-32px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes cardRight {
+      from { opacity: 0; transform: translateX(32px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes cardUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes phoneEnter {
+      from { opacity: 0; transform: translate(24px, 16px) scale(0.88); }
+      to   { opacity: 1; transform: translate(0, 0) scale(1); }
+    }
+    @keyframes phoneFloat {
+      0%, 100% { transform: translateY(0) rotate(-0.4deg); }
+      50%      { transform: translateY(-7px) rotate(0.6deg); }
+    }
+    @keyframes glowBreath {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50%      { opacity: 1;   transform: scale(1.08); }
+    }
+    @keyframes shimmer {
+      0%   { background-position: -400% center; }
+      100% { background-position: 400% center; }
+    }
+    @keyframes ctaBlink {
+      0%, 80%, 100% { opacity: 1; }
+      90%           { opacity: 0.7; }
+    }
+
+    .hero-browser {
+      animation: heroEnter 750ms var(--ease-expo) 80ms both;
+      transition: box-shadow 320ms ease, transform 320ms ease;
+      will-change: transform;
+    }
+    .hero-browser:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(2,6,23,.05), 0 32px 64px rgba(2,6,23,.13);
+    }
+    .hero-phone {
+      animation: phoneEnter 650ms var(--ease-expo) 360ms both,
+                 phoneFloat 5s ease-in-out 1100ms infinite;
+    }
+    .hero-card-right  { animation: cardRight 560ms var(--ease-expo) 210ms both; }
+    .hero-card-left   { animation: cardLeft  560ms var(--ease-expo) 430ms both; }
+    .hero-card-bottom { animation: cardUp    560ms var(--ease-expo) 560ms both; }
+    .hero-glow        { animation: glowBreath 6s ease-in-out infinite; }
+    .skeleton-line {
+      background: linear-gradient(90deg, #e2e8f0 25%, #f8fafc 50%, #e2e8f0 75%);
+      background-size: 400% 100%;
+      animation: shimmer 2.2s infinite linear;
+    }
+    .fake-cta { animation: ctaBlink 4s ease-in-out 2s infinite; }
+
     @media (prefers-reduced-motion: reduce) {
       .reveal { opacity: 1 !important; transform: none !important; transition: none; }
       .animate-float { animation: none; }
       html { scroll-behavior: auto; }
+      .hero-browser, .hero-phone, .hero-card-right,
+      .hero-card-left, .hero-card-bottom, .hero-glow {
+        animation: none !important; opacity: 1 !important;
+        transform: none !important; filter: none !important;
+      }
+      .skeleton-line { animation: none !important; }
+      .fake-cta      { animation: none !important; }
     }
   </style>
 </head>
@@ -174,10 +245,10 @@
         <!-- Hero visual -->
         <div class="relative animate-float lg:pl-4">
           <!-- Glow background -->
-          <div class="absolute -inset-6 -z-10 rounded-full bg-gradient-to-br from-cta/15 to-sky-300/10 blur-3xl"></div>
+          <div class="hero-glow absolute -inset-6 -z-10 rounded-full bg-gradient-to-br from-cta/15 to-sky-300/10 blur-3xl"></div>
 
           <!-- Browser mockup -->
-          <div class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-softLg">
+          <div class="hero-browser overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-softLg">
             <!-- Browser chrome -->
             <div class="flex items-center gap-2 border-b border-slate-100 bg-slate-50 px-4 py-3">
               <span class="h-3 w-3 rounded-full bg-rose-400"></span>
@@ -213,36 +284,36 @@
               <div class="h-1.5 w-40 rounded bg-white/40 mb-1"></div>
               <div class="h-1.5 w-32 rounded bg-white/30 mb-4"></div>
               <div class="flex gap-2">
-                <div class="h-6 w-20 rounded-lg bg-white shadow-sm"></div>
+                <div class="fake-cta h-6 w-20 rounded-lg bg-white shadow-sm"></div>
                 <div class="h-6 w-16 rounded-lg border border-white/40 bg-white/10"></div>
               </div>
             </div>
 
             <!-- Fake feature cards -->
             <div class="grid grid-cols-3 gap-2 p-4">
-              <div class="rounded-xl bg-slate-50 p-3">
+              <div class="rounded-xl bg-slate-50 p-3" style="animation:heroEnter 500ms var(--ease-expo) 480ms both">
                 <div class="mb-2 h-6 w-6 rounded-lg bg-sky-100"></div>
-                <div class="h-2 w-full rounded bg-slate-200"></div>
-                <div class="mt-1.5 h-1.5 w-3/4 rounded bg-slate-100"></div>
-                <div class="mt-1.5 h-1.5 w-1/2 rounded bg-slate-100"></div>
+                <div class="skeleton-line h-2 w-full rounded"></div>
+                <div class="skeleton-line mt-1.5 h-1.5 w-3/4 rounded"></div>
+                <div class="skeleton-line mt-1.5 h-1.5 w-1/2 rounded"></div>
               </div>
-              <div class="rounded-xl bg-slate-50 p-3">
+              <div class="rounded-xl bg-slate-50 p-3" style="animation:heroEnter 500ms var(--ease-expo) 560ms both">
                 <div class="mb-2 h-6 w-6 rounded-lg bg-emerald-100"></div>
-                <div class="h-2 w-full rounded bg-slate-200"></div>
-                <div class="mt-1.5 h-1.5 w-3/4 rounded bg-slate-100"></div>
-                <div class="mt-1.5 h-1.5 w-1/2 rounded bg-slate-100"></div>
+                <div class="skeleton-line h-2 w-full rounded"></div>
+                <div class="skeleton-line mt-1.5 h-1.5 w-3/4 rounded"></div>
+                <div class="skeleton-line mt-1.5 h-1.5 w-1/2 rounded"></div>
               </div>
-              <div class="rounded-xl bg-slate-50 p-3">
+              <div class="rounded-xl bg-slate-50 p-3" style="animation:heroEnter 500ms var(--ease-expo) 640ms both">
                 <div class="mb-2 h-6 w-6 rounded-lg bg-violet-100"></div>
-                <div class="h-2 w-full rounded bg-slate-200"></div>
-                <div class="mt-1.5 h-1.5 w-3/4 rounded bg-slate-100"></div>
-                <div class="mt-1.5 h-1.5 w-1/2 rounded bg-slate-100"></div>
+                <div class="skeleton-line h-2 w-full rounded"></div>
+                <div class="skeleton-line mt-1.5 h-1.5 w-3/4 rounded"></div>
+                <div class="skeleton-line mt-1.5 h-1.5 w-1/2 rounded"></div>
               </div>
             </div>
           </div>
 
           <!-- Phone mockup -->
-          <div class="absolute -bottom-8 -right-5 hidden xl:block">
+          <div class="hero-phone absolute -bottom-8 -right-5 hidden xl:block">
             <div class="w-[88px] overflow-hidden rounded-[22px] border-[3px] border-slate-700 bg-slate-700 shadow-softLg">
               <div class="flex justify-center bg-slate-700 py-1.5">
                 <div class="h-1.5 w-8 rounded-full bg-slate-500"></div>
@@ -269,7 +340,7 @@
           </div>
 
           <!-- Floating: Conversion rate -->
-          <div class="absolute -left-8 bottom-16 hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-softLg sm:block">
+          <div class="hero-card-left absolute -left-8 bottom-16 hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-softLg sm:block">
             <div class="flex items-center gap-3">
               <span class="grid h-10 w-10 place-items-center rounded-xl bg-emerald-100 text-emerald-600">
                 <i data-lucide="trending-up" class="h-5 w-5"></i>
@@ -282,7 +353,7 @@
           </div>
 
           <!-- Floating: PageSpeed -->
-          <div class="absolute -right-6 top-6 hidden rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-softLg sm:block">
+          <div class="hero-card-right absolute -right-6 top-6 hidden rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-softLg sm:block">
             <div class="flex items-center gap-2">
               <span class="grid h-8 w-8 place-items-center rounded-lg bg-sky-100 text-cta">
                 <i data-lucide="gauge" class="h-4 w-4"></i>
@@ -295,7 +366,7 @@
           </div>
 
           <!-- Floating: Livraison -->
-          <div class="absolute left-6 -bottom-5 hidden items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2.5 shadow-softLg sm:flex">
+          <div class="hero-card-bottom absolute left-6 -bottom-5 hidden items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2.5 shadow-softLg sm:flex">
             <span class="grid h-7 w-7 place-items-center rounded-lg bg-violet-100 text-violet-600">
               <i data-lucide="rocket" class="h-4 w-4"></i>
             </span>
