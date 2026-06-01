@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
+  <!-- Icon mark -->
+  <rect width="40" height="40" rx="10" fill="#0F172A"/>
+  <!-- S letter (stylized) -->
+  <path d="M13 15.5C13 14.1 14.1 13 15.5 13h7a1.5 1.5 0 0 1 0 3h-5.5v3.5h4.5C22.9 19.5 24 20.6 24 22v3C24 26.7 22.7 28 21 28h-7.5a1.5 1.5 0 0 1 0-3H21v-3.5h-5C14.3 21.5 13 20.2 13 18.7V15.5z" fill="white"/>
+  <!-- W letter (accent) -->
+  <path d="M26.5 13h2.2l2.3 10 2.3-10H35l-3.8 15H29l-2.5-10-2.5 10h-2.2L18 13h2.2l2.3 10 2.3-10z" fill="#0369A1"/>
+  <!-- Wordmark -->
+  <text x="52" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-weight="700" font-size="18" fill="#0F172A" letter-spacing="-0.3">Studio</text>
+  <text x="109" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-weight="700" font-size="18" fill="#0369A1" letter-spacing="-0.3">Web</text>
+</svg>
