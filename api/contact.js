@@ -45,7 +45,7 @@ module.exports = async function handler(req, res) {
     },
     body: JSON.stringify({
       from: 'Studio Web <onboarding@resend.dev>',
-      to: ['zakaria.gaizi2@gmail.com'],
+      to: ['itelfalsm@gmail.com'],
       reply_to: email,
       subject: `Nouveau devis — ${name}`,
       html,
