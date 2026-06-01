@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(& \"C:\\\\Users\\\\hp\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"web design agency freelance service professional modern\" --design-system -p \"Studio Web\")",
+      "PowerShell(& \"C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" \"C:\\\\Users\\\\hp\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"web design agency freelance service professional modern conversion\" --design-system -p \"Studio Web\")",
+      "PowerShell(Start-Process \"c:\\\\Users\\\\hp\\\\Desktop\\\\landing page media\\\\index.html\")",
+      "Bash(npx --yes serve -l 3008)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3008)",
+      "Bash(gh auth *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git config *)",
+      "Bash(gh repo *)",
+      "Bash(gh api *)",
+      "Bash(vercel *)",
+      "Bash(git push *)",
+      "Bash(git commit -m 'fix: update contact form recipient to itelfalsm@gmail.com *)",
+      "Bash(git commit -m 'feat: adapt pricing to Moroccan market \\(MAD\\) *)",
+      "Bash(git commit -m 'feat: add allojardin.ma to portfolio *)",
+      "Bash(git commit -m 'feat: add leads.ma, remove demo cards from portfolio *)",
+      "Bash(git commit -m 'feat: remove FitCoach from portfolio *)",
+      "Bash(git commit -m 'feat: update footer with Moroccan contact info and WhatsApp *)",
+      "Bash(python3 *)",
+      "Bash(python \"C:\\\\Users\\\\hp\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"web agency landing page hero modern\" --design-system)",
+      "Bash(git commit -m 'feat: redesign hero visual with browser mockup, phone preview and floating cards *)",
+      "Bash(npx skills *)",
+      "Bash(npm i *)",
+      "Bash(impeccable --help)",
+      "Bash(node .agents/skills/impeccable/scripts/context.mjs)",
+      "Bash(node .agents/skills/impeccable/scripts/palette.mjs)",
+      "Bash(git commit -m 'design: apply impeccable fixes — font swap, remove gradient text, redesign eyebrows *)"
+    ]
+  }
+}
