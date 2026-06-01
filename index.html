@@ -698,13 +698,51 @@
       });
     });
 
-    // Contact form (demo)
+    // Contact form
     const form = document.getElementById('contactForm');
-    form.addEventListener('submit', (e) => {
+    const formMsg = document.getElementById('formMsg');
+    const submitBtn = form.querySelector('[type="submit"]');
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
-      document.getElementById('formMsg').classList.remove('hidden');
-      form.reset();
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Envoi en cours… <i data-lucide="loader" class="h-5 w-5 animate-spin"></i>';
+      lucide.createIcons();
+      formMsg.classList.add('hidden');
+      formMsg.className = formMsg.className.replace('text-red-600', 'text-emerald-600');
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: form.name.value,
+            email: form.email.value,
+            type: form.type.value,
+            message: form.message.value,
+          }),
+        });
+
+        if (res.ok) {
+          formMsg.textContent = 'Merci ! Votre demande a bien été envoyée. Je vous réponds sous 24h.';
+          formMsg.classList.remove('hidden');
+          form.reset();
+        } else {
+          formMsg.textContent = 'Une erreur est survenue. Veuillez réessayer ou m’écrire directement.';
+          formMsg.classList.replace('text-emerald-600', 'text-red-600');
+          formMsg.classList.remove('hidden');
+        }
+      } catch {
+        formMsg.textContent = 'Erreur réseau. Vérifiez votre connexion et réessayez.';
+        formMsg.classList.replace('text-emerald-600', 'text-red-600');
+        formMsg.classList.remove('hidden');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Envoyer ma demande <i data-lucide="send" class="h-5 w-5"></i>';
+        lucide.createIcons();
+      }
     });
   </script>
 </body>
