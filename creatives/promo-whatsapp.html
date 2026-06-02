@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=1080"/>
+  <title>Promo WhatsApp — StudioWeb Maroc</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{width:1080px;height:1920px;overflow:hidden;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+    @keyframes greenGlow{0%,100%{text-shadow:0 0 40px rgba(37,211,102,.5)}50%{text-shadow:0 0 80px rgba(37,211,102,.9)}}
+    @keyframes waPulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}60%{box-shadow:0 0 0 18px rgba(37,211,102,0)}}
+    @keyframes shimmerGreen{0%{background-position:-300% center}100%{background-position:300% center}}
+    @keyframes borderSpinGreen{to{--a:360deg}}
+    @keyframes dotUp{0%{transform:translateY(0);opacity:.7}100%{transform:translateY(-120px);opacity:0}}
+    @property --a{syntax:'<angle>';initial-value:0deg;inherits:false}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+
+    .canvas{width:1080px;height:1920px;position:relative;overflow:hidden;background:#030D08;}
+
+    /* PHOTO TOP (680px) */
+    .photo-wrap{position:absolute;top:0;left:0;right:0;height:680px;overflow:hidden;}
+    .photo-img{width:100%;height:100%;object-fit:cover;object-position:center 35%;display:block;}
+    .photo-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,13,8,.35) 0%,rgba(3,13,8,.55) 50%,rgba(3,13,8,.95) 80%,rgba(3,13,8,1) 100%);}
+    .photo-tint{position:absolute;inset:0;background:rgba(37,211,102,.1);}
+
+    /* DARK BODY */
+    .dark-body{position:absolute;top:640px;left:0;right:0;bottom:0;background:#030D08;}
+
+    .grid{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(37,211,102,.04) 1px,transparent 0);background-size:36px 36px;z-index:1;}
+    .noise{position:absolute;inset:0;opacity:.04;z-index:1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px;}
+    .glow-mid{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(37,211,102,.12) 0%,transparent 60%);top:820px;left:50%;transform:translateX(-50%);z-index:1;animation:greenGlow 4s ease-in-out infinite;}
+    .glow-bot{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(3,105,161,.12) 0%,transparent 60%);bottom:100px;right:-60px;z-index:1;}
+
+    .dots{position:absolute;bottom:250px;left:0;right:0;height:400px;z-index:2;pointer-events:none;}
+    .d{position:absolute;border-radius:50%;animation:dotUp linear infinite;}
+    .d:nth-child(1){width:4px;height:4px;background:#25D366;left:10%;bottom:20px;animation-duration:7s;}
+    .d:nth-child(2){width:3px;height:3px;background:#FCD34D;left:25%;bottom:40px;animation-duration:9s;animation-delay:1s;}
+    .d:nth-child(3){width:4px;height:4px;background:#25D366;left:75%;bottom:10px;animation-duration:6.5s;animation-delay:.5s;}
+    .d:nth-child(4){width:2px;height:2px;background:#38BDF8;left:86%;bottom:30px;animation-duration:8s;animation-delay:2s;}
+
+    .accent{position:absolute;left:58px;top:110px;bottom:110px;width:2px;background:linear-gradient(180deg,transparent,rgba(37,211,102,.4),transparent);z-index:2;}
+
+    .content{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;padding:100px 80px 100px;}
+
+    .logo-row{display:flex;align-items:center;gap:13px;margin-bottom:0;align-self:flex-start;animation:fadeUp .5s cubic-bezier(.16,1,.3,1) .05s both;}
+    .logo-box{width:50px;height:50px;background:rgba(255,255,255,.16);border:1.5px solid rgba(37,211,102,.25);border-radius:13px;display:grid;place-items:center;backdrop-filter:blur(12px);}
+    .logo-box svg{width:22px;height:22px;color:#fff;}
+    .logo-txt{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:28px;color:#fff;}
+    .logo-txt span{color:#25D366;}
+
+    .photo-title-block{
+      display:flex;flex-direction:column;align-items:center;
+      margin-top:auto;margin-bottom:32px;
+      animation:fadeUp .6s cubic-bezier(.16,1,.3,1) .15s both;
+    }
+    .pt-eyebrow{font-size:16px;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;}
+    .pt-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:74px;line-height:1;letter-spacing:-2px;color:#fff;text-align:center;text-shadow:0 4px 28px rgba(0,0,0,.6);}
+
+    .wa-badge{display:flex;align-items:center;gap:12px;background:rgba(37,211,102,.12);border:1.5px solid rgba(37,211,102,.28);border-radius:100px;padding:13px 28px;margin-bottom:44px;animation:waPulse 2.5s ease-in-out infinite,fadeUp .5s cubic-bezier(.16,1,.3,1) .22s both;}
+    .wa-badge svg{width:22px;height:22px;color:#25D366;}
+    .wa-badge-txt{font-size:17px;font-weight:700;color:#25D366;}
+
+    .sub{font-size:22px;font-weight:600;color:rgba(255,255,255,.4);text-align:center;margin-bottom:48px;animation:fadeUp .5s cubic-bezier(.16,1,.3,1) .28s both;}
+
+    .price-wrap{position:relative;border-radius:30px;padding:3px;width:100%;margin-bottom:30px;background:conic-gradient(from var(--a),rgba(37,211,102,0),rgba(37,211,102,.85),rgba(37,211,102,0));animation:borderSpinGreen 3s linear infinite,fadeUp .6s cubic-bezier(.16,1,.3,1) .35s both;}
+    .price-inner{background:rgba(3,13,8,.92);border-radius:28px;padding:42px 52px;text-align:center;position:relative;overflow:hidden;backdrop-filter:blur(12px);}
+    .price-inner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(37,211,102,.07) 0%,transparent 65%);}
+    .from-txt{font-size:17px;font-weight:700;color:rgba(37,211,102,.65);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;position:relative;z-index:1;}
+    .price-num{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:188px;line-height:.84;letter-spacing:-9px;color:#25D366;animation:greenGlow 3s ease-in-out infinite;position:relative;z-index:1;}
+    .price-mad{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:50px;color:rgba(37,211,102,.7);letter-spacing:3px;margin-top:8px;position:relative;z-index:1;}
+    .pay3{margin-top:14px;font-size:17px;color:rgba(255,255,255,.3);background:rgba(255,255,255,.05);border-radius:100px;padding:8px 20px;position:relative;z-index:1;display:inline-block;}
+
+    .urgency{width:100%;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.22);border-radius:16px;padding:16px;text-align:center;margin-bottom:26px;animation:fadeUp .4s cubic-bezier(.16,1,.3,1) .5s both;}
+    .urg-txt{font-size:18px;font-weight:800;color:#EF4444;}
+
+    .gs{display:flex;flex-direction:column;gap:12px;width:100%;margin-bottom:44px;}
+    .g{display:flex;align-items:center;gap:16px;background:rgba(37,211,102,.07);border:1px solid rgba(37,211,102,.12);border-radius:16px;padding:17px 22px;}
+    .g:nth-child(1){animation:fadeUp .4s cubic-bezier(.16,1,.3,1) .55s both;}
+    .g:nth-child(2){animation:fadeUp .4s cubic-bezier(.16,1,.3,1) .63s both;}
+    .g:nth-child(3){animation:fadeUp .4s cubic-bezier(.16,1,.3,1) .71s both;}
+    .g-dot{width:10px;height:10px;border-radius:50%;background:#25D366;box-shadow:0 0 10px rgba(37,211,102,.8);flex-shrink:0;}
+    .g-lbl{font-size:21px;font-weight:700;color:#fff;}
+
+    .divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(37,211,102,.2),transparent);margin-bottom:38px;}
+
+    .cta-btn{width:100%;border-radius:20px;padding:31px;font-size:25px;font-weight:800;color:#fff;background:linear-gradient(90deg,#25D366 0%,#128C7E 25%,#25D366 50%,#128C7E 75%,#25D366 100%);background-size:300% 100%;animation:shimmerGreen 3s linear infinite,fadeUp .4s cubic-bezier(.16,1,.3,1) .78s both;box-shadow:0 14px 44px rgba(37,211,102,.45);display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:18px;}
+    .cta-btn svg{width:25px;height:25px;flex-shrink:0;}
+    .contact-row{text-align:center;font-size:18px;color:rgba(255,255,255,.3);font-weight:500;}
+  </style>
+</head>
+<body>
+<div class="canvas">
+  <!-- PHOTO TOP -->
+  <div class="photo-wrap">
+    <img class="photo-img" crossorigin="anonymous"
+      src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1080&h=680&q=85"
+      alt="iPhone mobile UX design"/>
+    <div class="photo-overlay"></div>
+    <div class="photo-tint"></div>
+  </div>
+
+  <div class="dark-body"></div>
+  <div class="grid"></div>
+  <div class="noise"></div>
+  <div class="glow-mid"></div>
+  <div class="glow-bot"></div>
+  <div class="accent"></div>
+  <div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+
+  <div class="content">
+    <div class="logo-row">
+      <div class="logo-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+      <div class="logo-txt">Studio<span>Web</span></div>
+    </div>
+
+    <div class="photo-title-block">
+      <div class="pt-eyebrow">Création Web · Maroc</div>
+      <div class="pt-title">Site Web Pro<br/>Prix Maroc</div>
+    </div>
+
+    <div class="wa-badge">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.859L.057 23.882a.5.5 0 00.61.61l6.023-1.475A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.959 0-3.796-.5-5.4-1.382l-.389-.219-4.032.988.988-3.91-.238-.4A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      <div class="wa-badge-txt">Disponible sur WhatsApp</div>
+    </div>
+    <div class="sub">Offre exclusive · Places limitées</div>
+
+    <div class="price-wrap">
+      <div class="price-inner">
+        <div class="from-txt">à partir de</div>
+        <div class="price-num">1 990</div>
+        <div class="price-mad">MAD</div>
+        <div class="pay3">ou 3× 665 MAD sans frais</div>
+      </div>
+    </div>
+
+    <div class="urgency"><div class="urg-txt">⏰ Offre valable ce mois uniquement</div></div>
+
+    <div class="gs">
+      <div class="g"><div class="g-dot"></div><div class="g-lbl">Livraison garantie en 14 jours</div></div>
+      <div class="g"><div class="g-dot"></div><div class="g-lbl">SEO Google inclus & optimisé</div></div>
+      <div class="g"><div class="g-dot"></div><div class="g-lbl">Devis gratuit réponse sous 24h</div></div>
+    </div>
+    <div class="divider"></div>
+
+    <div class="cta-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.859L.057 23.882a.5.5 0 00.61.61l6.023-1.475A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.959 0-3.796-.5-5.4-1.382l-.389-.219-4.032.988.988-3.91-.238-.4A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Envoyer un message WhatsApp
+    </div>
+    <div class="contact-row">+212 6 60 76 13 13 · @studioweb</div>
+  </div>
+</div>
+
+<div id="dl-ui" style="position:fixed;bottom:24px;right:24px;z-index:9999;">
+  <button id="dl-btn" onclick="downloadPNG()" style="background:#25D366;color:#fff;border:none;border-radius:14px;padding:14px 28px;font-size:15px;font-weight:700;cursor:pointer;font-family:Manrope,sans-serif;box-shadow:0 8px 28px rgba(37,211,102,.5);display:flex;align-items:center;gap:8px;">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Télécharger PNG
+  </button>
+</div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+async function downloadPNG(){
+  const btn=document.getElementById('dl-btn');btn.textContent='⟳ Export…';btn.disabled=true;
+  const c=await html2canvas(document.querySelector('.canvas'),{scale:2,useCORS:true,allowTaint:false,backgroundColor:null});
+  const a=document.createElement('a');a.download='studioweb-promo-whatsapp.png';a.href=c.toDataURL('image/png');a.click();
+  btn.innerHTML='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Télécharger PNG';
+  btn.disabled=false;
+}
+</script>
+</body>
+</html>
