@@ -46,7 +46,7 @@
   <style>
     html { -webkit-font-smoothing: antialiased; }
     body { background:#F4F7FC; }
-    h1,h2,h3,h4 { font-family:'Bricolage Grotesque',system-ui,sans-serif; }
+    h1,h2,h3,h4 { font-family:'Bricolage Grotesque',system-ui,sans-serif; text-wrap:balance; }
 
     .reveal { opacity:0; transform:translateY(22px); transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1); }
     .reveal.in { opacity:1; transform:none; }
@@ -342,16 +342,16 @@
   <div class="mx-auto max-w-6xl px-4 py-8">
     <div class="grid grid-cols-2 gap-6 sm:grid-cols-4">
       <div class="text-center">
-        <div class="font-display text-3xl font-extrabold text-primary sm:text-4xl">40+</div>
-        <div class="mt-1 text-sm text-mid">clients satisfaits</div>
+        <div class="font-display text-3xl font-extrabold text-primary sm:text-4xl">500+</div>
+        <div class="mt-1 text-sm text-mid">projets livrés</div>
       </div>
       <div class="text-center">
         <div class="font-display text-3xl font-extrabold text-primary sm:text-4xl">14j</div>
         <div class="mt-1 text-sm text-mid">délai de livraison</div>
       </div>
       <div class="text-center">
-        <div class="font-display text-3xl font-extrabold text-primary sm:text-4xl">98/100</div>
-        <div class="mt-1 text-sm text-mid">score performance</div>
+        <div class="font-display text-3xl font-extrabold text-primary sm:text-4xl">98%</div>
+        <div class="mt-1 text-sm text-mid">clients satisfaits</div>
       </div>
       <div class="text-center">
         <div class="font-display text-3xl font-extrabold text-primary sm:text-4xl">4.9/5</div>
@@ -370,36 +370,36 @@
       <p class="mt-4 text-lg text-mid">Artisan, commerçant, professionnel libéral ou PME : je crée des sites adaptés à chaque secteur.</p>
     </div>
 
-    <div class="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-      <div class="reveal group cursor-pointer rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-soft transition-all hover:-translate-y-1 hover:border-cta/40 hover:shadow-lg">
-        <span class="grid h-12 w-12 place-items-center rounded-xl bg-sky-50 text-cta mx-auto"><i data-lucide="hammer" class="h-6 w-6"></i></span>
-        <div class="mt-3 text-sm font-semibold text-primary">Artisans</div>
-        <div class="mt-1 text-xs text-mid">Plombier, électricien, couvreur…</div>
+    <div class="reveal mt-10 flex flex-wrap justify-center gap-3">
+      <div class="inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm text-primary transition-colors hover:border-cta/40">
+        <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-cta/10 text-cta"><i data-lucide="hammer" class="h-3.5 w-3.5"></i></span>
+        <strong class="font-semibold">Artisans</strong>
+        <span class="text-mid text-xs hidden sm:inline">Plombier, électricien, couvreur</span>
       </div>
-      <div class="reveal group cursor-pointer rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-soft transition-all hover:-translate-y-1 hover:border-cta/40 hover:shadow-lg">
-        <span class="grid h-12 w-12 place-items-center rounded-xl bg-sky-50 text-cta mx-auto"><i data-lucide="utensils" class="h-6 w-6"></i></span>
-        <div class="mt-3 text-sm font-semibold text-primary">Restauration</div>
-        <div class="mt-1 text-xs text-mid">Restaurant, café, traiteur…</div>
+      <div class="inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm text-primary transition-colors hover:border-cta/40">
+        <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-cta/10 text-cta"><i data-lucide="utensils" class="h-3.5 w-3.5"></i></span>
+        <strong class="font-semibold">Restauration</strong>
+        <span class="text-mid text-xs hidden sm:inline">Restaurant, café, traiteur</span>
       </div>
-      <div class="reveal group cursor-pointer rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-soft transition-all hover:-translate-y-1 hover:border-cta/40 hover:shadow-lg">
-        <span class="grid h-12 w-12 place-items-center rounded-xl bg-sky-50 text-cta mx-auto"><i data-lucide="briefcase" class="h-6 w-6"></i></span>
-        <div class="mt-3 text-sm font-semibold text-primary">Libéraux</div>
-        <div class="mt-1 text-xs text-mid">Avocat, médecin, coach…</div>
+      <div class="inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm text-primary transition-colors hover:border-cta/40">
+        <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-cta/10 text-cta"><i data-lucide="briefcase" class="h-3.5 w-3.5"></i></span>
+        <strong class="font-semibold">Professions libérales</strong>
+        <span class="text-mid text-xs hidden sm:inline">Avocat, médecin, coach</span>
       </div>
-      <div class="reveal group cursor-pointer rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-soft transition-all hover:-translate-y-1 hover:border-cta/40 hover:shadow-lg">
-        <span class="grid h-12 w-12 place-items-center rounded-xl bg-sky-50 text-cta mx-auto"><i data-lucide="map-pin" class="h-6 w-6"></i></span>
-        <div class="mt-3 text-sm font-semibold text-primary">Tourisme</div>
-        <div class="mt-1 text-xs text-mid">Hôtel, agence, gîte…</div>
+      <div class="inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm text-primary transition-colors hover:border-cta/40">
+        <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-cta/10 text-cta"><i data-lucide="map-pin" class="h-3.5 w-3.5"></i></span>
+        <strong class="font-semibold">Tourisme</strong>
+        <span class="text-mid text-xs hidden sm:inline">Hôtel, agence, riad</span>
       </div>
-      <div class="reveal group cursor-pointer rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-soft transition-all hover:-translate-y-1 hover:border-cta/40 hover:shadow-lg">
-        <span class="grid h-12 w-12 place-items-center rounded-xl bg-sky-50 text-cta mx-auto"><i data-lucide="shopping-bag" class="h-6 w-6"></i></span>
-        <div class="mt-3 text-sm font-semibold text-primary">Commerce</div>
-        <div class="mt-1 text-xs text-mid">Boutique, e-commerce…</div>
+      <div class="inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm text-primary transition-colors hover:border-cta/40">
+        <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-cta/10 text-cta"><i data-lucide="shopping-bag" class="h-3.5 w-3.5"></i></span>
+        <strong class="font-semibold">Commerce</strong>
+        <span class="text-mid text-xs hidden sm:inline">Boutique, e-commerce</span>
       </div>
-      <div class="reveal group cursor-pointer rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-soft transition-all hover:-translate-y-1 hover:border-cta/40 hover:shadow-lg">
-        <span class="grid h-12 w-12 place-items-center rounded-xl bg-sky-50 text-cta mx-auto"><i data-lucide="building-2" class="h-6 w-6"></i></span>
-        <div class="mt-3 text-sm font-semibold text-primary">PME & TPE</div>
-        <div class="mt-1 text-xs text-mid">Tout secteur d'activité</div>
+      <div class="inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm text-primary transition-colors hover:border-cta/40">
+        <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-cta/10 text-cta"><i data-lucide="building-2" class="h-3.5 w-3.5"></i></span>
+        <strong class="font-semibold">PME & TPE</strong>
+        <span class="text-mid text-xs hidden sm:inline">Tout secteur</span>
       </div>
     </div>
   </div>
@@ -414,7 +414,7 @@
     </div>
 
     <div class="mt-12 grid gap-6 md:grid-cols-3">
-      <div class="reveal rounded-2xl border border-slate-200 bg-surface p-8 shadow-soft">
+      <div class="reveal rounded-2xl bg-white p-8" style="box-shadow:0 2px 12px rgba(13,27,46,.07)">
         <span class="grid h-14 w-14 place-items-center rounded-2xl bg-cta text-white shadow-glow"><i data-lucide="zap" class="h-7 w-7"></i></span>
         <h3 class="mt-6 text-xl font-extrabold text-primary">Livré en 14 jours</h3>
         <p class="mt-3 text-mid leading-relaxed">De la maquette à la mise en ligne, tout est géré. Vous recevez votre site opérationnel en 2 semaines, sans délai surprises.</p>
@@ -425,7 +425,7 @@
         </ul>
       </div>
 
-      <div class="reveal rounded-2xl border border-slate-200 bg-surface p-8 shadow-soft">
+      <div class="reveal rounded-2xl bg-white p-8" style="box-shadow:0 2px 12px rgba(13,27,46,.07)">
         <span class="grid h-14 w-14 place-items-center rounded-2xl bg-cta text-white shadow-glow"><i data-lucide="search" class="h-7 w-7"></i></span>
         <h3 class="mt-6 text-xl font-extrabold text-primary">Visible sur Google</h3>
         <p class="mt-3 text-mid leading-relaxed">Chaque site est construit avec les meilleures pratiques SEO pour que vos clients vous trouvent en premier sur Google.</p>
@@ -436,7 +436,7 @@
         </ul>
       </div>
 
-      <div class="reveal rounded-2xl border border-slate-200 bg-surface p-8 shadow-soft">
+      <div class="reveal rounded-2xl bg-white p-8" style="box-shadow:0 2px 12px rgba(13,27,46,.07)">
         <span class="grid h-14 w-14 place-items-center rounded-2xl bg-cta text-white shadow-glow"><i data-lucide="shield-check" class="h-7 w-7"></i></span>
         <h3 class="mt-6 text-xl font-extrabold text-primary">Offres flexibles</h3>
         <p class="mt-3 text-mid leading-relaxed">Budget maîtrisé, aucune surprise. De 1 990 MAD à votre mesure.</p>
@@ -459,36 +459,48 @@
       <p class="mt-4 text-lg text-mid">Du site vitrine à la boutique e-commerce, je m'occupe de tout.</p>
     </div>
 
-    <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-      <article class="reveal group rounded-2xl border border-slate-200 bg-white p-7 shadow-soft transition-all hover:-translate-y-1 hover:border-cta/40 hover:shadow-lg">
-        <span class="grid h-12 w-12 place-items-center rounded-xl bg-sky-50 text-cta"><i data-lucide="layout-dashboard" class="h-6 w-6"></i></span>
-        <h3 class="mt-4 text-lg font-extrabold text-primary">Site vitrine</h3>
-        <p class="mt-2 text-mid text-sm leading-relaxed">Un site élégant qui présente votre activité, inspire confiance et génère des demandes de contact. À partir de 1 990 MAD.</p>
+    <div class="mt-12 grid gap-3 md:grid-cols-2">
+      <article class="reveal group flex items-start gap-4 rounded-2xl bg-white p-6 ring-1 ring-slate-100 transition-all hover:ring-cta/30 hover:-translate-y-0.5">
+        <span class="shrink-0 grid h-11 w-11 place-items-center rounded-xl text-cta" style="background:rgba(17,87,200,0.08)"><i data-lucide="layout-dashboard" class="h-5 w-5"></i></span>
+        <div>
+          <h3 class="font-bold text-primary">Site vitrine</h3>
+          <p class="mt-1 text-sm text-mid leading-relaxed">Un site qui présente votre activité et génère des demandes de contact. À partir de 1 990 MAD.</p>
+        </div>
       </article>
-      <article class="reveal group rounded-2xl border border-slate-200 bg-white p-7 shadow-soft transition-all hover:-translate-y-1 hover:border-cta/40 hover:shadow-lg">
-        <span class="grid h-12 w-12 place-items-center rounded-xl bg-sky-50 text-cta"><i data-lucide="shopping-cart" class="h-6 w-6"></i></span>
-        <h3 class="mt-4 text-lg font-extrabold text-primary">Boutique e-commerce</h3>
-        <p class="mt-2 text-mid text-sm leading-relaxed">Vendez en ligne 24h/24 avec un tunnel d'achat fluide, paiements sécurisés et gestion simplifiée de votre catalogue.</p>
+      <article class="reveal group flex items-start gap-4 rounded-2xl bg-white p-6 ring-1 ring-slate-100 transition-all hover:ring-cta/30 hover:-translate-y-0.5">
+        <span class="shrink-0 grid h-11 w-11 place-items-center rounded-xl text-cta" style="background:rgba(17,87,200,0.08)"><i data-lucide="shopping-cart" class="h-5 w-5"></i></span>
+        <div>
+          <h3 class="font-bold text-primary">Boutique e-commerce</h3>
+          <p class="mt-1 text-sm text-mid leading-relaxed">Vendez en ligne 24h/24 avec un tunnel d'achat, paiements sécurisés et gestion de catalogue.</p>
+        </div>
       </article>
-      <article class="reveal group rounded-2xl border border-slate-200 bg-white p-7 shadow-soft transition-all hover:-translate-y-1 hover:border-cta/40 hover:shadow-lg">
-        <span class="grid h-12 w-12 place-items-center rounded-xl bg-sky-50 text-cta"><i data-lucide="rocket" class="h-6 w-6"></i></span>
-        <h3 class="mt-4 text-lg font-extrabold text-primary">Landing page</h3>
-        <p class="mt-2 text-mid text-sm leading-relaxed">Des pages d'atterrissage optimisées pour vos campagnes Meta Ads et Google Ads. Conçues pour convertir au maximum.</p>
+      <article class="reveal group flex items-start gap-4 rounded-2xl bg-white p-6 ring-1 ring-slate-100 transition-all hover:ring-cta/30 hover:-translate-y-0.5">
+        <span class="shrink-0 grid h-11 w-11 place-items-center rounded-xl text-cta" style="background:rgba(17,87,200,0.08)"><i data-lucide="rocket" class="h-5 w-5"></i></span>
+        <div>
+          <h3 class="font-bold text-primary">Landing page</h3>
+          <p class="mt-1 text-sm text-mid leading-relaxed">Pages optimisées pour vos campagnes Meta Ads et Google Ads. Conçues pour convertir.</p>
+        </div>
       </article>
-      <article class="reveal group rounded-2xl border border-slate-200 bg-white p-7 shadow-soft transition-all hover:-translate-y-1 hover:border-cta/40 hover:shadow-lg">
-        <span class="grid h-12 w-12 place-items-center rounded-xl bg-sky-50 text-cta"><i data-lucide="search-check" class="h-6 w-6"></i></span>
-        <h3 class="mt-4 text-lg font-extrabold text-primary">Référencement SEO</h3>
-        <p class="mt-2 text-mid text-sm leading-relaxed">Apparaissez en haut de Google pour les recherches de vos clients. Audit, optimisation et suivi de positionnement.</p>
+      <article class="reveal group flex items-start gap-4 rounded-2xl bg-white p-6 ring-1 ring-slate-100 transition-all hover:ring-cta/30 hover:-translate-y-0.5">
+        <span class="shrink-0 grid h-11 w-11 place-items-center rounded-xl text-cta" style="background:rgba(17,87,200,0.08)"><i data-lucide="search-check" class="h-5 w-5"></i></span>
+        <div>
+          <h3 class="font-bold text-primary">Référencement SEO</h3>
+          <p class="mt-1 text-sm text-mid leading-relaxed">Apparaissez en haut de Google. Audit, optimisation technique et suivi de positionnement.</p>
+        </div>
       </article>
-      <article class="reveal group rounded-2xl border border-slate-200 bg-white p-7 shadow-soft transition-all hover:-translate-y-1 hover:border-cta/40 hover:shadow-lg">
-        <span class="grid h-12 w-12 place-items-center rounded-xl bg-sky-50 text-cta"><i data-lucide="paintbrush" class="h-6 w-6"></i></span>
-        <h3 class="mt-4 text-lg font-extrabold text-primary">Refonte de site</h3>
-        <p class="mt-2 text-mid text-sm leading-relaxed">Votre site actuel est daté ou peu performant ? On le modernise complètement tout en conservant votre référencement.</p>
+      <article class="reveal group flex items-start gap-4 rounded-2xl bg-white p-6 ring-1 ring-slate-100 transition-all hover:ring-cta/30 hover:-translate-y-0.5">
+        <span class="shrink-0 grid h-11 w-11 place-items-center rounded-xl text-cta" style="background:rgba(17,87,200,0.08)"><i data-lucide="paintbrush" class="h-5 w-5"></i></span>
+        <div>
+          <h3 class="font-bold text-primary">Refonte de site</h3>
+          <p class="mt-1 text-sm text-mid leading-relaxed">Site daté ou peu performant ? Modernisation complète en conservant votre référencement existant.</p>
+        </div>
       </article>
-      <article class="reveal group rounded-2xl border border-slate-200 bg-white p-7 shadow-soft transition-all hover:-translate-y-1 hover:border-cta/40 hover:shadow-lg">
-        <span class="grid h-12 w-12 place-items-center rounded-xl bg-sky-50 text-cta"><i data-lucide="life-buoy" class="h-6 w-6"></i></span>
-        <h3 class="mt-4 text-lg font-extrabold text-primary">Maintenance</h3>
-        <p class="mt-2 text-mid text-sm leading-relaxed">Mises à jour, sauvegardes automatiques, sécurité et support technique. Votre site reste rapide et protégé.</p>
+      <article class="reveal group flex items-start gap-4 rounded-2xl bg-white p-6 ring-1 ring-slate-100 transition-all hover:ring-cta/30 hover:-translate-y-0.5">
+        <span class="shrink-0 grid h-11 w-11 place-items-center rounded-xl text-cta" style="background:rgba(17,87,200,0.08)"><i data-lucide="life-buoy" class="h-5 w-5"></i></span>
+        <div>
+          <h3 class="font-bold text-primary">Maintenance</h3>
+          <p class="mt-1 text-sm text-mid leading-relaxed">Mises à jour, sauvegardes, sécurité et support technique. Votre site reste rapide et protégé.</p>
+        </div>
       </article>
     </div>
   </div>
@@ -682,7 +694,7 @@
     <div class="reveal mx-auto max-w-2xl text-center">
       <span class="inline-flex items-center rounded-full bg-cta/10 px-3 py-1 text-sm font-semibold text-cta">Tarifs</span>
       <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-primary sm:text-4xl">Des forfaits clairs, sans surprise</h2>
-      <p class="mt-4 text-lg text-mid">Paiement en 3× sans frais disponible. Devis personnalisé sous 24h.</p>
+      <p class="mt-4 text-lg text-mid">Devis personnalisé sous 24h. Aucun frais caché.</p>
     </div>
 
     <div class="mt-14 grid items-stretch gap-6 lg:grid-cols-3">
@@ -693,7 +705,7 @@
           <span class="font-display text-4xl font-extrabold text-primary">1 990 MAD</span>
           <span class="mb-1 text-mid">/ projet</span>
         </div>
-        <p class="mt-1 text-xs text-mid">ou 3× 665 MAD sans frais</p>
+        <p class="mt-1 text-xs text-mid">Livraison en 14 jours</p>
         <ul class="mt-6 space-y-3 text-sm text-mid">
           <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 shrink-0 text-emerald-500"></i> Site vitrine jusqu'à 4 pages</li>
           <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 shrink-0 text-emerald-500"></i> Design responsive sur mesure</li>
@@ -712,7 +724,7 @@
           <span class="font-display text-4xl font-extrabold">3 990 MAD</span>
           <span class="mb-1 text-slate-300">/ projet</span>
         </div>
-        <p class="mt-1 text-xs text-slate-400">ou 3× 1 330 MAD sans frais</p>
+        <p class="mt-1 text-xs text-slate-400">Le choix des entrepreneurs marocains</p>
         <ul class="mt-6 space-y-3 text-sm text-slate-200">
           <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 shrink-0 text-sky-400"></i> Site jusqu'à 8 pages sur mesure</li>
           <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 shrink-0 text-sky-400"></i> Design premium + animations</li>
