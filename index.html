@@ -139,99 +139,155 @@
 
   <div class="mx-auto max-w-6xl px-4">
     <div class="grid items-center gap-12 lg:grid-cols-2">
+
+      <!-- Left: Text -->
       <div>
-        <!-- Google badge -->
-        <div class="mb-5 inline-flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 shadow-soft">
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-label="Google"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-          <div class="flex text-amber-400">
-            <i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i>
-          </div>
-          <span class="text-sm font-semibold text-primary">4.9/5</span>
-          <span class="text-sm text-mid">· 40+ avis clients</span>
+        <!-- Badge disponibilité -->
+        <div class="mb-6 inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-mid shadow-soft">
+          <span class="relative flex h-2 w-2">
+            <span class="ping2 absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+          </span>
+          Solutions Web Innovantes
         </div>
 
-        <h1 class="text-4xl font-extrabold leading-[1.08] tracking-tight text-primary sm:text-5xl lg:text-[56px]">
-          Votre site web<br />
-          <span class="text-cta">clé en main</span><br />
-          à partir de <span class="text-accent">1 990 MAD</span>
+        <h1 class="text-4xl font-extrabold leading-[1.1] tracking-tight text-primary sm:text-5xl lg:text-[56px]">
+          Créez votre site<br />web<br />
+          <span class="text-cta">professionnel</span>
         </h1>
 
         <p class="mt-5 max-w-lg text-lg leading-relaxed text-mid">
-          Design sur mesure, SEO optimisé et livraison en <strong>14 jours</strong>.
-          Plus de 40 entrepreneurs et PME nous font confiance.
+          Transformez votre vision en réalité digitale. Des sites web modernes, rapides et optimisés pour convertir vos visiteurs en clients.
         </p>
 
-        <!-- USP row -->
-        <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-mid">
-          <span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="h-4 w-4 text-emerald-500"></i> Devis gratuit sous 24h</span>
-          <span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="h-4 w-4 text-emerald-500"></i> Livraison en 14 jours</span>
-          <span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="h-4 w-4 text-emerald-500"></i> SEO inclus</span>
-          <span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="h-4 w-4 text-emerald-500"></i> Sans engagement</span>
-        </div>
-
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a href="#contact" class="group inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3.5 font-bold text-white shadow-redglow transition-colors hover:bg-red-600">
-            Je lance mon projet
+          <a href="#contact" class="group inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 font-bold text-white transition-colors hover:bg-ink">
+            Commencer maintenant
             <i data-lucide="arrow-right" class="h-5 w-5 transition-transform group-hover:translate-x-1"></i>
           </a>
-          <a href="#tarifs" class="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3.5 font-semibold text-primary shadow-soft transition-colors hover:bg-slate-50">
-            Voir les tarifs
+          <a href="#realisations" class="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl px-6 py-3.5 font-semibold text-primary transition-colors hover:text-cta">
+            <i data-lucide="play-circle" class="h-5 w-5 text-cta"></i>
+            Voir la démo
           </a>
         </div>
 
-        <!-- Clients avatars -->
-        <div class="mt-9 flex items-center gap-4">
-          <div class="flex -space-x-2.5">
-            <span class="grid h-9 w-9 place-items-center rounded-full border-2 border-white bg-cta text-xs font-bold text-white">SL</span>
-            <span class="grid h-9 w-9 place-items-center rounded-full border-2 border-white bg-primary text-xs font-bold text-white">MK</span>
-            <span class="grid h-9 w-9 place-items-center rounded-full border-2 border-white bg-mid text-xs font-bold text-white">AB</span>
-            <span class="grid h-9 w-9 place-items-center rounded-full border-2 border-white bg-emerald-600 text-xs font-bold text-white">YB</span>
+        <!-- Stats row (comme dans le Figma) -->
+        <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-slate-200 pt-8">
+          <div>
+            <div class="text-2xl font-extrabold text-primary">500+</div>
+            <div class="mt-0.5 text-sm text-mid">Projets réalisés</div>
           </div>
-          <p class="text-sm text-mid"><strong class="text-primary">40+ clients</strong> au Maroc et à l'international</p>
+          <div class="h-8 w-px bg-slate-200 hidden sm:block"></div>
+          <div>
+            <div class="text-2xl font-extrabold text-primary">98%</div>
+            <div class="mt-0.5 text-sm text-mid">Clients satisfaits</div>
+          </div>
+          <div class="h-8 w-px bg-slate-200 hidden sm:block"></div>
+          <div class="flex items-center gap-2">
+            <span class="grid h-9 w-9 place-items-center rounded-lg bg-cta/10 text-cta">
+              <i data-lucide="headphones" class="h-5 w-5"></i>
+            </span>
+            <div>
+              <div class="text-2xl font-extrabold text-primary">24h</div>
+              <div class="mt-0.5 text-sm text-mid">Support</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Hero visual -->
-      <div class="relative float">
-        <div class="rounded-3xl border border-slate-200 bg-white p-3 shadow-lg">
-          <div class="rounded-2xl bg-primary p-4">
-            <div class="mb-3 flex items-center gap-1.5">
-              <span class="h-3 w-3 rounded-full bg-rose-400"></span>
-              <span class="h-3 w-3 rounded-full bg-amber-400"></span>
-              <span class="h-3 w-3 rounded-full bg-emerald-400"></span>
-            </div>
-            <div class="overflow-hidden rounded-xl bg-surface">
-              <div class="h-20 bg-gradient-to-br from-cta to-sky-400 p-4">
-                <div class="h-3 w-24 rounded bg-white/80"></div>
-                <div class="mt-2 h-2 w-40 rounded bg-white/50"></div>
+      <!-- Right: Monitor mockup -->
+      <div class="relative float lg:pl-4">
+        <!-- Glow -->
+        <div class="absolute -inset-6 -z-10 rounded-full bg-cta/10 blur-3xl"></div>
+
+        <!-- Monitor screen -->
+        <div class="mx-auto max-w-md">
+          <div class="overflow-hidden rounded-2xl border-[5px] border-primary shadow-2xl">
+            <!-- Browser chrome -->
+            <div class="flex items-center gap-1.5 bg-primary px-3 py-2.5">
+              <span class="h-2.5 w-2.5 rounded-full bg-rose-400"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+              <div class="ml-2 flex flex-1 items-center gap-1.5 rounded bg-white/10 px-2.5 py-1 text-[10px] text-white/50">
+                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                monsite.ma
               </div>
-              <div class="space-y-3 p-4">
-                <div class="h-2.5 w-3/4 rounded bg-slate-200"></div>
-                <div class="h-2.5 w-2/3 rounded bg-slate-200"></div>
-                <div class="grid grid-cols-3 gap-2 pt-1">
-                  <div class="h-12 rounded-lg bg-slate-100"></div>
-                  <div class="h-12 rounded-lg bg-slate-100"></div>
-                  <div class="h-12 rounded-lg bg-slate-100"></div>
+            </div>
+            <!-- Website content -->
+            <div class="bg-white">
+              <!-- Fake navbar -->
+              <div class="flex items-center justify-between border-b border-slate-100 bg-white px-4 py-2">
+                <div class="flex items-center gap-1.5">
+                  <div class="h-4 w-4 rounded-md bg-primary"></div>
+                  <div class="h-2 w-12 rounded bg-slate-800"></div>
                 </div>
-                <div class="h-8 w-28 rounded-lg bg-cta"></div>
+                <div class="flex items-center gap-3">
+                  <div class="h-1.5 w-5 rounded bg-slate-200"></div>
+                  <div class="h-1.5 w-5 rounded bg-slate-200"></div>
+                  <div class="h-4 w-12 rounded-md bg-cta"></div>
+                </div>
+              </div>
+              <!-- Fake hero inside screen -->
+              <div class="relative overflow-hidden bg-gradient-to-br from-cta via-blue-600 to-blue-500 px-4 py-6">
+                <div class="absolute -right-4 -top-4 h-20 w-20 rounded-full bg-white/10 blur-xl"></div>
+                <div class="h-1.5 w-14 rounded bg-white/40 mb-2"></div>
+                <div class="h-4 w-44 rounded bg-white mb-1.5"></div>
+                <div class="h-3.5 w-36 rounded bg-white/80 mb-3"></div>
+                <div class="h-1.5 w-36 rounded bg-white/40 mb-1"></div>
+                <div class="h-1.5 w-28 rounded bg-white/30 mb-4"></div>
+                <div class="flex gap-2">
+                  <div class="h-6 w-20 rounded-lg bg-white shadow-sm"></div>
+                  <div class="h-6 w-16 rounded-lg border border-white/40 bg-white/10"></div>
+                </div>
+              </div>
+              <!-- Fake service cards -->
+              <div class="grid grid-cols-3 gap-2 p-3">
+                <div class="rounded-lg bg-slate-50 p-2.5">
+                  <div class="mb-2 h-5 w-5 rounded-lg bg-sky-100"></div>
+                  <div class="h-1.5 w-full rounded bg-slate-200"></div>
+                  <div class="mt-1 h-1.5 w-2/3 rounded bg-slate-100"></div>
+                </div>
+                <div class="rounded-lg bg-slate-50 p-2.5">
+                  <div class="mb-2 h-5 w-5 rounded-lg bg-emerald-100"></div>
+                  <div class="h-1.5 w-full rounded bg-slate-200"></div>
+                  <div class="mt-1 h-1.5 w-2/3 rounded bg-slate-100"></div>
+                </div>
+                <div class="rounded-lg bg-slate-50 p-2.5">
+                  <div class="mb-2 h-5 w-5 rounded-lg bg-violet-100"></div>
+                  <div class="h-1.5 w-full rounded bg-slate-200"></div>
+                  <div class="mt-1 h-1.5 w-2/3 rounded bg-slate-100"></div>
+                </div>
               </div>
             </div>
           </div>
+          <!-- Monitor stand -->
+          <div class="mx-auto h-5 w-10 bg-primary opacity-80"></div>
+          <div class="mx-auto h-2 w-20 rounded-full bg-primary opacity-60"></div>
         </div>
 
         <!-- Floating badges -->
-        <div class="absolute -left-6 bottom-10 hidden rounded-2xl bg-white p-4 shadow-soft sm:flex items-center gap-3" style="box-shadow:0 2px 8px rgba(2,6,23,.08)">
-          <span class="grid h-10 w-10 place-items-center rounded-xl bg-emerald-100 text-emerald-600"><i data-lucide="trending-up" class="h-5 w-5"></i></span>
-          <div><div class="text-xs text-mid">Conversions</div><div class="text-lg font-extrabold text-primary">+187%</div></div>
+        <div class="absolute -left-6 bottom-14 hidden rounded-xl bg-white p-3 sm:flex items-center gap-2.5" style="box-shadow:0 4px 16px rgba(13,27,46,.12)">
+          <span class="grid h-8 w-8 place-items-center rounded-lg bg-emerald-100 text-emerald-600">
+            <i data-lucide="trending-up" class="h-4 w-4"></i>
+          </span>
+          <div>
+            <div class="text-[10px] text-mid">Conversions</div>
+            <div class="text-sm font-extrabold text-primary">+187%</div>
+          </div>
         </div>
-        <div class="absolute -right-4 -top-4 hidden rounded-2xl bg-white px-4 py-3 sm:flex items-center gap-2" style="box-shadow:0 2px 8px rgba(2,6,23,.08)">
-          <i data-lucide="gauge" class="h-5 w-5 text-cta"></i>
-          <div><div class="text-xs text-mid">PageSpeed</div><div class="text-lg font-extrabold text-primary">98/100</div></div>
+        <div class="absolute -right-4 top-8 hidden rounded-xl bg-white px-3 py-2.5 sm:flex items-center gap-2" style="box-shadow:0 4px 16px rgba(13,27,46,.12)">
+          <span class="grid h-8 w-8 place-items-center rounded-lg bg-cta/10 text-cta">
+            <i data-lucide="gauge" class="h-4 w-4"></i>
+          </span>
+          <div>
+            <div class="text-[10px] text-mid">PageSpeed</div>
+            <div class="text-sm font-extrabold text-primary">98/100</div>
+          </div>
         </div>
-        <div class="absolute left-4 -top-5 hidden rounded-xl bg-white px-3 py-2 sm:flex items-center gap-2" style="box-shadow:0 2px 8px rgba(2,6,23,.08)">
-          <span class="relative flex h-2.5 w-2.5">
+        <div class="absolute left-8 -bottom-4 hidden rounded-xl bg-white px-3 py-2 sm:flex items-center gap-2" style="box-shadow:0 4px 16px rgba(13,27,46,.12)">
+          <span class="relative flex h-2 w-2">
             <span class="ping2 absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
           </span>
           <span class="text-xs font-semibold text-primary">Livraison 14 jours</span>
         </div>
