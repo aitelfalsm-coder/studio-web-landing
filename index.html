@@ -279,95 +279,156 @@
             </div>
           </div>
 
-          <!-- Site preview -->
-          <div class="bg-white">
-            <!-- Mini navbar -->
-            <div class="flex items-center justify-between border-b border-slate-100 px-5 py-2.5">
-              <div class="flex items-center gap-2">
-                <div class="h-5 w-5 rounded-lg bg-primary"></div>
-                <div class="h-2.5 w-16 rounded bg-slate-800"></div>
+          <!-- Design tool — site en cours de construction -->
+          <div class="flex flex-col bg-[#1a1a2e] overflow-hidden" style="height:310px">
+            <!-- Tool toolbar -->
+            <div class="flex shrink-0 items-center gap-2 border-b px-3 py-1.5 bg-[#16213e]" style="border-color:rgba(255,255,255,.07)">
+              <div class="flex gap-1">
+                <div class="grid h-5 w-5 cursor-pointer place-items-center rounded bg-cta text-white">
+                  <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg>
+                </div>
+                <div class="h-5 w-5 rounded" style="background:rgba(255,255,255,.09)"></div>
+                <div class="h-5 w-5 rounded" style="background:rgba(255,255,255,.09)"></div>
+                <div class="h-5 w-5 rounded" style="background:rgba(255,255,255,.09)"></div>
               </div>
-              <div class="flex items-center gap-3">
-                <div class="h-1.5 w-8 rounded bg-slate-200"></div>
-                <div class="h-1.5 w-8 rounded bg-slate-200"></div>
-                <div class="h-5 w-16 rounded-lg bg-cta"></div>
+              <span class="mx-auto text-[9px] font-medium" style="color:rgba(255,255,255,.28)">monsite.ma — Accueil</span>
+              <div class="flex items-center justify-center rounded px-2 py-0.5 bg-emerald-600/80 text-[8px] font-bold text-white">Publier</div>
+            </div>
+
+            <!-- 3 columns -->
+            <div class="flex flex-1 overflow-hidden">
+
+              <!-- Layers panel -->
+              <div class="w-[88px] shrink-0 p-2 bg-[#16213e]" style="border-right:1px solid rgba(255,255,255,.07)">
+                <div class="mb-1.5 text-[7px] font-bold uppercase tracking-wider" style="color:rgba(255,255,255,.28)">Calques</div>
+                <div class="space-y-0.5">
+                  <div class="flex items-center gap-1 rounded px-1 py-1" style="background:rgba(17,87,200,.25)">
+                    <div class="h-1.5 w-1.5 shrink-0 rounded-sm" style="background:rgba(147,197,253,.8)"></div>
+                    <span class="truncate text-[8px]" style="color:rgba(147,197,253,.9)">Hero</span>
+                  </div>
+                  <div class="flex items-center gap-1 py-0.5 pl-3">
+                    <div class="h-1.5 w-1.5 shrink-0 rounded-sm" style="background:rgba(255,255,255,.2)"></div>
+                    <span class="truncate text-[8px]" style="color:rgba(255,255,255,.38)">Navbar</span>
+                  </div>
+                  <div class="flex items-center gap-1 py-0.5 pl-3">
+                    <div class="h-1.5 w-1.5 shrink-0 rounded-sm" style="background:rgba(255,255,255,.2)"></div>
+                    <span class="truncate text-[8px]" style="color:rgba(255,255,255,.38)">Titre H1</span>
+                  </div>
+                  <div class="flex items-center gap-1 py-0.5 pl-3">
+                    <div class="h-1.5 w-1.5 shrink-0 rounded-sm" style="background:rgba(17,87,200,.5)"></div>
+                    <span class="truncate text-[8px]" style="color:rgba(17,87,200,.85)">Bouton CTA</span>
+                  </div>
+                  <div class="flex items-center gap-1 py-0.5">
+                    <div class="h-1.5 w-1.5 shrink-0 rounded-sm" style="background:rgba(255,255,255,.15)"></div>
+                    <span class="truncate text-[8px]" style="color:rgba(255,255,255,.35)">Services</span>
+                  </div>
+                  <div class="flex items-center gap-1 py-0.5">
+                    <div class="h-1.5 w-1.5 shrink-0 rounded-sm" style="background:rgba(255,255,255,.15)"></div>
+                    <span class="truncate text-[8px]" style="color:rgba(255,255,255,.35)">Tarifs</span>
+                  </div>
+                  <div class="flex items-center gap-1 py-0.5">
+                    <div class="h-1.5 w-1.5 shrink-0 rounded-sm" style="background:rgba(255,255,255,.15)"></div>
+                    <span class="truncate text-[8px]" style="color:rgba(255,255,255,.35)">Contact</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Canvas -->
+              <div class="relative flex-1 overflow-hidden" style="background:radial-gradient(ellipse at 50% 30%,#1a2744 0%,#0d1117 65%)">
+                <!-- Grid guides -->
+                <div class="pointer-events-none absolute inset-0" style="background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:18px 18px"></div>
+                <!-- Canvas content -->
+                <div class="absolute inset-3">
+                  <!-- Selected element with handles -->
+                  <div class="relative" style="border:1px dashed rgba(147,197,253,.65);border-radius:6px;overflow:hidden">
+                    <!-- Corner handles -->
+                    <div class="absolute -left-1.5 -top-1.5 h-3 w-3 rounded border-2 border-white bg-cta z-10"></div>
+                    <div class="absolute -right-1.5 -top-1.5 h-3 w-3 rounded border-2 border-white bg-cta z-10"></div>
+                    <div class="absolute -bottom-1.5 -left-1.5 h-3 w-3 rounded border-2 border-white bg-cta z-10"></div>
+                    <div class="absolute -bottom-1.5 -right-1.5 h-3 w-3 rounded border-2 border-white bg-cta z-10"></div>
+                    <!-- Hero section being designed -->
+                    <div class="px-3 py-4" style="background:linear-gradient(135deg,#0D1B2E 0%,#1157C8 65%,#60A5FA 100%)">
+                      <div class="mb-2.5 flex items-center justify-between">
+                        <div class="flex items-center gap-1.5">
+                          <div class="h-3 w-3 rounded" style="background:rgba(255,255,255,.8)"></div>
+                          <div class="h-1.5 w-10 rounded" style="background:rgba(255,255,255,.5)"></div>
+                        </div>
+                        <div class="flex gap-1.5">
+                          <div class="h-1.5 w-5 rounded" style="background:rgba(255,255,255,.25)"></div>
+                          <div class="h-1.5 w-5 rounded" style="background:rgba(255,255,255,.25)"></div>
+                          <div class="h-4 w-10 rounded" style="background:rgba(255,255,255,.95)"></div>
+                        </div>
+                      </div>
+                      <div class="h-2.5 w-28 rounded mb-1.5" style="background:rgba(255,255,255,.9)"></div>
+                      <div class="h-2.5 w-36 rounded mb-1.5" style="background:rgba(255,255,255,.75)"></div>
+                      <div class="h-2 w-20 rounded mb-2.5" style="background:rgba(147,197,253,.65)"></div>
+                      <div class="h-1.5 w-32 rounded mb-0.5" style="background:rgba(255,255,255,.35)"></div>
+                      <div class="h-1.5 w-24 rounded mb-3" style="background:rgba(255,255,255,.25)"></div>
+                      <div class="flex gap-2">
+                        <div class="h-5 w-16 rounded" style="background:white"></div>
+                        <div class="h-5 w-14 rounded" style="border:1px solid rgba(255,255,255,.35)"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Measure annotation -->
+                  <div class="absolute -right-0 top-1/2 -translate-y-1/2 flex items-center gap-0.5" style="opacity:.5">
+                    <div class="h-px w-6" style="background:rgba(147,197,253,.7)"></div>
+                    <span class="text-[7px]" style="color:rgba(147,197,253,.8)">320px</span>
+                  </div>
+                  <!-- Section below -->
+                  <div class="mt-2 rounded px-2 py-1.5 opacity-50" style="background:rgba(255,255,255,.04)">
+                    <div class="grid grid-cols-3 gap-1.5">
+                      <div class="h-5 rounded" style="background:rgba(255,255,255,.07)"></div>
+                      <div class="h-5 rounded" style="background:rgba(255,255,255,.07)"></div>
+                      <div class="h-5 rounded" style="background:rgba(255,255,255,.07)"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Cursor -->
+                <div class="absolute bottom-5 right-6 pointer-events-none">
+                  <svg width="12" height="16" viewBox="0 0 14 18" fill="none" aria-hidden="true">
+                    <path d="M1 1l11 9-5.5.5L4 17l-3-16z" fill="#1157C8" stroke="white" stroke-width="1.5"/>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Properties panel -->
+              <div class="w-[76px] shrink-0 p-2 bg-[#16213e]" style="border-left:1px solid rgba(255,255,255,.07)">
+                <div class="mb-1.5 text-[7px] font-bold uppercase tracking-wider" style="color:rgba(255,255,255,.28)">Styles</div>
+                <div class="space-y-1.5">
+                  <div>
+                    <div class="mb-0.5 text-[7px]" style="color:rgba(255,255,255,.28)">Remplissage</div>
+                    <div class="flex h-4 w-full items-center gap-1 rounded px-1" style="background:#0d1117">
+                      <div class="h-2.5 w-2.5 shrink-0 rounded-sm" style="background:linear-gradient(135deg,#0D1B2E,#1157C8)"></div>
+                      <span class="text-[7px]" style="color:rgba(255,255,255,.38)">Dégradé</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="mb-0.5 text-[7px]" style="color:rgba(255,255,255,.28)">Police</div>
+                    <div class="flex h-4 w-full items-center px-1 rounded" style="background:#0d1117">
+                      <span class="text-[7px]" style="color:rgba(255,255,255,.38)">Bricolage</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="mb-0.5 text-[7px]" style="color:rgba(255,255,255,.28)">Rayon</div>
+                    <div class="flex h-4 w-full items-center justify-between px-1 rounded" style="background:#0d1117">
+                      <span class="text-[7px]" style="color:rgba(255,255,255,.38)">12px</span>
+                    </div>
+                  </div>
+                  <div class="mt-2 flex h-5 w-full items-center justify-center rounded" style="background:rgba(17,87,200,.7)">
+                    <span class="text-[8px] font-bold text-white">Exporter</span>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <!-- Mini hero in screen -->
-            <div class="relative overflow-hidden px-5 py-7" style="background:linear-gradient(135deg,#0D1B2E 0%,#1157C8 60%,#60A5FA 100%)">
-              <div class="absolute right-0 top-0 h-32 w-32 rounded-full bg-white/10 blur-2xl"></div>
-              <div class="relative">
-                <div class="mb-2 inline-flex h-4 w-4 items-center justify-center rounded bg-sky/30">
-                  <div class="h-1.5 w-1.5 rounded-full bg-sky"></div>
-                </div>
-                <div class="h-3.5 w-40 rounded bg-white mb-1.5 font-bold"></div>
-                <div class="h-3 w-32 rounded bg-white/70 mb-1"></div>
-                <div class="mt-3 flex gap-2">
-                  <div class="h-6 w-20 rounded-lg bg-white"></div>
-                  <div class="h-6 w-16 rounded-lg border border-white/30 bg-white/10"></div>
-                </div>
+            <!-- Status bar -->
+            <div class="flex shrink-0 items-center justify-between px-3 py-1 bg-[#16213e]" style="border-top:1px solid rgba(255,255,255,.07)">
+              <div class="flex items-center gap-1.5">
+                <div class="h-1.5 w-1.5 rounded-full bg-emerald-400"></div>
+                <span class="text-[8px]" style="color:rgba(255,255,255,.28)">Sauvegardé</span>
               </div>
-            </div>
-
-            <!-- Stats strip inside screen -->
-            <div class="grid grid-cols-3 divide-x divide-slate-100 border-b border-slate-100">
-              <div class="px-3 py-2 text-center">
-                <div class="text-xs font-bold text-primary">2.3s</div>
-                <div class="mt-0.5 text-[9px] text-slate-400">Chargement</div>
-              </div>
-              <div class="px-3 py-2 text-center">
-                <div class="text-xs font-bold text-emerald-600">98</div>
-                <div class="mt-0.5 text-[9px] text-slate-400">PageSpeed</div>
-              </div>
-              <div class="px-3 py-2 text-center">
-                <div class="text-xs font-bold text-cta">A+</div>
-                <div class="mt-0.5 text-[9px] text-slate-400">SEO Score</div>
-              </div>
-            </div>
-
-            <!-- Feature cards in screen -->
-            <div class="grid grid-cols-3 gap-2 p-4">
-              <div class="rounded-xl bg-slate-50 p-3">
-                <div class="mb-2 h-6 w-6 rounded-lg bg-cta/15 flex items-center justify-center">
-                  <div class="h-2.5 w-2.5 rounded bg-cta/60"></div>
-                </div>
-                <div class="h-1.5 w-full rounded bg-slate-200"></div>
-                <div class="mt-1.5 h-1.5 w-3/4 rounded bg-slate-100"></div>
-                <div class="mt-1 h-1.5 w-1/2 rounded bg-slate-100"></div>
-              </div>
-              <div class="rounded-xl bg-slate-50 p-3">
-                <div class="mb-2 h-6 w-6 rounded-lg bg-emerald-100 flex items-center justify-center">
-                  <div class="h-2.5 w-2.5 rounded bg-emerald-400/60"></div>
-                </div>
-                <div class="h-1.5 w-full rounded bg-slate-200"></div>
-                <div class="mt-1.5 h-1.5 w-3/4 rounded bg-slate-100"></div>
-                <div class="mt-1 h-1.5 w-1/2 rounded bg-slate-100"></div>
-              </div>
-              <div class="rounded-xl bg-slate-50 p-3">
-                <div class="mb-2 h-6 w-6 rounded-lg bg-violet-100 flex items-center justify-center">
-                  <div class="h-2.5 w-2.5 rounded bg-violet-400/60"></div>
-                </div>
-                <div class="h-1.5 w-full rounded bg-slate-200"></div>
-                <div class="mt-1.5 h-1.5 w-3/4 rounded bg-slate-100"></div>
-                <div class="mt-1 h-1.5 w-1/2 rounded bg-slate-100"></div>
-              </div>
-            </div>
-
-            <!-- Fake testimonial strip -->
-            <div class="mx-4 mb-4 rounded-xl bg-cta/8 px-4 py-3 flex items-center gap-3" style="background:rgba(17,87,200,0.07)">
-              <div class="h-8 w-8 shrink-0 rounded-full bg-cta flex items-center justify-center text-xs font-bold text-white">M</div>
-              <div>
-                <div class="h-1.5 w-32 rounded bg-slate-200"></div>
-                <div class="mt-1 h-1.5 w-24 rounded bg-slate-100"></div>
-              </div>
-              <div class="ml-auto flex text-amber-400 gap-0.5">
-                <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              </div>
+              <span class="text-[8px]" style="color:rgba(255,255,255,.28)">75 %</span>
             </div>
           </div>
         </div>
