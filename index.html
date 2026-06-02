@@ -62,6 +62,41 @@
     @keyframes ping2 { 75%,100%{transform:scale(2);opacity:0} }
     .ping2 { animation: ping2 1.4s cubic-bezier(0,0,.2,1) infinite; }
 
+    /* Creative hero 3D float */
+    @keyframes hero3dFloat {
+      0%,100% { transform: perspective(1100px) rotateY(-6deg) rotateX(4deg) translateY(0); }
+      50%     { transform: perspective(1100px) rotateY(-5deg) rotateX(3deg) translateY(-8px); }
+    }
+    .hero-3d-float {
+      animation: hero3dFloat 6s ease-in-out infinite;
+      transition: transform 500ms cubic-bezier(0.16,1,0.3,1);
+      will-change: transform;
+    }
+    .hero-3d-float:hover {
+      animation: none;
+      transform: perspective(1100px) rotateY(-2deg) rotateX(1deg);
+    }
+
+    /* Rings pulse */
+    @keyframes ringPulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%     { opacity:.7; transform:scale(1.02); }
+    }
+    .hero-rings { animation: ringPulse 7s ease-in-out infinite; }
+
+    /* Notification slide-in */
+    @keyframes notifSlide {
+      from { opacity:0; transform:translateX(16px); }
+      to   { opacity:1; transform:translateX(0); }
+    }
+    .notif-card { animation: notifSlide 450ms cubic-bezier(0.16,1,0.3,1) 1.6s both; }
+
+    @media(prefers-reduced-motion:reduce){
+      .hero-3d-float { animation:none!important; transform:none!important; }
+      .notif-card    { animation:none!important; opacity:1!important; }
+      .hero-rings    { animation:none!important; }
+    }
+
     /* Number counter shimmer */
     .shimmer {
       background:linear-gradient(90deg,#e2e8f0 25%,#f8fafc 50%,#e2e8f0 75%);
@@ -198,10 +233,35 @@
       </div>
 
       <!-- Right: Browser mockup lumineux sur fond sombre -->
-      <div class="relative float lg:pl-4">
+      <div class="relative hero-3d-float lg:pl-4">
+
+        <!-- Anneaux décoratifs concentriques -->
+        <div class="hero-rings pointer-events-none absolute -inset-16 -z-10" aria-hidden="true">
+          <svg viewBox="0 0 520 520" fill="none" class="h-full w-full">
+            <circle cx="260" cy="260" r="240" stroke="rgba(147,197,253,0.12)" stroke-width="1"/>
+            <circle cx="260" cy="260" r="195" stroke="rgba(147,197,253,0.09)" stroke-width="1"/>
+            <circle cx="260" cy="260" r="148" stroke="rgba(147,197,253,0.06)" stroke-width="0.5"/>
+            <circle cx="260" cy="260" r="100" stroke="rgba(147,197,253,0.05)" stroke-width="0.5"/>
+          </svg>
+        </div>
 
         <!-- Halo derrière le mockup -->
         <div class="absolute inset-0 -z-10 rounded-3xl bg-cta/25 blur-2xl"></div>
+
+        <!-- Notification "Nouveau devis" qui slide -->
+        <div class="notif-card absolute -right-2 -top-10 z-10 hidden rounded-2xl bg-white px-3.5 py-2.5 sm:flex items-center gap-2.5" style="box-shadow:0 8px 28px rgba(0,0,0,.32)">
+          <span class="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-emerald-100 text-emerald-600">
+            <i data-lucide="user-plus" class="h-4 w-4"></i>
+          </span>
+          <div>
+            <div class="text-[10px] font-bold text-primary">Nouveau projet</div>
+            <div class="text-[10px] text-mid">Devis reçu · il y a 2 min</div>
+          </div>
+          <span class="relative flex h-2 w-2 ml-1 shrink-0">
+            <span class="ping2 absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+          </span>
+        </div>
 
         <!-- Browser window -->
         <div class="overflow-hidden rounded-2xl shadow-2xl" style="box-shadow:0 25px 60px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08)">
