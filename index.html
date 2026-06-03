@@ -684,12 +684,6 @@
      THREE.JS + POST-PROCESSING CDNs
 ══════════════════════════════════════════════ -->
 <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-<script src="https://unpkg.com/three@0.160.0/examples/js/postprocessing/EffectComposer.js"></script>
-<script src="https://unpkg.com/three@0.160.0/examples/js/postprocessing/RenderPass.js"></script>
-<script src="https://unpkg.com/three@0.160.0/examples/js/postprocessing/ShaderPass.js"></script>
-<script src="https://unpkg.com/three@0.160.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
-<script src="https://unpkg.com/three@0.160.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
-<script src="https://unpkg.com/three@0.160.0/examples/js/shaders/CopyShader.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
 
@@ -709,7 +703,7 @@ const renderer = new THREE.WebGLRenderer({ canvas, antialias: !isMobile, alpha: 
 renderer.setPixelRatio(Math.min(devicePixelRatio, isMobile ? 1.5 : 2));
 renderer.setSize(W(), H());
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.2;
+renderer.toneMappingExposure = 1.4;
 renderer.setClearColor(0x050505);
 
 const scene = new THREE.Scene();
@@ -719,17 +713,11 @@ const camera = new THREE.PerspectiveCamera(60, W()/H(), 0.1, 300);
 camera.position.set(0, 0, 14);
 
 /* ══════════════════════════════════════
-   BLOOM POST-PROCESSING
+   BLOOM SIMULÉ — AdditiveBlending layers
+   (EffectComposer non disponible en CDN r160)
 ══════════════════════════════════════ */
-const composer = new THREE.EffectComposer(renderer);
-composer.addPass(new THREE.RenderPass(scene, camera));
-const bloom = new THREE.UnrealBloomPass(
-  new THREE.Vector2(W(), H()),
-  isMobile ? 1.0 : 1.6,   // strength
-  0.5,                      // radius
-  0.1                       // threshold
-);
-composer.addPass(bloom);
+// Le bloom est simulé via AdditiveBlending sur tous les éléments lumineux
+// + couches de glow softlight sur le portail/particules
 
 /* ══════════════════════════════════════
    LIGHTS
@@ -889,11 +877,13 @@ innerRingB.rotation.x = -Math.PI/4;
 innerRingB.rotation.y = Math.PI/6;
 portalGroup.add(innerRingB);
 
-// Energy glow
-const glowMesh = new THREE.Mesh(
-  new THREE.CircleGeometry(2.5, 64),
-  new THREE.MeshBasicMaterial({color:0x00D4FF,transparent:true,opacity:.06,blending:THREE.AdditiveBlending,depthWrite:false})
-);
+// Energy glow layers (simulates bloom)
+const mkGlow=(r,col,op)=>new THREE.Mesh(new THREE.CircleGeometry(r,64),new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:op,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide}));
+portalGroup.add(mkGlow(2.6,0x00D4FF,.08));
+portalGroup.add(mkGlow(3.2,0x00D4FF,.04));
+portalGroup.add(mkGlow(4.0,0x7B61FF,.025));
+portalGroup.add(mkGlow(5.5,0x00D4FF,.012));
+const glowMesh=mkGlow(2.2,0x70F0FF,.1);
 portalGroup.add(glowMesh);
 
 portalGroup.position.set(0, 0.2, 0);
@@ -1164,7 +1154,7 @@ function animate(){
   particles.rotation.y=time*.012;
   particles.rotation.x=time*.006;
 
-  composer.render();
+  renderer.render(scene, camera);
 }
 animate();
 
@@ -1173,8 +1163,7 @@ animate();
 ══════════════════════════════════════ */
 window.addEventListener('resize',()=>{
   camera.aspect=W()/H(); camera.updateProjectionMatrix();
-  renderer.setSize(W(),H()); composer.setSize(W(),H());
-  bloom.resolution.set(W(),H());
+  renderer.setSize(W(),H());
 },{passive:true});
 
 /* ══════════════════════════════════════
