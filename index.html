@@ -244,9 +244,13 @@
     .port-pattern{width:100%;height:100%;display:flex;align-items:flex-end;justify-content:flex-start;padding:20px;position:relative;overflow:hidden;}
     .port-pattern::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.1) 1px,transparent 0);background-size:24px 24px;}
 
-    /* ── RESPONSIVE ── */
+    /* ══════════════════════════════
+       RESPONSIVE — MOBILE FIRST
+    ══════════════════════════════ */
+
+    /* ── Tablet 1024px ── */
     @media(max-width:1024px){
-      nav{padding:14px 24px;}
+      nav{padding:14px 20px;}
       .nav-links,.nav-cta{display:none;}
       .hamburger{display:flex;}
       .section-wrap{padding:80px 24px;}
@@ -255,18 +259,102 @@
       .portfolio-grid{grid-template-columns:repeat(2,1fr);}
       .contact-grid{grid-template-columns:1fr;gap:40px;}
       .stats-row{flex-direction:column;}
-      .stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.06);}
+      .stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.06);padding:28px 24px;}
       .testi-card{width:calc(80% - 14px);}
-      footer{padding:28px 24px;}
+      footer{padding:28px 24px;flex-direction:column;text-align:center;gap:12px;}
       .flinks{display:none;}
     }
+
+    /* ── Mobile 640px ── */
     @media(max-width:640px){
-      .services-grid{grid-template-columns:1fr;}
-      .why-grid{grid-template-columns:repeat(2,1fr);}
-      .portfolio-grid{grid-template-columns:1fr;}
-      .hero-btns{flex-direction:column;align-items:center;}
+      /* Nav */
+      nav{padding:12px 16px;}
+      .logo{font-size:18px;}
+
+      /* Hero */
+      #hero{height:100svh;}
+      .hero-content{width:92%;top:50%;padding:0 4px;}
+      .hero-badge{font-size:11px;padding:6px 14px;margin-bottom:20px;}
+      .hero-title{font-size:clamp(30px,8vw,46px);letter-spacing:-1.5px;margin-bottom:18px;line-height:1.08;}
+      .hero-sub{font-size:14px;margin-bottom:28px;line-height:1.65;}
+      .hero-btns{flex-direction:column;align-items:stretch;gap:10px;width:100%;max-width:320px;margin:0 auto;}
+      .btn-p,.btn-s{padding:15px 24px;font-size:15px;text-align:center;width:100%;}
+      .scroll-ind{bottom:24px;}
+
+      /* Stats */
+      .stats-strip{overflow:hidden;}
+      .stats-row{display:grid;grid-template-columns:1fr 1fr;}
+      .stat-item{padding:24px 16px;border-right:1px solid rgba(255,255,255,.06);}
+      .stat-item:nth-child(2){border-right:none;}
+      .stat-item:nth-child(3){border-right:1px solid rgba(255,255,255,.06);border-bottom:none;}
+      .stat-item:nth-child(4){border-right:none;border-bottom:none;}
+      .stat-num{font-size:38px;}
+
+      /* Sections */
+      .section-wrap{padding:64px 18px;}
+      .section-title{font-size:clamp(26px,7vw,38px);letter-spacing:-1px;}
+      .section-sub{font-size:15px;max-width:100%;}
+
+      /* Services */
+      .services-grid{grid-template-columns:1fr;gap:14px;}
+      .svc-card{padding:26px 22px;}
+      .svc-card h3{font-size:17px;}
+      .svc-num{font-size:52px;bottom:10px;right:16px;}
+
+      /* Portfolio */
+      .portfolio-grid{grid-template-columns:1fr;gap:14px;}
+      /* Remove row-span on mobile — reset all grid rows */
+      .port-card[style*="grid-row"]{grid-row:auto!important;}
+      .port-card{aspect-ratio:16/9;}
+
+      /* Why */
+      .why-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+      .why-card{padding:20px 12px;}
+      .why-card h4{font-size:12px;}
+
+      /* Testimonials */
+      .testi-card{width:calc(92vw - 36px);}
+      .testi-q{font-size:14px;}
+
+      /* Contact */
+      .contact-grid{gap:32px;}
       .frow{grid-template-columns:1fr;}
-      .testi-card{width:calc(90% - 14px);}
+      .cinfo h3{font-size:22px;}
+      .cinfo p{font-size:14px;}
+      .fg input,.fg select,.fg textarea{font-size:16px;} /* prevent iOS zoom */
+
+      /* Footer */
+      footer{padding:24px 16px;}
+      .flogo{font-size:16px;}
+      .fcopy{font-size:12px;}
+    }
+
+    /* ── Small phones 380px ── */
+    @media(max-width:380px){
+      .hero-title{font-size:28px;letter-spacing:-1px;}
+      .hero-badge{display:none;}
+      .stat-num{font-size:32px;}
+      .why-grid{grid-template-columns:1fr 1fr;}
+      .section-wrap{padding:52px 14px;}
+    }
+
+    /* ── Hamburger open state ── */
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+    /* ── Mobile menu close btn ── */
+    .mm-close{position:absolute;top:24px;right:24px;background:none;border:none;color:rgba(255,255,255,.5);font-size:28px;cursor:pointer;line-height:1;}
+
+    /* ── Touch feedback ── */
+    .btn-p:active,.btn-s:active,.nav-cta:active{transform:scale(.97);}
+    .svc-card:active{transform:scale(.98);}
+
+    /* ── Safe area for notched phones ── */
+    @supports(padding:max(0px)){
+      nav{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right));}
+      footer{padding-bottom:max(24px,env(safe-area-inset-bottom));}
+      .mobile-menu{padding-bottom:env(safe-area-inset-bottom);}
     }
   </style>
 </head>
@@ -296,12 +384,15 @@
 </nav>
 
 <!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu navigation">
+  <button class="mm-close" onclick="document.getElementById('mobileMenu').classList.remove('open');document.getElementById('hamBtn').classList.remove('open');document.body.style.overflow=''" aria-label="Fermer">✕</button>
   <a href="#services" class="mm-link">Services</a>
   <a href="#portfolio" class="mm-link">Portfolio</a>
   <a href="#why" class="mm-link">Pourquoi nous</a>
+  <a href="#testimonials" class="mm-link">Témoignages</a>
   <a href="#contact" class="mm-link">Contact</a>
-  <button class="btn-p" style="pointer-events:all" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});document.getElementById('mobileMenu').classList.remove('open')">Devis gratuit</button>
+  <button class="btn-p" style="pointer-events:all;width:240px" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});document.getElementById('mobileMenu').classList.remove('open');document.getElementById('hamBtn').classList.remove('open');document.body.style.overflow=''">Devis gratuit →</button>
+  <div style="font-size:13px;color:rgba(255,255,255,.3);margin-top:-16px;">+212 6 60 76 13 13</div>
 </div>
 
 <!-- HERO -->
@@ -599,9 +690,11 @@ function initHeroAnim(){
 (function(){
   const canvas=document.getElementById('three-canvas');
   const W=()=>canvas.clientWidth, H=()=>canvas.clientHeight;
+  const isMobile=window.innerWidth<=768;
+  const isLowEnd=isMobile||navigator.hardwareConcurrency<=2;
 
   const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,isMobile?1.5:2));
   renderer.setSize(W(),H());
   renderer.setClearColor(0x000000,0);
 
@@ -721,7 +814,7 @@ function initHeroAnim(){
   });
 
   // ── PARTICLES ──
-  const pCount=2800;
+  const pCount=isLowEnd?600:2800;
   const pPos=new Float32Array(pCount*3);
   const pColors=new Float32Array(pCount*3);
   for(let i=0;i<pCount;i++){
@@ -742,7 +835,7 @@ function initHeroAnim(){
   scene.add(particles);
 
   // ── ACCENT PARTICLES (larger glow) ──
-  const apCount=120;
+  const apCount=isLowEnd?30:120;
   const apPos=new Float32Array(apCount*3);
   for(let i=0;i<apCount;i++){
     const i3=i*3;
@@ -757,7 +850,7 @@ function initHeroAnim(){
   scene.add(accentParticles);
 
   // ── CONNECTION NETWORK ──
-  const nodeCount=80;
+  const nodeCount=isLowEnd?30:80;
   const nodePos=[];
   for(let i=0;i<nodeCount;i++){
     nodePos.push(new THREE.Vector3((Math.random()-.5)*24,(Math.random()-.5)*14,(Math.random()-.5)*10-5));
@@ -782,13 +875,22 @@ function initHeroAnim(){
   const nodeDotMat=new THREE.PointsMaterial({size:.09,color:0x00D4FF,transparent:true,opacity:.5});
   scene.add(new THREE.Points(nodeDotGeo,nodeDotMat));
 
-  // ── MOUSE PARALLAX ──
-  let mx=0,my=0;
-  let tmx=0,tmy=0;
-  document.addEventListener('mousemove',e=>{
-    mx=(e.clientX/window.innerWidth-.5)*2;
-    my=(e.clientY/window.innerHeight-.5)*2;
-  });
+  // ── MOUSE/GYRO PARALLAX ──
+  let mx=0,my=0,tmx=0,tmy=0;
+  if(!isMobile){
+    document.addEventListener('mousemove',e=>{
+      mx=(e.clientX/window.innerWidth-.5)*2;
+      my=(e.clientY/window.innerHeight-.5)*2;
+    });
+  } else if(window.DeviceOrientationEvent){
+    // Use gyroscope on mobile
+    window.addEventListener('deviceorientation',e=>{
+      if(e.gamma!=null&&e.beta!=null){
+        mx=Math.max(-1,Math.min(1,e.gamma/30));
+        my=Math.max(-1,Math.min(1,(e.beta-45)/30));
+      }
+    },{passive:true});
+  }
 
   // ── RESIZE ──
   window.addEventListener('resize',()=>{
@@ -859,20 +961,20 @@ gsap.utils.toArray('.stat-num[data-target]').forEach(el=>{
   });
 });
 
-// ─── SERVICE CARD 3D TILT ───
-document.querySelectorAll('.svc-card').forEach(card=>{
-  card.addEventListener('mousemove',e=>{
-    const r=card.getBoundingClientRect();
-    const x=((e.clientX-r.left)/r.width-.5)*20;
-    const y=-((e.clientY-r.top)/r.height-.5)*20;
-    card.style.transform=`perspective(800px) rotateX(${y}deg) rotateY(${x}deg) translateY(-10px)`;
-    card.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
-    card.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+// ─── SERVICE CARD 3D TILT (desktop only) ───
+if(window.matchMedia('(pointer:fine)').matches){
+  document.querySelectorAll('.svc-card').forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const x=((e.clientX-r.left)/r.width-.5)*18;
+      const y=-((e.clientY-r.top)/r.height-.5)*18;
+      card.style.transform=`perspective(800px) rotateX(${y}deg) rotateY(${x}deg) translateY(-10px)`;
+      card.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+      card.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+    });
+    card.addEventListener('mouseleave',()=>{ card.style.transform=''; });
   });
-  card.addEventListener('mouseleave',()=>{
-    card.style.transform='';
-  });
-});
+}
 
 // ─── TESTIMONIALS SLIDER ───
 let slide=0;
@@ -901,12 +1003,30 @@ document.getElementById('cform').addEventListener('submit',e=>{
 // ─── HAMBURGER MENU ───
 const hamBtn=document.getElementById('hamBtn');
 const mMenu=document.getElementById('mobileMenu');
-hamBtn.addEventListener('click',()=>{
-  mMenu.classList.toggle('open');
-});
-document.querySelectorAll('.mm-link').forEach(a=>{
-  a.addEventListener('click',()=>mMenu.classList.remove('open'));
-});
+
+function openMenu(){
+  mMenu.classList.add('open');
+  hamBtn.classList.add('open');
+  hamBtn.setAttribute('aria-expanded','true');
+  document.body.style.overflow='hidden';
+}
+function closeMenu(){
+  mMenu.classList.remove('open');
+  hamBtn.classList.remove('open');
+  hamBtn.setAttribute('aria-expanded','false');
+  document.body.style.overflow='';
+}
+
+hamBtn.setAttribute('aria-expanded','false');
+hamBtn.setAttribute('aria-controls','mobileMenu');
+hamBtn.addEventListener('click',()=> mMenu.classList.contains('open') ? closeMenu() : openMenu());
+document.querySelectorAll('.mm-link').forEach(a=>a.addEventListener('click',closeMenu));
+
+// Close on escape key
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeMenu(); });
+
+// Close on backdrop click
+mMenu.addEventListener('click',e=>{ if(e.target===mMenu) closeMenu(); });
 
 // ─── NAVBAR SCROLL EFFECT ───
 window.addEventListener('scroll',()=>{
