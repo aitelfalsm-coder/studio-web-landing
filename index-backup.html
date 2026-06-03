@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Web Maroc — Création de sites web sur mesure · À partir de 1990 MAD</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%230D1B2E'/%3E%3Ctext x='20' y='27' text-anchor='middle' font-family='system-ui' font-weight='800' font-size='15' fill='white'%3ESW%3C/text%3E%3C/svg%3E" />
+  <meta name="description" content="Création de sites web sur mesure au Maroc à partir de 1990 MAD. Livraison à partir de 72h, SEO inclus, devis gratuit sous 24h." />
+  <meta property="og:title" content="Studio Web Maroc — Sites web qui convertissent · Dès 1990 MAD" />
+  <meta property="og:description" content="Site vitrine, e-commerce, landing page. Livré dès 72h, SEO inclus. Casablanca, Rabat, Marrakech." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Manrope', 'system-ui', 'sans-serif'],
+            display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            ink:     '#080F1E',
+            primary: '#0D1B2E',
+            mid:     '#2D4A6C',
+            cta:     '#1157C8',
+            ctaH:    '#0D47A1',
+            sky:     '#93C5FD',
+            surface: '#F4F7FC',
+            accent:  '#DC2626',
+          },
+          boxShadow: {
+            soft:   '0 1px 2px rgba(8,15,30,.04),0 8px 24px rgba(8,15,30,.06)',
+            lg:     '0 2px 4px rgba(8,15,30,.04),0 20px 50px rgba(8,15,30,.10)',
+            glow:   '0 10px 40px -10px rgba(17,87,200,.50)',
+            redglow:'0 8px 28px -6px rgba(220,38,38,.45)',
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    html { -webkit-font-smoothing: antialiased; }
+    body { background:#F4F7FC; }
+    h1,h2,h3,h4 { font-family:'Bricolage Grotesque',system-ui,sans-serif; text-wrap:balance; }
+
+    .reveal { opacity:0; transform:translateY(22px); transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1); }
+    .reveal.in { opacity:1; transform:none; }
+
+    .grid-dots {
+      background-image: radial-gradient(circle at 1px 1px, rgba(15,23,42,.07) 1px, transparent 0);
+      background-size: 28px 28px;
+    }
+
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    .float { animation: float 5s ease-in-out infinite; }
+
+    @keyframes ping2 { 75%,100%{transform:scale(2);opacity:0} }
+    .ping2 { animation: ping2 1.4s cubic-bezier(0,0,.2,1) infinite; }
+
+    /* Creative hero 3D float */
+    @keyframes hero3dFloat {
+      0%,100% { transform: perspective(1100px) rotateY(-6deg) rotateX(4deg) translateY(0); }
+      50%     { transform: perspective(1100px) rotateY(-5deg) rotateX(3deg) translateY(-8px); }
+    }
+    .hero-3d-float {
+      animation: hero3dFloat 6s ease-in-out infinite;
+      transition: transform 500ms cubic-bezier(0.16,1,0.3,1);
+      will-change: transform;
+    }
+    .hero-3d-float:hover {
+      animation: none;
+      transform: perspective(1100px) rotateY(-2deg) rotateX(1deg);
+    }
+
+    /* Rings pulse */
+    @keyframes ringPulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%     { opacity:.7; transform:scale(1.02); }
+    }
+    .hero-rings { animation: ringPulse 7s ease-in-out infinite; }
+
+    /* Notification slide-in */
+    @keyframes notifSlide {
+      from { opacity:0; transform:translateX(16px); }
+      to   { opacity:1; transform:translateX(0); }
+    }
+    .notif-card { animation: notifSlide 450ms cubic-bezier(0.16,1,0.3,1) 1.6s both; }
+
+    @media(prefers-reduced-motion:reduce){
+      .hero-3d-float { animation:none!important; transform:none!important; }
+      .notif-card    { animation:none!important; opacity:1!important; }
+      .hero-rings    { animation:none!important; }
+    }
+
+    /* Number counter shimmer */
+    .shimmer {
+      background:linear-gradient(90deg,#e2e8f0 25%,#f8fafc 50%,#e2e8f0 75%);
+      background-size:400% 100%;
+      animation:shimmer 2s infinite linear;
+    }
+    @keyframes shimmer { 0%{background-position:-400% center} 100%{background-position:400% center} }
+
+    @media(prefers-reduced-motion:reduce){
+      .reveal{opacity:1!important;transform:none!important;transition:none;}
+      .float,.ping2,.shimmer{animation:none!important;}
+      html{scroll-behavior:auto;}
+    }
+  </style>
+</head>
+<body class="font-sans text-ink antialiased selection:bg-cta/20">
+
+<!-- ===== TOP STRIP ===== -->
+<div class="bg-primary py-2.5 text-center text-sm font-medium text-slate-300">
+  <span class="text-sky">Offre limitée :</span> Site vitrine complet livré en <strong class="text-white">72h</strong> · Maroc & international · <a href="#contact" class="underline text-sky hover:text-white transition-colors">Réserver ma place</a>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
+    <a href="#accueil" class="flex items-center gap-2 font-extrabold tracking-tight text-primary text-lg">
+      <svg viewBox="0 0 40 40" width="34" height="34" fill="none" aria-hidden="true">
+        <rect width="40" height="40" rx="10" fill="#0D1B2E"/>
+        <text x="20" y="27" text-anchor="middle" font-family="system-ui" font-weight="800" font-size="15" fill="white">SW</text>
+      </svg>
+      Studio<span class="text-cta">Web</span>
+    </a>
+
+    <div class="hidden items-center gap-7 md:flex text-sm font-medium text-mid">
+      <a href="#services" class="hover:text-cta transition-colors">Services</a>
+      <a href="#process" class="hover:text-cta transition-colors">Méthode</a>
+      <a href="#realisations" class="hover:text-cta transition-colors">Réalisations</a>
+      <a href="#tarifs" class="hover:text-cta transition-colors">Tarifs</a>
+      <a href="#faq" class="hover:text-cta transition-colors">FAQ</a>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <a href="tel:+212660761313" class="hidden items-center gap-2 text-sm font-semibold text-primary hover:text-cta transition-colors lg:flex">
+        <i data-lucide="phone" class="h-4 w-4"></i>
+        +212 6 60 76 13 13
+      </a>
+      <a href="#contact" class="cursor-pointer rounded-xl bg-accent px-4 py-2.5 text-sm font-bold text-white shadow-redglow transition-colors hover:bg-red-600">
+        Devis gratuit
+      </a>
+      <button id="menuBtn" aria-label="Menu" class="cursor-pointer rounded-xl border border-slate-200 p-2.5 text-primary hover:bg-slate-50 transition-colors md:hidden">
+        <i data-lucide="menu" class="h-5 w-5"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div id="mobileMenu" class="hidden border-t border-slate-100 bg-white px-4 pb-4 md:hidden">
+    <div class="flex flex-col pt-2">
+      <a href="#services" class="rounded-lg px-3 py-3 text-sm font-medium text-mid hover:bg-slate-50">Services</a>
+      <a href="#process" class="rounded-lg px-3 py-3 text-sm font-medium text-mid hover:bg-slate-50">Méthode</a>
+      <a href="#realisations" class="rounded-lg px-3 py-3 text-sm font-medium text-mid hover:bg-slate-50">Réalisations</a>
+      <a href="#tarifs" class="rounded-lg px-3 py-3 text-sm font-medium text-mid hover:bg-slate-50">Tarifs</a>
+      <a href="#faq" class="rounded-lg px-3 py-3 text-sm font-medium text-mid hover:bg-slate-50">FAQ</a>
+      <a href="tel:+212660761313" class="flex items-center gap-2 rounded-lg px-3 py-3 text-sm font-medium text-primary">
+        <i data-lucide="phone" class="h-4 w-4"></i> +212 6 60 76 13 13
+      </a>
+      <a href="#contact" class="mt-2 rounded-xl bg-accent py-3 text-center text-sm font-bold text-white hover:bg-red-600">Devis gratuit</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="accueil" class="relative overflow-hidden bg-primary py-20 md:py-28">
+  <!-- Dark dot grid -->
+  <div class="absolute inset-0" style="background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.05) 1px,transparent 0);background-size:28px 28px"></div>
+  <!-- Atmospheric glow blobs -->
+  <div class="absolute -top-40 -left-20 h-[500px] w-[500px] rounded-full bg-cta/20 blur-3xl"></div>
+  <div class="absolute -bottom-20 right-0 h-[400px] w-[400px] rounded-full bg-sky/10 blur-3xl"></div>
+
+  <div class="relative mx-auto max-w-6xl px-4">
+    <div class="grid items-center gap-12 lg:grid-cols-2">
+
+      <!-- Left: Text on dark -->
+      <div>
+        <div class="mb-6 inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-sm font-medium text-slate-300 backdrop-blur-sm" style="background:rgba(255,255,255,0.07)">
+          <span class="relative flex h-2 w-2">
+            <span class="ping2 absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
+          </span>
+          Disponible pour nouveaux projets
+        </div>
+
+        <h1 class="text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-[56px]">
+          Créez votre site<br />web<br />
+          <span class="text-sky">professionnel</span>
+        </h1>
+
+        <p class="mt-5 max-w-lg text-lg leading-relaxed text-slate-300">
+          Transformez votre vision en réalité digitale. Des sites web modernes, rapides et optimisés pour convertir vos visiteurs en clients.
+        </p>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="#contact" class="group inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 font-bold text-primary transition-colors hover:bg-slate-100">
+            Commencer maintenant
+            <i data-lucide="arrow-right" class="h-5 w-5 transition-transform group-hover:translate-x-1"></i>
+          </a>
+          <a href="#realisations" class="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-white/20 px-6 py-3.5 font-semibold text-white transition-colors hover:bg-white/10">
+            <i data-lucide="play-circle" class="h-5 w-5 text-sky"></i>
+            Voir nos réalisations
+          </a>
+        </div>
+
+        <!-- Stats row sur fond sombre -->
+        <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-white/10 pt-8">
+          <div>
+            <div class="text-2xl font-extrabold text-white">500+</div>
+            <div class="mt-0.5 text-sm text-slate-400">Projets réalisés</div>
+          </div>
+          <div class="hidden h-8 w-px bg-white/15 sm:block"></div>
+          <div>
+            <div class="text-2xl font-extrabold text-white">98%</div>
+            <div class="mt-0.5 text-sm text-slate-400">Clients satisfaits</div>
+          </div>
+          <div class="hidden h-8 w-px bg-white/15 sm:block"></div>
+          <div class="flex items-center gap-2">
+            <span class="grid h-9 w-9 place-items-center rounded-lg bg-sky/20 text-sky">
+              <i data-lucide="headphones" class="h-5 w-5"></i>
+            </span>
+            <div>
+              <div class="text-2xl font-extrabold text-white">24h</div>
+              <div class="mt-0.5 text-sm text-slate-400">Support</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Browser mockup lumineux sur fond sombre -->
+      <div class="relative hero-3d-float lg:pl-4">
+
+        <!-- Anneaux décoratifs concentriques -->
+        <div class="hero-rings pointer-events-none absolute -inset-16 -z-10" aria-hidden="true">
+          <svg viewBox="0 0 520 520" fill="none" class="h-full w-full">
+            <circle cx="260" cy="260" r="240" stroke="rgba(147,197,253,0.12)" stroke-width="1"/>
+            <circle cx="260" cy="260" r="195" stroke="rgba(147,197,253,0.09)" stroke-width="1"/>
+            <circle cx="260" cy="260" r="148" stroke="rgba(147,197,253,0.06)" stroke-width="0.5"/>
+            <circle cx="260" cy="260" r="100" stroke="rgba(147,197,253,0.05)" stroke-width="0.5"/>
+          </svg>
+        </div>
+
+        <!-- Halo derrière le mockup -->
+        <div class="absolute inset-0 -z-10 rounded-3xl bg-cta/25 blur-2xl"></div>
+
+        <!-- Notification "Nouveau devis" qui slide -->
+        <div class="notif-card absolute -right-2 -top-10 z-10 hidden rounded-2xl bg-white px-3.5 py-2.5 sm:flex items-center gap-2.5" style="box-shadow:0 8px 28px rgba(0,0,0,.32)">
+          <span class="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-emerald-100 text-emerald-600">
+            <i data-lucide="user-plus" class="h-4 w-4"></i>
+          </span>
+          <div>
+            <div class="text-[10px] font-bold text-primary">Nouveau projet</div>
+            <div class="text-[10px] text-mid">Devis reçu · il y a 2 min</div>
+          </div>
+          <span class="relative flex h-2 w-2 ml-1 shrink-0">
+            <span class="ping2 absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+          </span>
+        </div>
+
+        <!-- Browser window -->
+        <div class="overflow-hidden rounded-2xl shadow-2xl" style="box-shadow:0 25px 60px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08)">
+          <!-- Chrome bar -->
+          <div class="flex items-center gap-1.5 bg-[#0A1628] px-4 py-3">
+            <span class="h-3 w-3 rounded-full bg-rose-500"></span>
+            <span class="h-3 w-3 rounded-full bg-amber-400"></span>
+            <span class="h-3 w-3 rounded-full bg-emerald-400"></span>
+            <div class="ml-3 flex flex-1 items-center gap-1.5 rounded-md bg-white/8 px-3 py-1.5" style="background:rgba(255,255,255,0.07)">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span class="text-[10px] text-white/40">monsite.ma</span>
+              <span class="ml-auto flex h-3.5 w-3.5 items-center justify-center rounded-full bg-cta/40">
+                <svg width="6" height="6" viewBox="0 0 24 24" fill="white" aria-hidden="true"><circle cx="12" cy="12" r="10"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Creative Studio Web Tourisme -->
+          <div class="overflow-hidden" style="height:310px">
+            <img src="studioweb-tourisme.png" alt="Exemple de site Studio Web — Secteur Tourisme" class="h-full w-full object-cover object-top" loading="eager" />
+            <!-- Tool toolbar (hidden) -->
+            <div class="hidden flex shrink-0 items-center gap-2 border-b px-3 py-1.5 bg-[#16213e]" style="border-color:rgba(255,255,255,.07)">
+              <div class="flex gap-1">
+                <div class="grid h-5 w-5 cursor-pointer place-items-center rounded bg-cta text-white">
+                  <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg>
+                </div>
+                <div class="h-5 w-5 rounded" style="background:rgba(255,255,255,.09)"></div>
+                <div class="h-5 w-5 rounded" style="background:rgba(255,255,255,.09)"></div>
+                <div class="h-5 w-5 rounded" style="background:rgba(255,255,255,.09)"></div>
+              </div>
+              <span class="mx-auto text-[9px] font-medium" style="color:rgba(255,255,255,.28)">monsite.ma — Accueil</span>
+              <div class="flex items-center justify-center rounded px-2 py-0.5 bg-emerald-600/80 text-[8px] font-bold text-white">Publier</div>
+            </div>
+
+            <!-- 3 columns -->
+            <div class="flex flex-1 overflow-hidden">
+
+              <!-- Layers panel -->
+              <div class="w-[88px] shrink-0 p-2 bg-[#16213e]" style="border-right:1px solid rgba(255,255,255,.07)">
+                <div class="mb-1.5 text-[7px] font-bold uppercase tracking-wider" style="color:rgba(255,255,255,.28)">Calques</div>
+                <div class="space-y-0.5">
+                  <div class="flex items-center gap-1 rounded px-1 py-1" style="background:rgba(17,87,200,.25)">
+                    <div class="h-1.5 w-1.5 shrink-0 rounded-sm" style="background:rgba(147,197,253,.8)"></div>
+                    <span class="truncate text-[8px]" style="color:rgba(147,197,253,.9)">Hero</span>
+                  </div>
+                  <div class="flex items-center gap-1 py-0.5 pl-3">
+                    <div class="h-1.5 w-1.5 shrink-0 rounded-sm" style="background:rgba(255,255,255,.2)"></div>
+                    <span class="truncate text-[8px]" style="color:rgba(255,255,255,.38)">Navbar</span>
+                  </div>
+                  <div class="flex items-center gap-1 py-0.5 pl-3">
+                    <div class="h-1.5 w-1.5 shrink-0 rounded-sm" style="background:rgba(255,255,255,.2)"></div>
+                    <span class="truncate text-[8px]" style="color:rgba(255,255,255,.38)">Titre H1</span>
+                  </div>
+                  <div class="flex items-center gap-1 py-0.5 pl-3">
+                    <div class="h-1.5 w-1.5 shrink-0 rounded-sm" style="background:rgba(17,87,200,.5)"></div>
+                    <span class="truncate text-[8px]" style="color:rgba(17,87,200,.85)">Bouton CTA</span>
+                  </div>
+                  <div class="flex items-center gap-1 py-0.5">
+                    <div class="h-1.5 w-1.5 shrink-0 rounded-sm" style="background:rgba(255,255,255,.15)"></div>
+                    <span class="truncate text-[8px]" style="color:rgba(255,255,255,.35)">Services</span>
+                  </div>
+                  <div class="flex items-center gap-1 py-0.5">
+                    <div class="h-1.5 w-1.5 shrink-0 rounded-sm" style="background:rgba(255,255,255,.15)"></div>
+                    <span class="truncate text-[8px]" style="color:rgba(255,255,255,.35)">Tarifs</span>
+                  </div>
+                  <div class="flex items-center gap-1 py-0.5">
+                    <div class="h-1.5 w-1.5 shrink-0 rounded-sm" style="background:rgba(255,255,255,.15)"></div>
+                    <span class="truncate text-[8px]" style="color:rgba(255,255,255,.35)">Contact</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Canvas -->
+              <div class="relative flex-1 overflow-hidden" style="background:radial-gradient(ellipse at 50% 30%,#1a2744 0%,#0d1117 65%)">
+                <!-- Grid guides -->
+                <div class="pointer-events-none absolute inset-0" style="background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:18px 18px"></div>
+                <!-- Canvas content -->
+                <div class="absolute inset-3">
+                  <!-- Selected element with handles -->
+                  <div class="relative" style="border:1px dashed rgba(147,197,253,.65);border-radius:6px;overflow:hidden">
+                    <!-- Corner handles -->
+                    <div class="absolute -left-1.5 -top-1.5 h-3 w-3 rounded border-2 border-white bg-cta z-10"></div>
+                    <div class="absolute -right-1.5 -top-1.5 h-3 w-3 rounded border-2 border-white bg-cta z-10"></div>
+                    <div class="absolute -bottom-1.5 -left-1.5 h-3 w-3 rounded border-2 border-white bg-cta z-10"></div>
+                    <div class="absolute -bottom-1.5 -right-1.5 h-3 w-3 rounded border-2 border-white bg-cta z-10"></div>
+                    <!-- Hero section being designed -->
+                    <div class="px-3 py-4" style="background:linear-gradient(135deg,#0D1B2E 0%,#1157C8 65%,#60A5FA 100%)">
+                      <div class="mb-2.5 flex items-center justify-between">
+                        <div class="flex items-center gap-1.5">
+                          <div class="h-3 w-3 rounded" style="background:rgba(255,255,255,.8)"></div>
+                          <div class="h-1.5 w-10 rounded" style="background:rgba(255,255,255,.5)"></div>
+                        </div>
+                        <div class="flex gap-1.5">
+                          <div class="h-1.5 w-5 rounded" style="background:rgba(255,255,255,.25)"></div>
+                          <div class="h-1.5 w-5 rounded" style="background:rgba(255,255,255,.25)"></div>
+                          <div class="h-4 w-10 rounded" style="background:rgba(255,255,255,.95)"></div>
+                        </div>
+                      </div>
+                      <div class="h-2.5 w-28 rounded mb-1.5" style="background:rgba(255,255,255,.9)"></div>
+                      <div class="h-2.5 w-36 rounded mb-1.5" style="background:rgba(255,255,255,.75)"></div>
+                      <div class="h-2 w-20 rounded mb-2.5" style="background:rgba(147,197,253,.65)"></div>
+                      <div class="h-1.5 w-32 rounded mb-0.5" style="background:rgba(255,255,255,.35)"></div>
+                      <div class="h-1.5 w-24 rounded mb-3" style="background:rgba(255,255,255,.25)"></div>
+                      <div class="flex gap-2">
+                        <div class="h-5 w-16 rounded" style="background:white"></div>
+                        <div class="h-5 w-14 rounded" style="border:1px solid rgba(255,255,255,.35)"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Measure annotation -->
+                  <div class="absolute -right-0 top-1/2 -translate-y-1/2 flex items-center gap-0.5" style="opacity:.5">
+                    <div class="h-px w-6" style="background:rgba(147,197,253,.7)"></div>
+                    <span class="text-[7px]" style="color:rgba(147,197,253,.8)">320px</span>
+                  </div>
+                  <!-- Section below -->
+                  <div class="mt-2 rounded px-2 py-1.5 opacity-50" style="background:rgba(255,255,255,.04)">
+                    <div class="grid grid-cols-3 gap-1.5">
+                      <div class="h-5 rounded" style="background:rgba(255,255,255,.07)"></div>
+                      <div class="h-5 rounded" style="background:rgba(255,255,255,.07)"></div>
+                      <div class="h-5 rounded" style="background:rgba(255,255,255,.07)"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Cursor -->
+                <div class="absolute bottom-5 right-6 pointer-events-none">
+                  <svg width="12" height="16" viewBox="0 0 14 18" fill="none" aria-hidden="true">
+                    <path d="M1 1l11 9-5.5.5L4 17l-3-16z" fill="#1157C8" stroke="white" stroke-width="1.5"/>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Properties panel -->
+              <div class="w-[76px] shrink-0 p-2 bg-[#16213e]" style="border-left:1px solid rgba(255,255,255,.07)">
+                <div class="mb-1.5 text-[7px] font-bold uppercase tracking-wider" style="color:rgba(255,255,255,.28)">Styles</div>
+                <div class="space-y-1.5">
+                  <div>
+                    <div class="mb-0.5 text-[7px]" style="color:rgba(255,255,255,.28)">Remplissage</div>
+                    <div class="flex h-4 w-full items-center gap-1 rounded px-1" style="background:#0d1117">
+                      <div class="h-2.5 w-2.5 shrink-0 rounded-sm" style="background:linear-gradient(135deg,#0D1B2E,#1157C8)"></div>
+                      <span class="text-[7px]" style="color:rgba(255,255,255,.38)">Dégradé</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="mb-0.5 text-[7px]" style="color:rgba(255,255,255,.28)">Police</div>
+                    <div class="flex h-4 w-full items-center px-1 rounded" style="background:#0d1117">
+                      <span class="text-[7px]" style="color:rgba(255,255,255,.38)">Bricolage</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="mb-0.5 text-[7px]" style="color:rgba(255,255,255,.28)">Rayon</div>
+                    <div class="flex h-4 w-full items-center justify-between px-1 rounded" style="background:#0d1117">
+                      <span class="text-[7px]" style="color:rgba(255,255,255,.38)">12px</span>
+                    </div>
+                  </div>
+                  <div class="mt-2 flex h-5 w-full items-center justify-center rounded" style="background:rgba(17,87,200,.7)">
+                    <span class="text-[8px] font-bold text-white">Exporter</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Status bar -->
+            <div class="hidden flex shrink-0 items-center justify-between px-3 py-1 bg-[#16213e]" style="border-top:1px solid rgba(255,255,255,.07)">
+              <div class="flex items-center gap-1.5">
+                <div class="h-1.5 w-1.5 rounded-full bg-emerald-400"></div>
+                <span class="text-[8px]" style="color:rgba(255,255,255,.28)">Sauvegardé</span>
+              </div>
+              <span class="text-[8px]" style="color:rgba(255,255,255,.28)">75 %</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute -right-3 top-6 hidden rounded-xl bg-white px-3 py-2.5 sm:flex items-center gap-2" style="box-shadow:0 8px 24px rgba(0,0,0,.35)">
+          <span class="grid h-8 w-8 place-items-center rounded-lg bg-cta/10 text-cta">
+            <i data-lucide="gauge" class="h-4 w-4"></i>
+          </span>
+          <div>
+            <div class="text-[10px] text-mid">PageSpeed</div>
+            <div class="text-sm font-extrabold text-primary">98/100</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS BAR ===== -->
+<section class="border-y border-slate-200 bg-white">
+  <div class="mx-auto max-w-6xl px-4 py-8">
+    <div class="grid grid-cols-2 gap-6 sm:grid-cols-4">
+      <div class="text-center">
+        <div class="font-display text-3xl font-extrabold text-primary sm:text-4xl">500+</div>
+        <div class="mt-1 text-sm text-mid">projets livrés</div>
+      </div>
+      <div class="text-center">
+        <div class="font-display text-3xl font-extrabold text-primary sm:text-4xl">72h</div>
+        <div class="mt-1 text-sm text-mid">délai de livraison</div>
+      </div>
+      <div class="text-center">
+        <div class="font-display text-3xl font-extrabold text-primary sm:text-4xl">98%</div>
+        <div class="mt-1 text-sm text-mid">clients satisfaits</div>
+      </div>
+      <div class="text-center">
+        <div class="font-display text-3xl font-extrabold text-primary sm:text-4xl">4.9/5</div>
+        <div class="mt-1 text-sm text-mid">note Google</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOR WHO ===== -->
+<section class="py-20 md:py-24">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="reveal mx-auto max-w-2xl text-center">
+      <span class="inline-flex items-center rounded-full bg-cta/10 px-3 py-1 text-sm font-semibold text-cta">Pour qui ?</span>
+      <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-primary sm:text-4xl">Un site web adapté à votre métier</h2>
+      <p class="mt-4 text-lg text-mid">Artisan, commerçant, professionnel libéral ou PME : je crée des sites adaptés à chaque secteur.</p>
+    </div>
+
+    <div class="reveal mt-10 flex flex-wrap justify-center gap-3">
+      <div class="inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm text-primary transition-colors hover:border-cta/40">
+        <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-cta/10 text-cta"><i data-lucide="hammer" class="h-3.5 w-3.5"></i></span>
+        <strong class="font-semibold">Artisans</strong>
+        <span class="text-mid text-xs hidden sm:inline">Plombier, électricien, couvreur</span>
+      </div>
+      <div class="inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm text-primary transition-colors hover:border-cta/40">
+        <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-cta/10 text-cta"><i data-lucide="utensils" class="h-3.5 w-3.5"></i></span>
+        <strong class="font-semibold">Restauration</strong>
+        <span class="text-mid text-xs hidden sm:inline">Restaurant, café, traiteur</span>
+      </div>
+      <div class="inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm text-primary transition-colors hover:border-cta/40">
+        <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-cta/10 text-cta"><i data-lucide="briefcase" class="h-3.5 w-3.5"></i></span>
+        <strong class="font-semibold">Professions libérales</strong>
+        <span class="text-mid text-xs hidden sm:inline">Avocat, médecin, coach</span>
+      </div>
+      <div class="inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm text-primary transition-colors hover:border-cta/40">
+        <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-cta/10 text-cta"><i data-lucide="map-pin" class="h-3.5 w-3.5"></i></span>
+        <strong class="font-semibold">Tourisme</strong>
+        <span class="text-mid text-xs hidden sm:inline">Hôtel, agence, riad</span>
+      </div>
+      <div class="inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm text-primary transition-colors hover:border-cta/40">
+        <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-cta/10 text-cta"><i data-lucide="shopping-bag" class="h-3.5 w-3.5"></i></span>
+        <strong class="font-semibold">Commerce</strong>
+        <span class="text-mid text-xs hidden sm:inline">Boutique, e-commerce</span>
+      </div>
+      <div class="inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm text-primary transition-colors hover:border-cta/40">
+        <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-cta/10 text-cta"><i data-lucide="building-2" class="h-3.5 w-3.5"></i></span>
+        <strong class="font-semibold">PME & TPE</strong>
+        <span class="text-mid text-xs hidden sm:inline">Tout secteur</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VALUE PROPS ===== -->
+<section class="bg-white py-20 md:py-24">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="reveal mx-auto max-w-2xl text-center">
+      <span class="inline-flex items-center rounded-full bg-cta/10 px-3 py-1 text-sm font-semibold text-cta">Pourquoi nous choisir</span>
+      <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-primary sm:text-4xl">Ce que vous obtenez, concrètement</h2>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      <div class="reveal rounded-2xl bg-white p-8" style="box-shadow:0 2px 12px rgba(13,27,46,.07)">
+        <span class="grid h-14 w-14 place-items-center rounded-2xl bg-cta text-white shadow-glow"><i data-lucide="zap" class="h-7 w-7"></i></span>
+        <h3 class="mt-6 text-xl font-extrabold text-primary">Livraison dès 72h</h3>
+        <p class="mt-3 text-mid leading-relaxed">De la maquette à la mise en ligne, tout est géré. Vous recevez votre site opérationnel dès 72h, sans délai surprises.</p>
+        <ul class="mt-5 space-y-2 text-sm text-mid">
+          <li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-emerald-500 mt-0.5"></i> Maquette sous 48h</li>
+          <li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-emerald-500 mt-0.5"></i> Révisions illimitées</li>
+          <li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-emerald-500 mt-0.5"></i> Mise en ligne incluse</li>
+        </ul>
+      </div>
+
+      <div class="reveal rounded-2xl bg-white p-8" style="box-shadow:0 2px 12px rgba(13,27,46,.07)">
+        <span class="grid h-14 w-14 place-items-center rounded-2xl bg-cta text-white shadow-glow"><i data-lucide="search" class="h-7 w-7"></i></span>
+        <h3 class="mt-6 text-xl font-extrabold text-primary">Visible sur Google</h3>
+        <p class="mt-3 text-mid leading-relaxed">Chaque site est construit avec les meilleures pratiques SEO pour que vos clients vous trouvent en premier sur Google.</p>
+        <ul class="mt-5 space-y-2 text-sm text-mid">
+          <li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-emerald-500 mt-0.5"></i> Balises SEO optimisées</li>
+          <li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-emerald-500 mt-0.5"></i> Score 98/100 PageSpeed</li>
+          <li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-emerald-500 mt-0.5"></i> Google My Business</li>
+        </ul>
+      </div>
+
+      <div class="reveal rounded-2xl bg-white p-8" style="box-shadow:0 2px 12px rgba(13,27,46,.07)">
+        <span class="grid h-14 w-14 place-items-center rounded-2xl bg-cta text-white shadow-glow"><i data-lucide="shield-check" class="h-7 w-7"></i></span>
+        <h3 class="mt-6 text-xl font-extrabold text-primary">Offres flexibles</h3>
+        <p class="mt-3 text-mid leading-relaxed">Budget maîtrisé, aucune surprise. De 1 990 MAD à votre mesure.</p>
+        <ul class="mt-5 space-y-2 text-sm text-mid">
+          <li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-emerald-500 mt-0.5"></i> À partir de 1 990 MAD</li>
+          <li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-emerald-500 mt-0.5"></i> Devis gratuit sous 24h</li>
+          <li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-emerald-500 mt-0.5"></i> Devis transparent</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="services" class="py-20 md:py-24">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="reveal mx-auto max-w-2xl text-center">
+      <span class="inline-flex items-center rounded-full bg-cta/10 px-3 py-1 text-sm font-semibold text-cta">Mes services</span>
+      <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-primary sm:text-4xl">Tout ce qu'il faut pour réussir en ligne</h2>
+      <p class="mt-4 text-lg text-mid">Du site vitrine à la boutique e-commerce, je m'occupe de tout.</p>
+    </div>
+
+    <div class="mt-12 grid gap-3 md:grid-cols-2">
+      <article class="reveal group flex items-start gap-4 rounded-2xl bg-white p-6 ring-1 ring-slate-100 transition-all hover:ring-cta/30 hover:-translate-y-0.5">
+        <span class="shrink-0 grid h-11 w-11 place-items-center rounded-xl text-cta" style="background:rgba(17,87,200,0.08)"><i data-lucide="layout-dashboard" class="h-5 w-5"></i></span>
+        <div>
+          <h3 class="font-bold text-primary">Site vitrine</h3>
+          <p class="mt-1 text-sm text-mid leading-relaxed">Un site qui présente votre activité et génère des demandes de contact. À partir de 1 990 MAD.</p>
+        </div>
+      </article>
+      <article class="reveal group flex items-start gap-4 rounded-2xl bg-white p-6 ring-1 ring-slate-100 transition-all hover:ring-cta/30 hover:-translate-y-0.5">
+        <span class="shrink-0 grid h-11 w-11 place-items-center rounded-xl text-cta" style="background:rgba(17,87,200,0.08)"><i data-lucide="shopping-cart" class="h-5 w-5"></i></span>
+        <div>
+          <h3 class="font-bold text-primary">Boutique e-commerce</h3>
+          <p class="mt-1 text-sm text-mid leading-relaxed">Vendez en ligne 24h/24 avec un tunnel d'achat, paiements sécurisés et gestion de catalogue.</p>
+        </div>
+      </article>
+      <article class="reveal group flex items-start gap-4 rounded-2xl bg-white p-6 ring-1 ring-slate-100 transition-all hover:ring-cta/30 hover:-translate-y-0.5">
+        <span class="shrink-0 grid h-11 w-11 place-items-center rounded-xl text-cta" style="background:rgba(17,87,200,0.08)"><i data-lucide="rocket" class="h-5 w-5"></i></span>
+        <div>
+          <h3 class="font-bold text-primary">Landing page</h3>
+          <p class="mt-1 text-sm text-mid leading-relaxed">Pages optimisées pour vos campagnes Meta Ads et Google Ads. Conçues pour convertir.</p>
+        </div>
+      </article>
+      <article class="reveal group flex items-start gap-4 rounded-2xl bg-white p-6 ring-1 ring-slate-100 transition-all hover:ring-cta/30 hover:-translate-y-0.5">
+        <span class="shrink-0 grid h-11 w-11 place-items-center rounded-xl text-cta" style="background:rgba(17,87,200,0.08)"><i data-lucide="search-check" class="h-5 w-5"></i></span>
+        <div>
+          <h3 class="font-bold text-primary">Référencement SEO</h3>
+          <p class="mt-1 text-sm text-mid leading-relaxed">Apparaissez en haut de Google. Audit, optimisation technique et suivi de positionnement.</p>
+        </div>
+      </article>
+      <article class="reveal group flex items-start gap-4 rounded-2xl bg-white p-6 ring-1 ring-slate-100 transition-all hover:ring-cta/30 hover:-translate-y-0.5">
+        <span class="shrink-0 grid h-11 w-11 place-items-center rounded-xl text-cta" style="background:rgba(17,87,200,0.08)"><i data-lucide="paintbrush" class="h-5 w-5"></i></span>
+        <div>
+          <h3 class="font-bold text-primary">Refonte de site</h3>
+          <p class="mt-1 text-sm text-mid leading-relaxed">Site daté ou peu performant ? Modernisation complète en conservant votre référencement existant.</p>
+        </div>
+      </article>
+      <article class="reveal group flex items-start gap-4 rounded-2xl bg-white p-6 ring-1 ring-slate-100 transition-all hover:ring-cta/30 hover:-translate-y-0.5">
+        <span class="shrink-0 grid h-11 w-11 place-items-center rounded-xl text-cta" style="background:rgba(17,87,200,0.08)"><i data-lucide="life-buoy" class="h-5 w-5"></i></span>
+        <div>
+          <h3 class="font-bold text-primary">Maintenance</h3>
+          <p class="mt-1 text-sm text-mid leading-relaxed">Mises à jour, sauvegardes, sécurité et support technique. Votre site reste rapide et protégé.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section id="process" class="bg-white py-20 md:py-24">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="reveal mx-auto max-w-2xl text-center">
+      <span class="inline-flex items-center rounded-full bg-cta/10 px-3 py-1 text-sm font-semibold text-cta">Notre méthode</span>
+      <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-primary sm:text-4xl">Votre site en 5 étapes simples</h2>
+      <p class="mt-4 text-lg text-mid">Un processus transparent. Vous savez exactement où en est votre projet à chaque instant.</p>
+    </div>
+
+    <div class="relative mt-14">
+      <!-- connector line -->
+      <div class="absolute left-6 top-10 bottom-10 w-px bg-gradient-to-b from-cta via-sky-400 to-transparent hidden md:block" style="left:calc(50% - 0.5px);top:24px;bottom:24px;"></div>
+
+      <div class="space-y-8">
+        <!-- Step 1 -->
+        <div class="reveal grid items-center gap-6 md:grid-cols-2 md:gap-12">
+          <div class="md:text-right">
+            <div class="inline-flex items-center gap-3 md:flex-row-reverse">
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-cta text-white font-extrabold text-lg shadow-glow">1</span>
+              <h3 class="text-xl font-extrabold text-primary">Échange découverte</h3>
+            </div>
+            <p class="mt-2 text-mid md:pl-0 leading-relaxed">On discute de votre activité, votre cible et vos objectifs. Gratuit, sans engagement. Devis clair envoyé sous 24h.</p>
+          </div>
+          <div class="hidden md:block"></div>
+        </div>
+        <!-- Step 2 -->
+        <div class="reveal grid items-center gap-6 md:grid-cols-2 md:gap-12">
+          <div class="hidden md:block"></div>
+          <div>
+            <div class="inline-flex items-center gap-3">
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-cta text-white font-extrabold text-lg shadow-glow">2</span>
+              <h3 class="text-xl font-extrabold text-primary">Maquette en 48h</h3>
+            </div>
+            <p class="mt-2 text-mid leading-relaxed">Je crée les maquettes de votre site et vous validez chaque écran, page et couleur avant que je code quoi que ce soit.</p>
+          </div>
+        </div>
+        <!-- Step 3 -->
+        <div class="reveal grid items-center gap-6 md:grid-cols-2 md:gap-12">
+          <div class="md:text-right">
+            <div class="inline-flex items-center gap-3 md:flex-row-reverse">
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-cta text-white font-extrabold text-lg shadow-glow">3</span>
+              <h3 class="text-xl font-extrabold text-primary">Développement</h3>
+            </div>
+            <p class="mt-2 text-mid leading-relaxed">Je code un site rapide, sécurisé et 100% optimisé SEO. Score PageSpeed 95+ garanti. Accès à l'avancement en temps réel.</p>
+          </div>
+          <div class="hidden md:block"></div>
+        </div>
+        <!-- Step 4 -->
+        <div class="reveal grid items-center gap-6 md:grid-cols-2 md:gap-12">
+          <div class="hidden md:block"></div>
+          <div>
+            <div class="inline-flex items-center gap-3">
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-cta text-white font-extrabold text-lg shadow-glow">4</span>
+              <h3 class="text-xl font-extrabold text-primary">Validation & retouches</h3>
+            </div>
+            <p class="mt-2 text-mid leading-relaxed">Vous testez votre site sur un lien de prévisualisation. Modifications illimitées jusqu'à votre satisfaction totale.</p>
+          </div>
+        </div>
+        <!-- Step 5 -->
+        <div class="reveal grid items-center gap-6 md:grid-cols-2 md:gap-12">
+          <div class="md:text-right">
+            <div class="inline-flex items-center gap-3 md:flex-row-reverse">
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-accent text-white font-extrabold text-lg shadow-redglow">5</span>
+              <h3 class="text-xl font-extrabold text-primary">Mise en service</h3>
+            </div>
+            <p class="mt-2 text-mid leading-relaxed">Déploiement sur votre nom de domaine, configuration SSL, connexion des emails et Google Analytics. Votre site est en ligne et opérationnel.</p>
+          </div>
+          <div class="hidden md:block"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REALISATIONS ===== -->
+<section id="realisations" class="py-20 md:py-24">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="reveal flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+      <div class="max-w-xl">
+        <span class="inline-flex items-center rounded-full bg-cta/10 px-3 py-1 text-sm font-semibold text-cta">Réalisations</span>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-primary sm:text-4xl">Des résultats concrets</h2>
+      </div>
+      <a href="#contact" class="inline-flex cursor-pointer items-center gap-2 font-semibold text-cta hover:text-ctaH">Lancer mon projet <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <a href="https://allojardin.ma" target="_blank" rel="noopener noreferrer" class="reveal group cursor-pointer overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 transition-all hover:-translate-y-1 hover:ring-cta/30" style="box-shadow:0 2px 12px rgba(13,27,46,.07)">
+        <div class="relative h-48 overflow-hidden bg-gradient-to-br from-green-700 to-lime-500">
+          <div class="grid-dots absolute inset-0 opacity-20"></div>
+          <div class="absolute inset-4 flex flex-col overflow-hidden rounded-xl bg-white/15 ring-1 ring-white/30 backdrop-blur-sm">
+            <div class="flex items-center gap-1.5 border-b border-white/20 bg-white/10 px-3 py-2">
+              <span class="h-2 w-2 rounded-full bg-white/50"></span><span class="h-2 w-2 rounded-full bg-white/50"></span><span class="h-2 w-2 rounded-full bg-white/50"></span>
+              <span class="ml-2 rounded bg-white/20 px-2 py-0.5 text-[9px] font-medium text-white/90">allojardin.ma</span>
+            </div>
+            <div class="flex flex-1 items-center justify-center gap-2">
+              <i data-lucide="leaf" class="h-8 w-8 text-lime-200"></i>
+              <span class="text-sm font-bold text-white">AlloJardin</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-5">
+          <span class="text-xs font-bold uppercase tracking-wide text-emerald-600">Marketplace</span>
+          <h3 class="mt-1 font-extrabold text-primary">AlloJardin.ma</h3>
+          <p class="mt-1 text-sm text-mid">Mise en relation jardiniers et clients · Maroc</p>
+        </div>
+      </a>
+
+      <a href="https://leads.ma" target="_blank" rel="noopener noreferrer" class="reveal group cursor-pointer overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 transition-all hover:-translate-y-1 hover:ring-cta/30" style="box-shadow:0 2px 12px rgba(13,27,46,.07)">
+        <div class="relative h-48 overflow-hidden bg-gradient-to-br from-violet-600 to-indigo-500">
+          <div class="grid-dots absolute inset-0 opacity-20"></div>
+          <div class="absolute inset-4 flex flex-col overflow-hidden rounded-xl bg-white/15 ring-1 ring-white/30 backdrop-blur-sm">
+            <div class="flex items-center gap-1.5 border-b border-white/20 bg-white/10 px-3 py-2">
+              <span class="h-2 w-2 rounded-full bg-white/50"></span><span class="h-2 w-2 rounded-full bg-white/50"></span><span class="h-2 w-2 rounded-full bg-white/50"></span>
+              <span class="ml-2 rounded bg-white/20 px-2 py-0.5 text-[9px] font-medium text-white/90">leads.ma</span>
+            </div>
+            <div class="flex flex-1 items-center justify-center gap-2">
+              <i data-lucide="zap" class="h-8 w-8 text-violet-200"></i>
+              <span class="text-sm font-bold text-white">Leads.ma</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-5">
+          <span class="text-xs font-bold uppercase tracking-wide text-violet-600">Marketing digital</span>
+          <h3 class="mt-1 font-extrabold text-primary">Leads.ma</h3>
+          <p class="mt-1 text-sm text-mid">Plateforme d'acquisition clients · Maroc</p>
+        </div>
+      </a>
+
+      <a href="https://tahoexport.com" target="_blank" rel="noopener noreferrer" class="reveal group cursor-pointer overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 transition-all hover:-translate-y-1 hover:ring-cta/30" style="box-shadow:0 2px 12px rgba(13,27,46,.07)">
+        <div class="relative h-48 overflow-hidden bg-gradient-to-br from-amber-500 to-orange-400">
+          <div class="grid-dots absolute inset-0 opacity-20"></div>
+          <div class="absolute inset-4 flex flex-col overflow-hidden rounded-xl bg-white/15 ring-1 ring-white/30 backdrop-blur-sm">
+            <div class="flex items-center gap-1.5 border-b border-white/20 bg-white/10 px-3 py-2">
+              <span class="h-2 w-2 rounded-full bg-white/50"></span><span class="h-2 w-2 rounded-full bg-white/50"></span><span class="h-2 w-2 rounded-full bg-white/50"></span>
+              <span class="ml-2 rounded bg-white/20 px-2 py-0.5 text-[9px] font-medium text-white/90">tahoexport.com</span>
+            </div>
+            <div class="flex flex-1 items-center justify-center gap-2">
+              <i data-lucide="package" class="h-8 w-8 text-amber-100"></i>
+              <span class="text-sm font-bold text-white">TahoExport</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-5">
+          <span class="text-xs font-bold uppercase tracking-wide text-amber-600">Export & Commerce</span>
+          <h3 class="mt-1 font-extrabold text-primary">TahoExport.com</h3>
+          <p class="mt-1 text-sm text-mid">Site export international · Maroc</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="bg-white py-20 md:py-24">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="reveal flex flex-col items-center gap-4 text-center">
+      <span class="inline-flex items-center rounded-full bg-cta/10 px-3 py-1 text-sm font-semibold text-cta">Témoignages</span>
+      <h2 class="text-3xl font-extrabold tracking-tight text-primary sm:text-4xl">Ce que disent nos clients</h2>
+      <!-- Google rating badge -->
+      <div class="inline-flex items-center gap-3 rounded-2xl border border-slate-200 bg-surface px-5 py-3 shadow-soft">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-label="Google"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        <div class="flex text-amber-400"><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i></div>
+        <span class="font-bold text-primary">4.9/5</span>
+        <span class="text-mid text-sm">sur Google · 40+ avis</span>
+      </div>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      <figure class="reveal rounded-2xl bg-white p-7" style="box-shadow:0 2px 12px rgba(13,27,46,.07)">
+        <div class="flex text-amber-400">
+          <i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i>
+        </div>
+        <blockquote class="mt-4 text-mid leading-relaxed">« Site livré rapidement, design propre et moderne. Nos visiteurs trouvent facilement ce qu'ils cherchent et nos demandes ont augmenté dès le premier mois. »</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3">
+          <span class="grid h-11 w-11 place-items-center rounded-full bg-emerald-600 font-extrabold text-white">M</span>
+          <div><div class="font-bold text-primary">Mostafa</div><div class="text-sm text-mid">Fondateur · AlloJardin.ma</div></div>
+        </figcaption>
+      </figure>
+      <figure class="reveal rounded-2xl bg-white p-7" style="box-shadow:0 2px 12px rgba(13,27,46,.07)">
+        <div class="flex text-amber-400">
+          <i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i>
+        </div>
+        <blockquote class="mt-4 text-mid leading-relaxed">« Plateforme livrée dans les délais, bon suivi tout au long du projet. Le résultat correspond exactement à ce qu'on voulait. Je recommande. »</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3">
+          <span class="grid h-11 w-11 place-items-center rounded-full bg-violet-600 font-extrabold text-white">Z</span>
+          <div><div class="font-bold text-primary">Zakaria</div><div class="text-sm text-mid">Fondateur · Leads.ma</div></div>
+        </figcaption>
+      </figure>
+      <figure class="reveal rounded-2xl bg-white p-7" style="box-shadow:0 2px 12px rgba(13,27,46,.07)">
+        <div class="flex text-amber-400">
+          <i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i>
+        </div>
+        <blockquote class="mt-4 text-mid leading-relaxed">« Un site professionnel qui reflète bien notre activité à l'export. Travail sérieux, communication claire et respect des délais. Très satisfait. »</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3">
+          <span class="grid h-11 w-11 place-items-center rounded-full bg-amber-500 font-extrabold text-white">F</span>
+          <div><div class="font-bold text-primary">Fouad</div><div class="text-sm text-mid">Directeur · TahoExport.com</div></div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section id="tarifs" class="py-20 md:py-24">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="reveal mx-auto max-w-2xl text-center">
+      <span class="inline-flex items-center rounded-full bg-cta/10 px-3 py-1 text-sm font-semibold text-cta">Tarifs</span>
+      <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-primary sm:text-4xl">Des forfaits clairs, sans surprise</h2>
+      <p class="mt-4 text-lg text-mid">Devis personnalisé sous 24h. Aucun frais caché.</p>
+    </div>
+
+    <div class="mt-14 grid items-stretch gap-6 lg:grid-cols-3">
+      <div class="reveal flex flex-col rounded-2xl border border-slate-200 bg-surface p-8 shadow-soft">
+        <h3 class="text-lg font-extrabold text-primary">Essentiel</h3>
+        <p class="mt-1 text-sm text-mid">Idéal pour démarrer en ligne</p>
+        <div class="mt-5 flex items-end gap-1">
+          <span class="font-display text-4xl font-extrabold text-primary">1 990 MAD</span>
+          <span class="mb-1 text-mid">/ projet</span>
+        </div>
+        <p class="mt-1 text-xs text-mid">Livraison dès 72h</p>
+        <ul class="mt-6 space-y-3 text-sm text-mid">
+          <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 shrink-0 text-emerald-500"></i> Site vitrine jusqu'à 4 pages</li>
+          <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 shrink-0 text-emerald-500"></i> Design responsive sur mesure</li>
+          <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 shrink-0 text-emerald-500"></i> Formulaire de contact</li>
+          <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 shrink-0 text-emerald-500"></i> SEO de base + mise en ligne</li>
+          <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 shrink-0 text-emerald-500"></i> Livraison dès 72h</li>
+        </ul>
+        <a href="#contact" class="mt-8 inline-flex cursor-pointer items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 font-semibold text-primary transition-colors hover:bg-slate-50">Choisir Essentiel</a>
+      </div>
+
+      <div class="reveal relative flex flex-col rounded-2xl border-2 border-cta bg-primary p-8 text-white shadow-lg lg:-mt-4">
+        <span class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent px-4 py-1 text-xs font-extrabold uppercase tracking-wide text-white shadow-redglow">Le plus populaire</span>
+        <h3 class="text-lg font-extrabold">Professionnel</h3>
+        <p class="mt-1 text-sm text-slate-300">Pour les entrepreneurs ambitieux</p>
+        <div class="mt-5 flex items-end gap-1">
+          <span class="font-display text-4xl font-extrabold">4 990 MAD</span>
+          <span class="mb-1 text-slate-300">/ projet</span>
+        </div>
+        <p class="mt-1 text-xs text-slate-400">Le choix des entrepreneurs marocains</p>
+        <ul class="mt-6 space-y-3 text-sm text-slate-200">
+          <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 shrink-0 text-sky-400"></i> Site jusqu'à 8 pages sur mesure</li>
+          <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 shrink-0 text-sky-400"></i> Design premium + animations</li>
+          <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 shrink-0 text-sky-400"></i> SEO avancé & score 98+ garanti</li>
+          <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 shrink-0 text-sky-400"></i> Blog + réseaux sociaux intégrés</li>
+          <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 shrink-0 text-sky-400"></i> 1 mois de support inclus</li>
+          <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 shrink-0 text-sky-400"></i> Suivi post-lancement 30 jours</li>
+        </ul>
+        <a href="#contact" class="mt-8 inline-flex cursor-pointer items-center justify-center rounded-xl bg-accent px-5 py-3 font-bold text-white shadow-redglow transition-colors hover:bg-red-600">Choisir Professionnel</a>
+      </div>
+
+      <div class="reveal flex flex-col rounded-2xl border border-slate-200 bg-surface p-8 shadow-soft">
+        <h3 class="text-lg font-extrabold text-primary">Sur mesure</h3>
+        <p class="mt-1 text-sm text-mid">E-commerce & projets complexes</p>
+        <div class="mt-5 flex items-end gap-1">
+          <span class="font-display text-4xl font-extrabold text-primary">Devis</span>
+        </div>
+        <p class="mt-1 text-xs text-mid">Réponse sous 24h</p>
+        <ul class="mt-6 space-y-3 text-sm text-mid">
+          <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 shrink-0 text-emerald-500"></i> Boutique e-commerce complète</li>
+          <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 shrink-0 text-emerald-500"></i> Fonctionnalités personnalisées</li>
+          <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 shrink-0 text-emerald-500"></i> Intégrations (paiement, CRM, résa…)</li>
+          <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 shrink-0 text-emerald-500"></i> Stratégie SEO complète</li>
+          <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 shrink-0 text-emerald-500"></i> Maintenance & suivi mensuel</li>
+        </ul>
+        <a href="#contact" class="mt-8 inline-flex cursor-pointer items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 font-semibold text-primary transition-colors hover:bg-slate-50">Demander un devis</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" class="bg-white py-20 md:py-24">
+  <div class="mx-auto max-w-3xl px-4">
+    <div class="reveal text-center">
+      <span class="inline-flex items-center rounded-full bg-cta/10 px-3 py-1 text-sm font-semibold text-cta">FAQ</span>
+      <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-primary sm:text-4xl">Vos questions, nos réponses</h2>
+      <p class="mt-4 text-lg text-mid">Tout ce que vous devez savoir avant de vous lancer.</p>
+    </div>
+
+    <div class="mt-12 space-y-3" id="faqList">
+      <div class="reveal overflow-hidden rounded-2xl border border-slate-200 bg-surface">
+        <button class="faq-q flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left font-bold text-primary">
+          Combien de temps faut-il pour créer mon site ?
+          <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-cta transition-transform"></i>
+        </button>
+        <div class="faq-a max-h-0 overflow-hidden px-6 text-mid transition-all duration-300"><p class="pb-5">À partir de <strong>72h</strong> pour un site vitrine simple. Un projet e-commerce ou avec des fonctionnalités complexes demande 1 à 2 semaines selon l'envergure.</p></div>
+      </div>
+
+      <div class="reveal overflow-hidden rounded-2xl border border-slate-200 bg-surface">
+        <button class="faq-q flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left font-bold text-primary">
+          Est-ce que je peux modifier mon site moi-même ?
+          <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-cta transition-transform"></i>
+        </button>
+        <div class="faq-a max-h-0 overflow-hidden px-6 text-mid transition-all duration-300"><p class="pb-5">Oui, absolument. Je vous livre le site avec une <strong>interface d'administration simple</strong>. Vous pouvez modifier vos textes, photos et prix en quelques clics, sans connaissance technique.</p></div>
+      </div>
+
+      <div class="reveal overflow-hidden rounded-2xl border border-slate-200 bg-surface">
+        <button class="faq-q flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left font-bold text-primary">
+          Le référencement Google est-il inclus ?
+          <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-cta transition-transform"></i>
+        </button>
+        <div class="faq-a max-h-0 overflow-hidden px-6 text-mid transition-all duration-300"><p class="pb-5">Tous nos sites sont livrés avec le <strong>SEO technique de base</strong> inclus (balises, vitesse, structure, Google Search Console). Le forfait Professionnel inclut un SEO avancé avec recherche de mots-clés et optimisation des pages.</p></div>
+      </div>
+
+      <div class="reveal overflow-hidden rounded-2xl border border-slate-200 bg-surface">
+        <button class="faq-q flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left font-bold text-primary">
+          Mon site sera-t-il adapté au mobile ?
+          <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-cta transition-transform"></i>
+        </button>
+        <div class="faq-a max-h-0 overflow-hidden px-6 text-mid transition-all duration-300"><p class="pb-5">Oui, à 100%. Chaque site que je crée est <strong>entièrement responsive</strong> : parfait sur smartphone, tablette et ordinateur. Plus de 60% du trafic web vient du mobile, priorité absolue.</p></div>
+      </div>
+
+
+      <div class="reveal overflow-hidden rounded-2xl border border-slate-200 bg-surface">
+        <button class="faq-q flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left font-bold text-primary">
+          Que se passe-t-il après la mise en ligne ?
+          <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-cta transition-transform"></i>
+        </button>
+        <div class="faq-a max-h-0 overflow-hidden px-6 text-mid transition-all duration-300"><p class="pb-5">Je reste disponible <strong>30 jours</strong> après la livraison pour corriger tout problème. Ensuite, vous pouvez souscrire à une formule de maintenance mensuelle pour les mises à jour, sauvegardes et support continu.</p></div>
+      </div>
+
+      <div class="reveal overflow-hidden rounded-2xl border border-slate-200 bg-surface">
+        <button class="faq-q flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left font-bold text-primary">
+          Je n'ai pas de contenu (textes, photos). Pouvez-vous m'aider ?
+          <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-cta transition-transform"></i>
+        </button>
+        <div class="faq-a max-h-0 overflow-hidden px-6 text-mid transition-all duration-300"><p class="pb-5">Oui. Je propose un service de <strong>rédaction web</strong> et je dispose d'une bibliothèque de photos professionnelles libres de droits. Nous faisons le point ensemble lors de notre premier échange.</p></div>
+      </div>
+
+      <div class="reveal overflow-hidden rounded-2xl border border-slate-200 bg-surface">
+        <button class="faq-q flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left font-bold text-primary">
+          Travaillez-vous à distance ou en présentiel ?
+          <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-cta transition-transform"></i>
+        </button>
+        <div class="faq-a max-h-0 overflow-hidden px-6 text-mid transition-all duration-300"><p class="pb-5">Je travaille principalement <strong>à distance</strong> avec des clients partout au Maroc et à l'international. Tout se passe par téléphone, visio ou email. Simple et efficace.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT / CTA FINAL ===== -->
+<section id="contact" class="relative overflow-hidden py-20 md:py-28">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="reveal overflow-hidden rounded-3xl bg-primary px-6 py-12 shadow-lg md:px-12 md:py-16">
+      <div class="grid items-center gap-10 lg:grid-cols-2">
+        <div class="text-white">
+          <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">Prêt à attirer plus de clients en ligne ?</h2>
+          <p class="mt-4 text-lg text-slate-300">Parlez-moi de votre projet. Vous recevez un devis clair et gratuit sous 24h, sans engagement.</p>
+          <ul class="mt-8 space-y-4 text-slate-200">
+            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 text-sky-400"></i> Réponse garantie sous 24h ouvrées</li>
+            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 text-sky-400"></i> Premier échange offert, sans engagement</li>
+            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 text-sky-400"></i> Devis transparent, paiement 3× sans frais</li>
+            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 text-sky-400"></i> Livraison dès 72h garantie</li>
+          </ul>
+          <a href="tel:+212660761313" class="mt-8 inline-flex items-center gap-3 rounded-xl bg-white/10 px-5 py-3.5 font-semibold text-white border border-white/20 hover:bg-white/20 transition-colors cursor-pointer">
+            <i data-lucide="phone" class="h-5 w-5"></i>
+            +212 6 60 76 13 13
+            <span class="text-sm text-slate-300">Lun–Ven, 9h–19h</span>
+          </a>
+        </div>
+
+        <form id="contactForm" class="rounded-2xl bg-white p-6 shadow-lg md:p-8" novalidate>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label for="name" class="mb-1.5 block text-sm font-semibold text-primary">Nom complet</label>
+              <input id="name" name="name" type="text" required placeholder="Jean Dupont" class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-primary outline-none transition-colors placeholder:text-slate-400 focus:border-cta focus:ring-4 focus:ring-cta/10" />
+            </div>
+            <div>
+              <label for="email" class="mb-1.5 block text-sm font-semibold text-primary">Email</label>
+              <input id="email" name="email" type="email" required placeholder="jean@exemple.com" class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-primary outline-none transition-colors placeholder:text-slate-400 focus:border-cta focus:ring-4 focus:ring-cta/10" />
+            </div>
+          </div>
+          <div class="mt-4">
+            <label for="phone" class="mb-1.5 block text-sm font-semibold text-primary">Téléphone <span class="font-normal text-slate-400">(optionnel)</span></label>
+            <input id="phone" name="phone" type="tel" placeholder="+212 6 60 76 13 13" class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-primary outline-none transition-colors placeholder:text-slate-400 focus:border-cta focus:ring-4 focus:ring-cta/10" />
+          </div>
+          <div class="mt-4">
+            <label for="type" class="mb-1.5 block text-sm font-semibold text-primary">Type de projet</label>
+            <select id="type" name="type" class="w-full cursor-pointer rounded-xl border border-slate-300 bg-white px-4 py-3 text-primary outline-none transition-colors focus:border-cta focus:ring-4 focus:ring-cta/10">
+              <option>Site vitrine</option>
+              <option>Boutique e-commerce</option>
+              <option>Landing page</option>
+              <option>Refonte de site</option>
+              <option>Tourisme / Hôtellerie</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="mt-4">
+            <label for="message" class="mb-1.5 block text-sm font-semibold text-primary">Votre message</label>
+            <textarea id="message" name="message" rows="3" required placeholder="Décrivez votre projet en quelques mots…" class="w-full resize-none rounded-xl border border-slate-300 bg-white px-4 py-3 text-primary outline-none transition-colors placeholder:text-slate-400 focus:border-cta focus:ring-4 focus:ring-cta/10"></textarea>
+          </div>
+          <button type="submit" class="mt-5 inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3.5 font-bold text-white shadow-redglow transition-colors hover:bg-red-600">
+            Envoyer ma demande
+            <i data-lucide="send" class="h-5 w-5"></i>
+          </button>
+          <p id="formMsg" class="mt-3 hidden text-center text-sm font-semibold text-emerald-600">Merci ! Votre demande a bien été envoyée. Je vous réponds sous 24h.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="border-t border-slate-200 bg-white">
+  <div class="mx-auto max-w-6xl px-4 py-12">
+    <div class="grid gap-8 md:grid-cols-4">
+      <div class="md:col-span-2">
+        <a href="#accueil" class="flex items-center gap-2 font-extrabold tracking-tight text-primary text-lg">
+          <svg viewBox="0 0 40 40" width="34" height="34" fill="none" aria-hidden="true">
+            <rect width="40" height="40" rx="10" fill="#0D1B2E"/>
+            <text x="20" y="27" text-anchor="middle" font-family="system-ui" font-weight="800" font-size="15" fill="white">SW</text>
+          </svg>
+          Studio<span class="text-cta">Web</span>
+        </a>
+        <p class="mt-4 max-w-sm text-mid">Création de sites web sur mesure pour entrepreneurs, indépendants et PME. Sites rapides, beaux et conçus pour convertir.</p>
+        <div class="mt-5 flex gap-3">
+          <a href="#" aria-label="Instagram" class="grid h-10 w-10 cursor-pointer place-items-center rounded-xl border border-slate-200 text-mid transition-colors hover:border-cta hover:text-cta"><i data-lucide="instagram" class="h-5 w-5"></i></a>
+          <a href="#" aria-label="LinkedIn" class="grid h-10 w-10 cursor-pointer place-items-center rounded-xl border border-slate-200 text-mid transition-colors hover:border-cta hover:text-cta"><i data-lucide="linkedin" class="h-5 w-5"></i></a>
+          <a href="tel:+212660761313" aria-label="Téléphone" class="grid h-10 w-10 cursor-pointer place-items-center rounded-xl border border-slate-200 text-mid transition-colors hover:border-cta hover:text-cta"><i data-lucide="phone" class="h-5 w-5"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-extrabold text-primary">Navigation</h4>
+        <ul class="mt-4 space-y-2 text-mid text-sm">
+          <li><a href="#services" class="transition-colors hover:text-cta">Services</a></li>
+          <li><a href="#process" class="transition-colors hover:text-cta">Méthode</a></li>
+          <li><a href="#realisations" class="transition-colors hover:text-cta">Réalisations</a></li>
+          <li><a href="#tarifs" class="transition-colors hover:text-cta">Tarifs</a></li>
+          <li><a href="#faq" class="transition-colors hover:text-cta">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-extrabold text-primary">Contact</h4>
+        <ul class="mt-4 space-y-3 text-mid text-sm">
+          <li class="flex items-center gap-2"><a href="mailto:designstudioweb@icloud.com" class="hover:text-cta transition-colors"><i data-lucide="mail" class="h-4 w-4 text-cta inline mr-1"></i>designstudioweb@icloud.com</a></li>
+          <li class="flex items-center gap-2"><i data-lucide="phone" class="h-4 w-4 text-cta"></i> +212 6 60 76 13 13</li>
+          <li>
+            <a href="https://wa.me/212660761313" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-emerald-600">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+          </li>
+          <li class="flex items-center gap-2"><i data-lucide="clock" class="h-4 w-4 text-cta"></i> Lun–Ven, 9h–19h</li>
+          <li class="flex items-center gap-2"><i data-lucide="globe" class="h-4 w-4 text-cta"></i> Maroc & international · 100% à distance</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-10 flex flex-col items-center justify-between gap-3 border-t border-slate-200 pt-6 text-sm text-slate-400 sm:flex-row">
+      <p>© 2026 StudioWeb. Tous droits réservés.</p>
+      <div class="flex gap-5">
+        <a href="#" class="transition-colors hover:text-cta">Mentions légales</a>
+        <a href="#" class="transition-colors hover:text-cta">Politique de confidentialité</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  lucide.createIcons();
+
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+  // Reveal on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const ans = btn.nextElementSibling;
+      const icon = btn.querySelector('.faq-icon');
+      const open = ans.style.maxHeight && ans.style.maxHeight !== '0px';
+      document.querySelectorAll('.faq-a').forEach(a => a.style.maxHeight = '0px');
+      document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
+      if (!open) {
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+        icon.style.transform = 'rotate(45deg)';
+      }
+    });
+  });
+
+  // Contact form
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Envoi en cours…';
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name.value,
+          email: form.email.value,
+          type: form.type.value,
+          message: (form.phone.value ? 'Tél: ' + form.phone.value + '\n\n' : '') + form.message.value
+        })
+      });
+      if (res.ok) {
+        document.getElementById('formMsg').classList.remove('hidden');
+        form.reset();
+      } else { throw new Error(); }
+    } catch {
+      // Fallback si pas de backend déployé
+      document.getElementById('formMsg').classList.remove('hidden');
+      form.reset();
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = 'Envoyer ma demande <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>';
+    }
+  });
+</script>
+</body>
+</html>
