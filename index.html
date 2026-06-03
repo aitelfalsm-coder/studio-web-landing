@@ -3,13 +3,85 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>StudioWeb — Agence Web 3D Premium | Sites qui transforment</title>
-  <meta name="description" content="StudioWeb conçoit des sites web modernes, rapides et performants qui convertissent vos visiteurs en clients. Devis gratuit sous 24h."/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+  <!-- ── SEO ── -->
+  <title>StudioWeb Maroc — Agence Web Premium | Sites 3D qui convertissent</title>
+  <meta name="description" content="StudioWeb Maroc conçoit des sites web modernes, rapides et performants à partir de 1990 MAD. Livraison 14 jours, SEO inclus. Devis gratuit sous 24h."/>
+  <meta name="keywords" content="agence web maroc, création site web casablanca, site web professionnel maroc, agence digitale, web design maroc"/>
+  <meta name="author" content="StudioWeb Maroc"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="theme-color" content="#0A0A0A"/>
+  <link rel="canonical" href="https://studioweb.ma/"/>
+
+  <!-- ── OPEN GRAPH ── -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://studioweb.ma/"/>
+  <meta property="og:title" content="StudioWeb Maroc — Agence Web Premium"/>
+  <meta property="og:description" content="Sites web modernes, rapides et performants à partir de 1990 MAD. Livraison 14 jours, SEO inclus."/>
+  <meta property="og:locale" content="fr_MA"/>
+  <meta property="og:site_name" content="StudioWeb"/>
+
+  <!-- ── TWITTER CARD ── -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="StudioWeb Maroc — Agence Web Premium"/>
+  <meta name="twitter:description" content="Sites web à partir de 1990 MAD. Livraison 14 jours, SEO inclus. Devis gratuit."/>
+
+  <!-- ── FAVICON ── -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%230A0A0A'/%3E%3Ctext x='20' y='27' text-anchor='middle' font-family='system-ui' font-weight='800' font-size='15' fill='%2300D4FF'%3ESW%3C/text%3E%3C/svg%3E"/>
+
+  <!-- ── PERFORMANCE HINTS ── -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="dns-prefetch" href="https://unpkg.com"/>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"/>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
+
+  <!-- ── FONTS (display=swap pour éviter FOIT) ── -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- ── SCRIPTS 3D (render-blocking intentionnel — nécessaire pour WebGL) ── -->
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js" crossorigin="anonymous"></script>
+
+  <!-- ── JSON-LD STRUCTURED DATA ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "StudioWeb Maroc",
+    "description": "Agence web premium spécialisée dans la création de sites web modernes, rapides et performants au Maroc.",
+    "url": "https://studioweb.ma",
+    "telephone": "+212660761313",
+    "email": "designstudioweb@icloud.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Casablanca",
+      "addressRegion": "Grand Casablanca",
+      "addressCountry": "MA"
+    },
+    "areaServed": ["Casablanca", "Rabat", "Marrakech", "Maroc"],
+    "priceRange": "1990-3990 MAD",
+    "openingHours": "Mo-Fr 09:00-19:00",
+    "sameAs": [
+      "https://www.instagram.com/studioweb"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "40"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services Web",
+      "itemListElement": [
+        { "@type": "Offer", "name": "Site vitrine", "price": "1990", "priceCurrency": "MAD" },
+        { "@type": "Offer", "name": "Site professionnel", "price": "3990", "priceCurrency": "MAD" }
+      ]
+    }
+  }
+  </script>
   <style>
     :root{--dark:#0A0A0A;--dark2:#0d0d14;--blue:#00D4FF;--violet:#7B61FF;--white:#ffffff;--glass:rgba(255,255,255,.04);}
     *{box-sizing:border-box;margin:0;padding:0;}

@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://studioweb.ma/sitemap.xml
+
+# Block private folders
+Disallow: /api/
+Disallow: /creatives/exports/
+Disallow: /.vercel/
