@@ -19,7 +19,7 @@ server.listen(9191, async () => {
     { label: 'hero-load',       url: 'http://localhost:9191/', wait: 4500, scroll: 0,    w: 1440, h: 900 },
     { label: 'hero-mobile',     url: 'http://localhost:9191/', wait: 4500, scroll: 0,    w: 390,  h: 844 },
     { label: 'services-scroll', url: 'http://localhost:9191/', wait: 4500, scroll: 1000, w: 1440, h: 900 },
-    { label: 'portfolio',       url: 'http://localhost:9191/', wait: 4500, scroll: 2200, w: 1440, h: 900 },
+    { label: 'portfolio',       url: 'http://localhost:9191/', wait: 5000, scroll: 1850, w: 1440, h: 900 },
     { label: 'contact',         url: 'http://localhost:9191/', wait: 4500, scroll: 4500, w: 1440, h: 900 },
   ];
 
