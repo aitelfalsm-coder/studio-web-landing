@@ -604,10 +604,8 @@
 
   
   /* ── CUSTOM CURSOR ── */
-  @media(hover:hover) and (pointer:fine){
-    body{cursor:none;}
-    a,button,[role="button"],.svc,.port-item,.blog-item,.tarif-card,.testi-card,.cdet{cursor:none;}
-  }
+  body{cursor:none;}
+  a,button,[role="button"],.svc,.port-item,.blog-item,.tarif-card,.testi-card,.cdet,.blog-cat,.nav-logo,.nav-cta,.ham,.tarif-cta,.fsub,.btn-p,.btn-s{cursor:none;}
   #cursor-dot{
     position:fixed;width:8px;height:8px;border-radius:50%;
     background:var(--blue);pointer-events:none;z-index:9999;
@@ -1485,6 +1483,10 @@ if(!isMobile){
     if(e.gamma!=null){mx=Math.max(-1,Math.min(1,e.gamma/25));my=Math.max(-1,Math.min(1,(e.beta-45)/25));}
   },{passive:true});
   document.getElementById('cursor-glow').style.display='none';
+  document.getElementById('cursor-dot').style.display='none';
+  document.getElementById('cursor-ring').style.display='none';
+  document.body.style.cursor='auto';
+  document.querySelectorAll('a,button').forEach(el=>el.style.cursor='');
 }
 
 /* ══════════════════════════════════════
