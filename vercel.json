@@ -84,6 +84,14 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{"type": "host", "value": "www.studioweb.ma"}],
+      "destination": "https://studioweb.ma/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/sitemap.xml",
