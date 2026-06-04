@@ -602,6 +602,32 @@
     transition:opacity .3s;
   }
 
+  
+  /* ── CUSTOM CURSOR ── */
+  @media(hover:hover) and (pointer:fine){
+    body{cursor:none;}
+    a,button,[role="button"],.svc,.port-item,.blog-item,.tarif-card,.testi-card,.cdet{cursor:none;}
+  }
+  #cursor-dot{
+    position:fixed;width:8px;height:8px;border-radius:50%;
+    background:var(--blue);pointer-events:none;z-index:9999;
+    transform:translate(-50%,-50%);
+    box-shadow:0 0 10px rgba(0,212,255,.9),0 0 20px rgba(0,212,255,.4);
+    transition:width .18s ease,height .18s ease,opacity .25s ease,background .2s ease;
+    will-change:transform;
+  }
+  #cursor-ring{
+    position:fixed;width:38px;height:38px;border-radius:50%;
+    border:1.5px solid rgba(0,212,255,.55);pointer-events:none;z-index:9998;
+    transform:translate(-50%,-50%);
+    transition:width .2s ease,height .2s ease,border-color .2s ease,opacity .3s ease;
+    will-change:transform;
+  }
+  body.cur-hover #cursor-dot{width:6px;height:6px;opacity:.6;}
+  body.cur-hover #cursor-ring{width:58px;height:58px;border-color:rgba(0,212,255,.9);border-width:1.5px;}
+  body.cur-click #cursor-dot{width:4px;height:4px;background:var(--accent);}
+  body.cur-click #cursor-ring{width:28px;height:28px;border-color:var(--accent);}
+  body.cur-hidden #cursor-dot,body.cur-hidden #cursor-ring{opacity:0;}
   /* ── REVEAL ── */
   .reveal{opacity:0;transform:translateY(28px);}
   .reveal.in,.reveal[style*="opacity: 1"]{opacity:1;transform:none;}
@@ -674,6 +700,8 @@
 ────────────────────────────────────────── -->
 <canvas id="c" aria-hidden="true"></canvas>
 <div id="cursor-glow" aria-hidden="true"></div>
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
 
 <!-- ──────────────────────────────────────────
      NAV
@@ -1418,9 +1446,40 @@ if(!isMobile){
   });
   // Cursor glow
   const cursorGlow=document.getElementById('cursor-glow');
+  const cursorDot=document.getElementById('cursor-dot');
+  const cursorRing=document.getElementById('cursor-ring');
+  let cx=W()/2,cy=H()/2,rx=W()/2,ry=H()/2;
+
   document.addEventListener('mousemove',e=>{
-    gsap.to(cursorGlow,{left:e.clientX,top:e.clientY,duration:.6,ease:'power2.out'});
+    cx=e.clientX; cy=e.clientY;
+    // Dot follows instantly
+    gsap.to(cursorDot,{left:cx,top:cy,duration:.05,ease:'none'});
+    // Ambient glow follows slowly
+    gsap.to(cursorGlow,{left:cx,top:cy,duration:.9,ease:'power2.out'});
   });
+
+  // Ring: smooth lerp via RAF
+  (function lerpRing(){
+    rx+=(cx-rx)*.14; ry+=(cy-ry)*.14;
+    cursorRing.style.left=rx+'px';
+    cursorRing.style.top=ry+'px';
+    requestAnimationFrame(lerpRing);
+  })();
+
+  // Hover detection
+  const interactiveEls='a,button,[role="button"],.svc,.port-item,.blog-item,.tarif-card,.cdet,.testi-card';
+  document.addEventListener('mouseover',e=>{
+    if(e.target.closest(interactiveEls)) document.body.classList.add('cur-hover');
+  });
+  document.addEventListener('mouseout',e=>{
+    if(e.target.closest(interactiveEls)) document.body.classList.remove('cur-hover');
+  });
+  document.addEventListener('mousedown',()=>document.body.classList.add('cur-click'));
+  document.addEventListener('mouseup',()=>document.body.classList.remove('cur-click'));
+
+  // Hide when leaving window
+  document.addEventListener('mouseleave',()=>document.body.classList.add('cur-hidden'));
+  document.addEventListener('mouseenter',()=>document.body.classList.remove('cur-hidden'));
 } else {
   window.addEventListener('deviceorientation',e=>{
     if(e.gamma!=null){mx=Math.max(-1,Math.min(1,e.gamma/25));my=Math.max(-1,Math.min(1,(e.beta-45)/25));}
