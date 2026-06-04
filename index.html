@@ -127,7 +127,23 @@
     padding:0 60px;position:relative;
     pointer-events:none;
   }
-  .scene-section > *{pointer-events:all;}
+  /* Fond sombre derrière le texte pour lisibilité sur la scène 3D */
+  .scene-section::before{
+    content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+    background:radial-gradient(ellipse 80% 70% at 30% 50%,rgba(5,5,5,.72) 0%,rgba(5,5,5,.45) 55%,transparent 100%);
+  }
+  #s-hero::before{
+    background:radial-gradient(ellipse 90% 80% at 50% 50%,rgba(5,5,5,.55) 0%,rgba(5,5,5,.25) 60%,transparent 100%);
+  }
+  #s-portfolio::before,#s-stats::before,#s-testimonials::before,#s-contact::before{
+    background:radial-gradient(ellipse 100% 100% at 40% 50%,rgba(5,5,5,.80) 0%,rgba(5,5,5,.55) 55%,transparent 100%);
+  }
+  .scene-section > *{pointer-events:all;position:relative;z-index:1;}
+
+  /* Text shadow pour lisibilité */
+  .sec-title,.hero-title{text-shadow:0 2px 24px rgba(0,0,0,.7);}
+  .sec-sub,.hero-sub{text-shadow:0 1px 12px rgba(0,0,0,.6);}
+  .svc h3,.svc p{text-shadow:0 1px 8px rgba(0,0,0,.5);}
 
   /* ── HERO ── */
   #s-hero{justify-content:center;text-align:center;}
@@ -220,13 +236,15 @@
   /* ── SERVICES ── */
   #s-services{justify-content:flex-start;padding-top:80px;}
   .services-layout{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
-  .services-left{position:sticky;top:30vh;}
+  .services-left{position:sticky;top:30vh;background:rgba(5,5,15,.6);border-radius:20px;padding:24px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
   .services-cards{display:flex;flex-direction:column;gap:16px;margin-top:20px;}
   .svc{
-    background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+    background:rgba(5,5,15,.75);border:1px solid rgba(0,212,255,.15);
     border-radius:20px;padding:28px 32px;cursor:pointer;
     transition:all .4s cubic-bezier(.16,1,.3,1);
     position:relative;overflow:hidden;
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
   }
   .svc::before{
     content:'';position:absolute;top:0;left:0;right:0;height:1px;
@@ -319,9 +337,10 @@
   }
   .testi-card{
     flex-shrink:0;width:calc(33.333% - 14px);
-    background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+    background:rgba(5,5,15,.80);border:1px solid rgba(0,212,255,.12);
     border-radius:24px;padding:32px;
     transition:border-color .3s,transform .4s;
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   }
   .testi-card:hover{border-color:rgba(0,212,255,.3);transform:translateY(-6px);}
   .testi-card.lit{border-color:rgba(0,212,255,.35);}
@@ -942,11 +961,11 @@ scene.add(laptopG);
 ══════════════════════════════════════ */
 const panels = [];
 const panelData = [
-  {x:-3.5, y:1.2, z:-.5, rx:0, ry:.5, w:2.2, h:1.4, col:0x00D4FF},
-  {x:-2.8, y:-.8, z:.5,  rx:0, ry:.4, w:1.6, h:1.0, col:0x7B61FF},
-  {x: 3.5, y:.8,  z:.2,  rx:0, ry:-.4, w:1.8, h:1.2, col:0x00D4FF},
-  {x: 3.0, y:-.9, z:1.0, rx:0, ry:-.3, w:1.3, h:.85, col:0x70F0FF},
-  {x: 0,   y:2.5, z:-2,  rx:.1, ry:0, w:2.0, h:1.2, col:0x7B61FF},
+  {x:-5.5, y:1.2, z:-3, rx:0, ry:.6, w:2.2, h:1.4, col:0x00D4FF},
+  {x:-4.8, y:-.8, z:-2, rx:0, ry:.4, w:1.6, h:1.0, col:0x7B61FF},
+  {x: 5.5, y:.8,  z:-3, rx:0, ry:-.6, w:1.8, h:1.2, col:0x00D4FF},
+  {x: 4.8, y:-.9, z:-2, rx:0, ry:-.4, w:1.3, h:.85, col:0x70F0FF},
+  {x: 0,   y:3.5, z:-4, rx:.2, ry:0, w:2.0, h:1.2, col:0x7B61FF},
 ];
 panelData.forEach(d=>{
   const mat = makeHoloMat(d.col, 0.12);
@@ -1202,14 +1221,33 @@ function initHeroAnim(){
 }
 
 /* ══════════════════════════════════════
-   SCROLL REVEALS
+   SCROLL REVEALS — GSAP + IO fallback
 ══════════════════════════════════════ */
+// IntersectionObserver filet de sécurité
+const revealIO = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      gsap.to(e.target,{opacity:1,y:0,duration:.8,ease:'power3.out'});
+      revealIO.unobserve(e.target);
+    }
+  });
+},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+
 gsap.utils.toArray('.reveal').forEach(el=>{
-  gsap.to(el,{
-    opacity:1,y:0,duration:.9,ease:'power3.out',
-    scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'}
+  revealIO.observe(el); // IO toujours actif
+  ScrollTrigger.create({ // GSAP en plus
+    trigger:el,start:'top 90%',once:true,
+    onEnter:()=>gsap.to(el,{opacity:1,y:0,duration:.9,ease:'power3.out'})
   });
 });
+
+// Force reveal si section déjà visible au chargement
+setTimeout(()=>{
+  document.querySelectorAll('.reveal').forEach(el=>{
+    const r=el.getBoundingClientRect();
+    if(r.top < window.innerHeight*.95) gsap.set(el,{opacity:1,y:0});
+  });
+},600);
 
 // Stat counters
 gsap.utils.toArray('.stat-n[data-target]').forEach(el=>{
