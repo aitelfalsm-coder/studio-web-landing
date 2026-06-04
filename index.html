@@ -9,7 +9,13 @@
   <link rel="canonical" href="https://studioweb.ma/"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="dns-prefetch" href="https://unpkg.com"/>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"/>
+  <!-- Fonts NON-BLOQUANTES — libère le LCP -->
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800&family=Inter:wght@400;600;700&display=optional"
+    onload="this.onload=null;this.rel='stylesheet'"/>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800&family=Inter:wght@400;600;700&display=optional"/></noscript>
 
   <style>
   /* ═══════════════════════════════════════════
@@ -54,7 +60,7 @@
   }
   .intro-tag{
     font-size:12px;letter-spacing:4px;text-transform:uppercase;
-    color:rgba(255,255,255,.4);margin-top:12px;opacity:0;position:relative;z-index:1;
+    color:rgba(255,255,255,.7);margin-top:12px;opacity:0;position:relative;z-index:1;
   }
 
   /* ═══════════════════════════════════════════
@@ -87,7 +93,7 @@
   .nav-logo span{color:var(--blue);}
   .nav-links{display:flex;gap:32px;list-style:none;}
   .nav-links a{
-    color:rgba(255,255,255,.6);text-decoration:none;
+    color:rgba(255,255,255,.8);text-decoration:none;
     font-size:14px;font-weight:500;letter-spacing:.3px;
     transition:color .2s;
   }
@@ -352,7 +358,7 @@
     display:grid;place-items:center;font-weight:800;font-size:14px;flex-shrink:0;
   }
   .tname{font-weight:700;font-size:13px;}
-  .trole{font-size:11px;color:rgba(255,255,255,.4);}
+  .trole{font-size:11px;color:rgba(255,255,255,.65);}
   .testi-nav{display:flex;gap:8px;margin-top:28px;}
   .tdot{
     width:8px;height:8px;border-radius:50%;
@@ -426,7 +432,7 @@
     display:grid;place-items:center;flex-shrink:0;}
   .ci svg{width:15px;height:15px;color:var(--blue);}
   .ct{font-size:13px;font-weight:600;}
-  .cs{font-size:11px;color:rgba(255,255,255,.35);}
+  .cs{font-size:11px;color:rgba(255,255,255,.65);}
 
   /* ── FOOTER ── */
   footer{
@@ -437,9 +443,9 @@
   }
   .flogo{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:18px;}
   .flogo span{color:var(--blue);}
-  .fcopy{font-size:13px;color:rgba(255,255,255,.3);}
+  .fcopy{font-size:13px;color:rgba(255,255,255,.6);}
   .flinks{display:flex;gap:20px;}
-  .flinks a{font-size:13px;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;}
+  .flinks a{font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s;}
   .flinks a:hover{color:var(--blue);}
 
   /* ── CURSOR GLOW ── */
@@ -670,19 +676,19 @@
           <div class="term-prompt">Devis gratuit · Réponse sous 24h</div>
           <form class="cform" id="cform" novalidate>
             <div class="form-row">
-              <div class="fg"><label>Nom</label><input name="name" type="text" placeholder="Votre nom" required/></div>
-              <div class="fg"><label>Email</label><input name="email" type="email" placeholder="vous@exemple.com" required/></div>
+              <div class="fg"><label for="f-nom">Nom</label><input id="f-nom" name="name" type="text" placeholder="Votre nom" required autocomplete="name"/></div>
+              <div class="fg"><label for="f-email">Email</label><input id="f-email" name="email" type="email" placeholder="vous@exemple.com" required autocomplete="email"/></div>
             </div>
-            <div class="fg"><label>Téléphone</label><input name="phone" type="tel" placeholder="+212 6 00 00 00 00"/></div>
+            <div class="fg"><label for="f-tel">Téléphone</label><input id="f-tel" name="phone" type="tel" placeholder="+212 6 00 00 00 00" autocomplete="tel"/></div>
             <div class="fg">
-              <label>Type de projet</label>
-              <select name="type">
+              <label for="proj-type">Type de projet</label>
+              <select id="proj-type" name="type" aria-label="Type de projet">
                 <option>Site vitrine</option><option>E-commerce</option>
                 <option>Application web</option><option>Landing page</option>
                 <option>Refonte</option><option>Autre</option>
               </select>
             </div>
-            <div class="fg"><label>Message</label><textarea name="message" placeholder="Décrivez votre projet…" required></textarea></div>
+            <div class="fg"><label for="f-msg">Message</label><textarea id="f-msg" name="message" placeholder="Décrivez votre projet…" required></textarea></div>
             <button type="submit" class="fsub" id="csubmit">Envoyer ma demande →</button>
             <div id="fmsg">✓ Demande envoyée. Je vous réponds sous 24h.</div>
             <div id="fmsg-err" style="display:none;text-align:center;font-size:13px;font-weight:600;color:#EF4444;margin-top:8px;font-family:monospace;">✗ Erreur. Veuillez réessayer ou écrire directement.</div>
@@ -745,12 +751,34 @@
 <!-- ══════════════════════════════════════════════
      THREE.JS + POST-PROCESSING CDNs
 ══════════════════════════════════════════════ -->
-<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
-
+<!-- Scripts chargés dynamiquement APRÈS le rendu initial — libère FCP/LCP/TBT -->
 <script>
-document.addEventListener('DOMContentLoaded', function(){
+(function(){
+  // Preload silencieux pendant rendu HTML
+  function preload(src){ const l=document.createElement('link');l.rel='preload';l.as='script';l.href=src;document.head.appendChild(l); }
+  preload('https://unpkg.com/three@0.160.0/build/three.min.js');
+  preload('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js');
+  preload('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js');
+
+  function loadScript(src){ return new Promise(r=>{ const s=document.createElement('script');s.src=src;s.onload=r;document.body.appendChild(s); }); }
+
+  // Chargement séquentiel après premier paint
+  function initLibs(){
+    loadScript('https://unpkg.com/three@0.160.0/build/three.min.js')
+      .then(()=>loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js'))
+      .then(()=>loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js'))
+      .then(()=>initApp());
+  }
+
+  // Démarre après le premier paint (requestIdleCallback ou setTimeout)
+  if('requestIdleCallback' in window){
+    requestIdleCallback(initLibs, {timeout:2000});
+  } else {
+    setTimeout(initLibs, 100);
+  }
+})();
+
+function initApp(){
 gsap.registerPlugin(ScrollTrigger);
 
 // ── États initiaux hero définis via JS (pas CSS) ──
@@ -1378,7 +1406,7 @@ hamBtn.addEventListener('click',()=>{
 document.querySelectorAll('.mm-l').forEach(a=>a.addEventListener('click',closeMob));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMob();});
 
-});// DOMContentLoaded
+}// end initApp
 </script>
 </body>
 </html>
