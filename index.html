@@ -407,6 +407,56 @@
   }
   .tdot.on{width:28px;border-radius:4px;background:var(--blue);}
 
+  /* ── TARIFS ── */
+  #s-tarifs{flex-direction:column;align-items:flex-start;padding-top:80px;}
+  .tarifs-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+    width:100%;margin-top:56px;align-items:start;
+  }
+  .tarif-card{
+    background:rgba(5,5,15,.80);border:1px solid rgba(0,212,255,.12);
+    border-radius:24px;padding:36px 32px;
+    transition:border-color .3s,transform .4s;
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    display:flex;flex-direction:column;
+  }
+  .tarif-card:hover{border-color:rgba(0,212,255,.3);transform:translateY(-6px);}
+  .tarif-card.featured{
+    border-color:rgba(0,212,255,.5);
+    background:rgba(0,212,255,.05);
+    box-shadow:0 0 60px rgba(0,212,255,.12);
+    transform:translateY(-8px);
+  }
+  .tarif-card.featured:hover{transform:translateY(-14px);}
+  .tarif-badge{
+    display:inline-flex;align-items:center;gap:6px;
+    background:linear-gradient(135deg,var(--blue),var(--violet));
+    border-radius:50px;padding:4px 12px;
+    font-size:11px;font-weight:700;letter-spacing:.5px;
+    margin-bottom:20px;width:fit-content;
+  }
+  .tarif-name{font-size:12px;font-weight:700;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;}
+  .tarif-price{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,44px);letter-spacing:-1px;line-height:1;margin-bottom:4px;}
+  .tarif-price span{font-size:16px;font-weight:600;color:rgba(255,255,255,.45);}
+  .tarif-sub{font-size:12px;color:rgba(255,255,255,.3);margin-bottom:24px;}
+  .tarif-sep{width:100%;height:1px;background:rgba(0,212,255,.1);margin-bottom:24px;}
+  .tarif-feats{list-style:none;display:flex;flex-direction:column;gap:11px;flex:1;margin-bottom:32px;}
+  .tarif-feats li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.65);line-height:1.45;}
+  .tarif-feats li::before{content:'✓';color:var(--blue);font-weight:800;flex-shrink:0;margin-top:1px;}
+  .tarif-cta{
+    display:block;width:100%;text-align:center;padding:14px;border-radius:50px;
+    font-size:14px;font-weight:700;cursor:pointer;
+    font-family:'Space Grotesk',sans-serif;transition:all .3s;
+    text-decoration:none;border:none;
+  }
+  .tarif-cta.outline{border:1px solid rgba(0,212,255,.35);color:var(--blue);background:transparent;}
+  .tarif-cta.outline:hover{border-color:var(--blue);background:rgba(0,212,255,.06);}
+  .tarif-cta.solid{
+    background:linear-gradient(135deg,var(--blue),var(--violet));color:#fff;
+    box-shadow:0 0 30px rgba(0,212,255,.25);
+  }
+  .tarif-cta.solid:hover{box-shadow:0 0 50px rgba(0,212,255,.5);transform:translateY(-2px);}
+
   /* ── CONTACT ── */
   #s-contact{padding-top:80px;padding-bottom:80px;}
   .contact-grid{
@@ -520,6 +570,8 @@
     .stat-box:nth-child(1),.stat-box:nth-child(2){border-bottom:1px solid rgba(255,255,255,.07);}
     .contact-grid{grid-template-columns:1fr;gap:40px;}
     .testi-card{width:calc(80% - 14px);}
+    .tarifs-grid{grid-template-columns:1fr;max-width:480px;}
+    .tarif-card.featured{transform:none;}
     footer{padding:24px 20px;}
     .flinks{display:none;}
   }
@@ -570,6 +622,7 @@
     <li><a href="#s-services">Services</a></li>
     <li><a href="#s-portfolio">Portfolio</a></li>
     <li><a href="#s-stats">Résultats</a></li>
+    <li><a href="#s-tarifs">Tarifs</a></li>
     <li><a href="#s-contact">Contact</a></li>
   </ul>
   <button class="nav-cta" onclick="document.getElementById('s-contact').scrollIntoView({behavior:'smooth'})">Démarrer →</button>
@@ -584,6 +637,7 @@
   <a href="#s-portfolio" class="mm-l">Portfolio</a>
   <a href="#s-stats" class="mm-l">Résultats</a>
   <a href="#s-testimonials" class="mm-l">Témoignages</a>
+  <a href="#s-tarifs" class="mm-l">Tarifs</a>
   <a href="#s-contact" class="mm-l">Contact</a>
   <button class="btn-p" style="width:240px" onclick="closeMob();document.getElementById('s-contact').scrollIntoView({behavior:'smooth'})">Créer mon projet</button>
 </div>
@@ -698,6 +752,65 @@
     <div class="testi-nav"><div class="tdot on" onclick="goT(0)"></div><div class="tdot" onclick="goT(1)"></div><div class="tdot" onclick="goT(2)"></div></div>
   </section>
 
+  <!-- TARIFS -->
+  <section class="scene-section" id="s-tarifs" aria-label="Tarifs" style="flex-direction:column;align-items:flex-start;padding-top:80px;">
+    <div class="sec-tag reveal">Tarifs</div>
+    <h2 class="sec-title reveal">Des formules<br/>transparentes</h2>
+    <p class="sec-sub reveal">Pas de surprise. Paiement en 3× sans frais disponible sur toutes les formules.</p>
+    <div class="tarifs-grid">
+
+      <div class="tarif-card reveal">
+        <div class="tarif-name">Essentiel</div>
+        <div class="tarif-price">1 990 <span>MAD</span></div>
+        <div class="tarif-sub">Paiement en 3× sans frais</div>
+        <div class="tarif-sep"></div>
+        <ul class="tarif-feats">
+          <li>Site vitrine jusqu'à 5 pages</li>
+          <li>Design responsive mobile</li>
+          <li>SEO de base inclus</li>
+          <li>Formulaire de contact</li>
+          <li>Livraison en 14 jours</li>
+          <li>1 mois de support</li>
+        </ul>
+        <button class="tarif-cta outline" onclick="document.getElementById('s-contact').scrollIntoView({behavior:'smooth'})">Démarrer →</button>
+      </div>
+
+      <div class="tarif-card featured reveal">
+        <div class="tarif-badge">⭐ Populaire</div>
+        <div class="tarif-name">Premium</div>
+        <div class="tarif-price">4 990 <span>MAD</span></div>
+        <div class="tarif-sub">Paiement en 3× sans frais</div>
+        <div class="tarif-sep"></div>
+        <ul class="tarif-feats">
+          <li>Jusqu'à 10 pages + blog</li>
+          <li>Animations &amp; effets premium</li>
+          <li>SEO avancé + Google Analytics</li>
+          <li>E-commerce jusqu'à 50 produits</li>
+          <li>Livraison en 10 jours</li>
+          <li>3 mois de support</li>
+        </ul>
+        <button class="tarif-cta solid" onclick="document.getElementById('s-contact').scrollIntoView({behavior:'smooth'})">Démarrer →</button>
+      </div>
+
+      <div class="tarif-card reveal">
+        <div class="tarif-name">Sur Mesure</div>
+        <div class="tarif-price" style="font-size:clamp(22px,2.8vw,34px);">Sur devis</div>
+        <div class="tarif-sub">Projet analysé sous 24h</div>
+        <div class="tarif-sep"></div>
+        <ul class="tarif-feats">
+          <li>Pages &amp; fonctionnalités illimitées</li>
+          <li>Intégrations API &amp; back-office</li>
+          <li>E-commerce avancé</li>
+          <li>Formation équipe incluse</li>
+          <li>Support 6 mois dédié</li>
+          <li>Accompagnement stratégique</li>
+        </ul>
+        <button class="tarif-cta outline" onclick="document.getElementById('s-contact').scrollIntoView({behavior:'smooth'})">Nous contacter →</button>
+      </div>
+
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section class="scene-section" id="s-contact" aria-label="Contact" style="flex-direction:column;align-items:flex-start;padding-top:80px;padding-bottom:80px;">
     <div class="sec-tag reveal">Contact</div>
@@ -751,6 +864,7 @@
   <div class="flinks">
     <a href="#s-services">Services</a>
     <a href="#s-portfolio">Portfolio</a>
+    <a href="#s-tarifs">Tarifs</a>
     <a href="#s-contact">Contact</a>
   </div>
 </footer>
