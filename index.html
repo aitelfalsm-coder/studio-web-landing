@@ -458,6 +458,61 @@
   }
   .tarif-cta.solid:hover{box-shadow:0 0 50px rgba(0,212,255,.5);transform:translateY(-2px);}
 
+  /* ── BLOG ── */
+  #s-blog::before{
+    background:radial-gradient(ellipse 100% 100% at 40% 50%,rgba(5,5,5,.82) 0%,rgba(5,5,5,.58) 55%,transparent 100%);
+  }
+  .blog-list{width:100%;max-width:740px;display:flex;flex-direction:column;margin-top:48px;}
+  .blog-item{
+    display:flex;gap:24px;align-items:center;
+    padding:28px 0;border-bottom:1px solid rgba(255,255,255,.06);
+    cursor:pointer;text-decoration:none;color:inherit;
+    transition:padding-left .25s cubic-bezier(.16,1,.3,1);
+  }
+  .blog-item:last-child{border-bottom:none;}
+  .blog-item:hover{padding-left:8px;}
+  .blog-item:hover .blog-arrow{transform:translateX(6px);color:var(--blue);}
+  .blog-item:hover .blog-thumb{box-shadow:0 0 28px rgba(0,212,255,.2);}
+  .blog-item:focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:4px;}
+  .blog-thumb{
+    width:112px;height:72px;flex-shrink:0;border-radius:10px;
+    overflow:hidden;position:relative;
+    transition:box-shadow .3s;
+  }
+  .blog-thumb-bg{position:absolute;inset:0;}
+  .blog-thumb-icon{
+    position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .blog-body{flex:1;min-width:0;}
+  .blog-cat{
+    display:inline-flex;align-items:center;
+    font-size:10px;font-weight:700;text-transform:uppercase;
+    letter-spacing:1.5px;padding:3px 10px;border-radius:20px;
+    margin-bottom:8px;
+  }
+  .blog-title{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:clamp(14px,1.4vw,17px);font-weight:700;
+    color:#fff;line-height:1.35;margin-bottom:6px;
+    text-shadow:0 1px 8px rgba(0,0,0,.5);
+    text-wrap:balance;
+  }
+  .blog-excerpt{
+    font-size:13px;color:rgba(255,255,255,.48);
+    line-height:1.65;margin-bottom:8px;max-width:480px;
+  }
+  .blog-meta{font-size:11px;color:rgba(255,255,255,.28);letter-spacing:.3px;}
+  .blog-arrow{
+    font-size:18px;color:rgba(255,255,255,.2);flex-shrink:0;
+    transition:transform .25s cubic-bezier(.16,1,.3,1),color .25s;
+    padding-left:8px;
+  }
+  @media(prefers-reduced-motion:reduce){
+    .blog-item,.blog-arrow,.blog-thumb{transition:none !important;}
+    .blog-item:hover{padding-left:0;}
+  }
+
   /* ── CONTACT ── */
   #s-contact{padding-top:80px;padding-bottom:80px;}
   .contact-grid{
@@ -573,6 +628,8 @@
     .testi-card{width:calc(80% - 14px);}
     .tarifs-grid{grid-template-columns:1fr;max-width:480px;}
     .tarif-card.featured{transform:none;}
+    .blog-item{gap:16px;}
+    .blog-thumb{width:88px;height:60px;}
     footer{padding:24px 20px;}
     .flinks{display:none;}
   }
@@ -582,6 +639,9 @@
     .btn-p,.btn-s{padding:15px;text-align:center;}
     .portfolio-grid{grid-template-columns:1fr;}
     .stats-grid{grid-template-columns:1fr 1fr;}
+    .blog-item{flex-direction:column;align-items:flex-start;gap:12px;}
+    .blog-thumb{width:100%;height:100px;}
+    .blog-arrow{display:none;}
     .form-row{grid-template-columns:1fr;}
     .testi-card{width:calc(90% - 14px);}
     .scene-section{padding:0 16px;}
@@ -624,6 +684,7 @@
     <li><a href="#s-portfolio">Portfolio</a></li>
     <li><a href="#s-stats">Résultats</a></li>
     <li><a href="#s-tarifs">Tarifs</a></li>
+    <li><a href="#s-blog">Blog</a></li>
     <li><a href="#s-contact">Contact</a></li>
   </ul>
   <button class="nav-cta" onclick="document.getElementById('s-contact').scrollIntoView({behavior:'smooth'})">Démarrer →</button>
@@ -639,6 +700,7 @@
   <a href="#s-stats" class="mm-l">Résultats</a>
   <a href="#s-testimonials" class="mm-l">Témoignages</a>
   <a href="#s-tarifs" class="mm-l">Tarifs</a>
+  <a href="#s-blog" class="mm-l">Blog</a>
   <a href="#s-contact" class="mm-l">Contact</a>
   <button class="btn-p" style="width:240px" onclick="closeMob();document.getElementById('s-contact').scrollIntoView({behavior:'smooth'})">Créer mon projet</button>
 </div>
@@ -808,6 +870,78 @@
         </ul>
         <button class="tarif-cta outline" onclick="document.getElementById('s-contact').scrollIntoView({behavior:'smooth'})">Nous contacter →</button>
       </div>
+
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section class="scene-section" id="s-blog" aria-label="Blog" style="flex-direction:column;align-items:flex-start;padding-top:80px;padding-bottom:20px;">
+    <div class="sec-tag reveal">Blog</div>
+    <h2 class="sec-title reveal">Ressources &amp;<br/>Insights</h2>
+    <p class="sec-sub reveal">Conseils concrets et données de marché pour développer votre présence en ligne au Maroc.</p>
+    <div class="blog-list">
+
+      <a href="#" class="blog-item reveal" aria-label="Lire : L'état du digital au Maroc en 2025">
+        <div class="blog-thumb">
+          <div class="blog-thumb-bg" style="background:linear-gradient(135deg,#1e3a5f,#2d6a9f);"></div>
+          <div class="blog-thumb-icon">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+              <rect x="3" y="17" width="5" height="8" rx="1" fill="rgba(255,255,255,.45)"/>
+              <rect x="10" y="12" width="5" height="13" rx="1" fill="rgba(255,255,255,.6)"/>
+              <rect x="17" y="7" width="5" height="18" rx="1" fill="rgba(255,255,255,.8)"/>
+              <polyline points="4,16 12.5,10 19.5,6 26,3" stroke="rgba(0,212,255,.85)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            </svg>
+          </div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-cat" style="color:#f59e0b;background:rgba(245,158,11,.1);">Marché Marocain</div>
+          <div class="blog-title">L'état du digital au Maroc en 2025 : chiffres clés pour les PME</div>
+          <div class="blog-excerpt">E-commerce, réseaux sociaux, mobile — où en est le Maroc numérique ? Ce que tout entrepreneur doit savoir avant de lancer son site.</div>
+          <div class="blog-meta">5 min de lecture</div>
+        </div>
+        <div class="blog-arrow" aria-hidden="true">→</div>
+      </a>
+
+      <a href="#" class="blog-item reveal" aria-label="Lire : 5 erreurs de site web qui font fuir vos visiteurs">
+        <div class="blog-thumb">
+          <div class="blog-thumb-bg" style="background:linear-gradient(135deg,#1a3a2a,#2d7a4f);"></div>
+          <div class="blog-thumb-icon">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+              <circle cx="15" cy="15" r="10" stroke="rgba(255,255,255,.4)" stroke-width="1.5" fill="none"/>
+              <line x1="10" y1="10" x2="20" y2="20" stroke="rgba(16,185,129,.9)" stroke-width="2" stroke-linecap="round"/>
+              <line x1="20" y1="10" x2="10" y2="20" stroke="rgba(16,185,129,.9)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-cat" style="color:#10b981;background:rgba(16,185,129,.1);">Conseils</div>
+          <div class="blog-title">5 erreurs de site web qui font fuir vos visiteurs (et comment les corriger)</div>
+          <div class="blog-excerpt">Lenteur, design daté, absence de CTA clair — ces erreurs coûtent des clients chaque jour. Tour d'horizon avec des solutions concrètes.</div>
+          <div class="blog-meta">4 min de lecture</div>
+        </div>
+        <div class="blog-arrow" aria-hidden="true">→</div>
+      </a>
+
+      <a href="#" class="blog-item reveal" aria-label="Lire : Ce que doit contenir une bonne landing page en 2025">
+        <div class="blog-thumb">
+          <div class="blog-thumb-bg" style="background:linear-gradient(135deg,#2a1a3a,#6d4a9f);"></div>
+          <div class="blog-thumb-icon">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+              <rect x="5" y="5" width="20" height="3" rx="1.5" fill="rgba(255,255,255,.85)"/>
+              <rect x="5" y="11" width="14" height="2" rx="1" fill="rgba(255,255,255,.5)"/>
+              <rect x="5" y="16" width="16" height="2" rx="1" fill="rgba(255,255,255,.4)"/>
+              <rect x="5" y="21" width="10" height="2.5" rx="1.25" fill="rgba(167,139,250,.9)"/>
+            </svg>
+          </div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-cat" style="color:#a78bfa;background:rgba(167,139,250,.1);">Conseils</div>
+          <div class="blog-title">Ce que doit absolument contenir une bonne landing page en 2025</div>
+          <div class="blog-excerpt">Hero, preuves sociales, CTA, formulaire — les éléments indispensables d'une page qui convertit, expliqués simplement.</div>
+          <div class="blog-meta">6 min de lecture</div>
+        </div>
+        <div class="blog-arrow" aria-hidden="true">→</div>
+      </a>
 
     </div>
   </section>
