@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 184 44" fill="none">
+
+  <!-- Icône : cercle vert foncé, feuille en espace négatif (evenodd) -->
+  <path
+    fill-rule="evenodd"
+    fill="#14532d"
+    d="
+      M20 4
+      A18 18 0 0 1 38 22
+      A18 18 0 0 1 20 40
+      A18 18 0 0 1  2 22
+      A18 18 0 0 1 20  4 Z
+
+      M20 9
+      C27 12 31 20 28 28
+      C25 34 22 37 20 37
+      C18 35 15 32 12 28
+      C9  20 13 12 20  9 Z
+    "
+  />
+
+  <!--
+    Wordmark Georgia serif :
+    · "allo"   — vert vif, poids regular  → lettre légère, accent de couleur
+    · "jardin" — vert foncé, poids bold   → ancre du mot
+    · ".ma"    — vert moyen, petit, surélevé → badge TLD
+  -->
+  <text y="30" font-family="Georgia,'Times New Roman',serif">
+    <tspan x="48"  font-size="21" font-weight="400" fill="#22c55e" letter-spacing="0.5">allo</tspan>
+    <tspan         font-size="21" font-weight="700" fill="#14532d" letter-spacing="0.3">jardin</tspan>
+    <tspan dy="-9" font-size="11" font-weight="400" fill="#16a34a" letter-spacing="0.2">.ma</tspan>
+  </text>
+
+</svg>
