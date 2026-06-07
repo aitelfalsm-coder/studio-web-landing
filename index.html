@@ -40,8 +40,7 @@
     onload="this.onload=null;this.rel='stylesheet'"/>
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800&family=Inter:wght@400;600;700&display=optional"/></noscript>
 
-  <!-- Preload Three.js (téléchargement parallèle) -->
-  <link rel="preload" href="https://unpkg.com/three@0.160.0/build/three.min.js" as="script"/>
+  <!-- Preload GSAP (nécessaire immédiatement pour les animations hero) -->
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js" as="script"/>
 
   <!-- JSON-LD -->
@@ -1075,7 +1074,6 @@
 <!-- ══════════════════════════════════════════════
      THREE.JS + POST-PROCESSING CDNs
 ══════════════════════════════════════════════ -->
-<script src="https://unpkg.com/three@0.160.0/build/three.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js" crossorigin="anonymous"></script>
 
@@ -1098,6 +1096,59 @@ const isMobile = window.innerWidth <= 768;
 const W = () => window.innerWidth;
 const H = () => window.innerHeight;
 
+// Mouse/touch state — partagé entre les handlers curseur et la boucle Three.js
+let mx=0,my=0,tmx=0,tmy=0;
+if(!isMobile){
+  document.addEventListener('mousemove',e=>{
+    mx=(e.clientX/W()-.5)*2; my=(e.clientY/H()-.5)*2;
+  });
+  const cursorGlow=document.getElementById('cursor-glow');
+  const cursorDot=document.getElementById('cursor-dot');
+  const cursorRing=document.getElementById('cursor-ring');
+  let cx=W()/2,cy=H()/2,rx=W()/2,ry=H()/2;
+  document.addEventListener('mousemove',e=>{
+    cx=e.clientX; cy=e.clientY;
+    gsap.to(cursorDot,{left:cx,top:cy,duration:.05,ease:'none'});
+    gsap.to(cursorGlow,{left:cx,top:cy,duration:.9,ease:'power2.out'});
+  });
+  (function lerpRing(){
+    rx+=(cx-rx)*.14; ry+=(cy-ry)*.14;
+    cursorRing.style.left=rx+'px';
+    cursorRing.style.top=ry+'px';
+    requestAnimationFrame(lerpRing);
+  })();
+  const interactiveEls='a,button,[role="button"],.svc,.port-item,.blog-item,.tarif-card,.cdet,.testi-card';
+  document.addEventListener('mouseover',e=>{
+    if(e.target.closest(interactiveEls)) document.body.classList.add('cur-hover');
+  });
+  document.addEventListener('mouseout',e=>{
+    if(e.target.closest(interactiveEls)) document.body.classList.remove('cur-hover');
+  });
+  document.addEventListener('mousedown',()=>document.body.classList.add('cur-click'));
+  document.addEventListener('mouseup',()=>document.body.classList.remove('cur-click'));
+  document.addEventListener('mouseleave',()=>document.body.classList.add('cur-hidden'));
+  document.addEventListener('mouseenter',()=>document.body.classList.remove('cur-hidden'));
+} else {
+  window.addEventListener('deviceorientation',e=>{
+    if(e.gamma!=null){mx=Math.max(-1,Math.min(1,e.gamma/25));my=Math.max(-1,Math.min(1,(e.beta-45)/25));}
+  },{passive:true});
+  document.getElementById('cursor-glow').style.display='none';
+  document.getElementById('cursor-dot').style.display='none';
+  document.getElementById('cursor-ring').style.display='none';
+  document.body.style.cursor='auto';
+  document.querySelectorAll('a,button').forEach(el=>el.style.cursor='');
+}
+
+// Charger Three.js de façon différée — libère le thread principal pour la première interaction
+setTimeout(function(){
+  var s=document.createElement('script');
+  s.crossOrigin='anonymous';
+  s.onload=initThreeJS;
+  s.src='https://unpkg.com/three@0.160.0/build/three.min.js';
+  document.head.appendChild(s);
+},200);
+
+function initThreeJS(){
 /* ══════════════════════════════════════
    THREE.JS — RENDERER + SCENE + CAMERA
 ══════════════════════════════════════ */
@@ -1476,61 +1527,6 @@ ScrollTrigger.create({
 });
 
 /* ══════════════════════════════════════
-   MOUSE PARALLAX
-══════════════════════════════════════ */
-let mx=0,my=0,tmx=0,tmy=0;
-if(!isMobile){
-  document.addEventListener('mousemove',e=>{
-    mx=(e.clientX/W()-.5)*2; my=(e.clientY/H()-.5)*2;
-  });
-  // Cursor glow
-  const cursorGlow=document.getElementById('cursor-glow');
-  const cursorDot=document.getElementById('cursor-dot');
-  const cursorRing=document.getElementById('cursor-ring');
-  let cx=W()/2,cy=H()/2,rx=W()/2,ry=H()/2;
-
-  document.addEventListener('mousemove',e=>{
-    cx=e.clientX; cy=e.clientY;
-    // Dot follows instantly
-    gsap.to(cursorDot,{left:cx,top:cy,duration:.05,ease:'none'});
-    // Ambient glow follows slowly
-    gsap.to(cursorGlow,{left:cx,top:cy,duration:.9,ease:'power2.out'});
-  });
-
-  // Ring: smooth lerp via RAF
-  (function lerpRing(){
-    rx+=(cx-rx)*.14; ry+=(cy-ry)*.14;
-    cursorRing.style.left=rx+'px';
-    cursorRing.style.top=ry+'px';
-    requestAnimationFrame(lerpRing);
-  })();
-
-  // Hover detection
-  const interactiveEls='a,button,[role="button"],.svc,.port-item,.blog-item,.tarif-card,.cdet,.testi-card';
-  document.addEventListener('mouseover',e=>{
-    if(e.target.closest(interactiveEls)) document.body.classList.add('cur-hover');
-  });
-  document.addEventListener('mouseout',e=>{
-    if(e.target.closest(interactiveEls)) document.body.classList.remove('cur-hover');
-  });
-  document.addEventListener('mousedown',()=>document.body.classList.add('cur-click'));
-  document.addEventListener('mouseup',()=>document.body.classList.remove('cur-click'));
-
-  // Hide when leaving window
-  document.addEventListener('mouseleave',()=>document.body.classList.add('cur-hidden'));
-  document.addEventListener('mouseenter',()=>document.body.classList.remove('cur-hidden'));
-} else {
-  window.addEventListener('deviceorientation',e=>{
-    if(e.gamma!=null){mx=Math.max(-1,Math.min(1,e.gamma/25));my=Math.max(-1,Math.min(1,(e.beta-45)/25));}
-  },{passive:true});
-  document.getElementById('cursor-glow').style.display='none';
-  document.getElementById('cursor-dot').style.display='none';
-  document.getElementById('cursor-ring').style.display='none';
-  document.body.style.cursor='auto';
-  document.querySelectorAll('a,button').forEach(el=>el.style.cursor='');
-}
-
-/* ══════════════════════════════════════
    ANIMATION LOOP
 ══════════════════════════════════════ */
 let time=0;
@@ -1603,6 +1599,7 @@ window.addEventListener('resize',()=>{
   camera.aspect=W()/H(); camera.updateProjectionMatrix();
   renderer.setSize(W(),H());
 },{passive:true});
+} // end initThreeJS
 
 /* ══════════════════════════════════════
    INTRO CINÉMATIQUE — GSAP
