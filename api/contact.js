@@ -58,5 +58,16 @@ module.exports = async function handler(req, res) {
     return res.status(502).json({ error: 'Échec de l\'envoi' });
   }
 
+  const sheetUrl = process.env.GOOGLE_SHEET_URL;
+  if (sheetUrl) {
+    const now = new Date();
+    const date = now.toLocaleDateString('fr-FR') + ' ' + now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+    fetch(sheetUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ date, name, email, type: type || 'Non précisé', message }),
+    }).catch(err => console.error('Google Sheet error:', err));
+  }
+
   return res.status(200).json({ success: true });
 };
