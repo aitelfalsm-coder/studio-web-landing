@@ -95,6 +95,12 @@
   ],
   "redirects": [
     {
+      "source": "/",
+      "has": [{"type": "host", "value": "www.studioweb.ma"}],
+      "destination": "https://studioweb.ma/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{"type": "host", "value": "www.studioweb.ma"}],
       "destination": "https://studioweb.ma/:path*",
