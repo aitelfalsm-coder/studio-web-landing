@@ -1779,13 +1779,48 @@ setInterval(()=>goT((tSlide+1)%3),4500);
 /* ══════════════════════════════════════
    CONTACT FORM
 ══════════════════════════════════════ */
-document.getElementById('cform').addEventListener('submit',e=>{
+document.getElementById('cform').addEventListener('submit',async function(e){
   e.preventDefault();
   if(!e.target.checkValidity()){e.target.reportValidity();return;}
+  const btn=e.target.querySelector('.fsub');
   const msg=document.getElementById('fmsg');
-  msg.style.display='block';
-  e.target.reset();
-  setTimeout(()=>msg.style.display='none',5000);
+  btn.disabled=true;
+  btn.textContent='Envoi en cours…';
+  const fd=new FormData(e.target);
+  const name=(fd.get('firstname')||'').trim()+' '+(fd.get('lastname')||'').trim();
+  try{
+    const res=await fetch('https://api.web3forms.com/submit',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({
+        access_key:'c7e9c23a-47f3-41ad-b18d-04110ea5d9f4',
+        name:name.trim(),
+        email:fd.get('email'),
+        phone:fd.get('phone')||'',
+        subject:'Nouveau devis — '+name.trim(),
+        message:'Type de projet : '+(fd.get('type')||'Non précisé')+'\n\n'+fd.get('message'),
+        from_name:'StudioWeb Contact',
+      }),
+    });
+    const data=await res.json();
+    if(data.success){
+      msg.textContent='✓ Message envoyé. Réponse sous 24h.';
+      msg.style.color='';
+      msg.style.display='block';
+      e.target.reset();
+      setTimeout(()=>msg.style.display='none',5000);
+    }else{
+      throw new Error(data.message);
+    }
+  }catch(err){
+    msg.textContent='✗ Erreur d\'envoi. Contactez-nous par email.';
+    msg.style.color='#ff6b6b';
+    msg.style.display='block';
+    setTimeout(()=>{msg.style.display='none';msg.style.color='';},5000);
+  }finally{
+    btn.disabled=false;
+    btn.textContent='Initialiser le projet →';
+  }
 });
 
 /* ══════════════════════════════════════
