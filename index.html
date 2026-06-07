@@ -32,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link rel="dns-prefetch" href="https://unpkg.com"/>
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"/>
+  <link rel="dns-prefetch" href="https://unpkg.com"/>
 
   <!-- Fonts NON-BLOQUANTES (libère LCP) -->
   <link rel="preload" as="style"
@@ -41,7 +41,8 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800&family=Inter:wght@400;600;700&display=optional"/></noscript>
 
   <!-- Preload GSAP (nécessaire immédiatement pour les animations hero) -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js" as="script"/>
+  <link rel="preload" href="/js/gsap.min.js" as="script"/>
+  <link rel="preload" href="/js/ScrollTrigger.min.js" as="script"/>
 
   <!-- JSON-LD -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"StudioWeb Maroc","description":"Agence web spécialisée en création de sites professionnels pour PME et entrepreneurs marocains. Design premium, livraison 72h, SEO inclus.","url":"https://studioweb.ma","telephone":"+212660761313","email":"designstudioweb@icloud.com","image":"https://studioweb.ma/og-image.png","address":{"@type":"PostalAddress","streetAddress":"Casablanca","addressLocality":"Casablanca","addressRegion":"Grand Casablanca","addressCountry":"MA","postalCode":"20000"},"geo":{"@type":"GeoCoordinates","latitude":"33.5731","longitude":"-7.5898"},"priceRange":"1990-3990 MAD","currenciesAccepted":"MAD","paymentAccepted":"Virement bancaire, CIH, Espèces","areaServed":[{"@type":"City","name":"Casablanca"},{"@type":"City","name":"Rabat"},{"@type":"City","name":"Marrakech"},{"@type":"Country","name":"Maroc"}],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"}],"sameAs":["https://www.facebook.com/profile.php?id=61590823730819","https://wa.me/212660761313"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"40","bestRating":"5","worstRating":"1"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Services Web","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Site vitrine professionnel"},"price":"1990","priceCurrency":"MAD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"E-commerce"},"price":"2990","priceCurrency":"MAD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Application web"},"price":"3990","priceCurrency":"MAD"}]}}</script>
@@ -1074,8 +1075,8 @@
 <!-- ══════════════════════════════════════════════
      THREE.JS + POST-PROCESSING CDNs
 ══════════════════════════════════════════════ -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js" crossorigin="anonymous"></script>
+<script src="/js/gsap.min.js"></script>
+<script src="/js/ScrollTrigger.min.js"></script>
 
 <script>
 document.addEventListener('DOMContentLoaded', function(){
