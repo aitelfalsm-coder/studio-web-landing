@@ -9,25 +9,30 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: 'Champs requis manquants' });
   }
 
-  const sheetUrl = process.env.GOOGLE_SHEET_URL;
-  if (!sheetUrl) {
-    return res.status(500).json({ error: 'Configuration manquante' });
-  }
-
-  const now = new Date();
-  const date = now.toLocaleDateString('fr-FR') + ' ' + now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
-
-  const response = await fetch(sheetUrl, {
+  const response = await fetch('https://api.web3forms.com/submit', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ date, name, email, type: type || 'Non précisé', message }),
+    body: JSON.stringify({
+      access_key: 'c7e9c23a-47f3-41ad-b18d-04110ea5d9f4',
+      name,
+      email,
+      subject: `Nouveau devis — ${name}`,
+      message: `Type de projet : ${type || 'Non précisé'}\n\n${message}`,
+      from_name: 'StudioWeb Contact',
+    }),
   }).catch(err => {
-    console.error('Google Sheet error:', err);
+    console.error('Web3Forms error:', err);
     return null;
   });
 
   if (!response || !response.ok) {
-    return res.status(502).json({ error: 'Échec de l\'enregistrement' });
+    return res.status(502).json({ error: 'Échec de l\'envoi' });
+  }
+
+  const data = await response.json();
+  if (!data.success) {
+    console.error('Web3Forms rejected:', data);
+    return res.status(502).json({ error: 'Échec de l\'envoi' });
   }
 
   return res.status(200).json({ success: true });
