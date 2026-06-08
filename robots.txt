@@ -1,9 +1,10 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://studioweb.ma/sitemap.xml
+User-agent: Googlebot
+Allow: /
 
-# Block private folders
-Disallow: /api/
-Disallow: /creatives/exports/
-Disallow: /.vercel/
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://studioweb.ma/sitemap.xml
