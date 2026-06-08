@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# Forcer HTTPS + supprimer www → redirection 301 vers https://studioweb.ma
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
+RewriteRule ^ https://studioweb.ma%{REQUEST_URI} [R=301,L]

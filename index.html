@@ -19,7 +19,7 @@
   </script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Agence Web Maroc | Création Site Web Professionnel à partir de 1990 MAD — StudioWeb</title>
+  <title>StudioWeb | Agence Web Maroc — Création Site Web, dès 1990 MAD</title>
   <meta name="description" content="StudioWeb crée des sites web professionnels pour PME et entrepreneurs marocains. Design premium, livraison 72h, SEO inclus. À partir de 1990 MAD — Casablanca, Maroc."/>
   <meta name="keywords" content="agence web maroc, création site web maroc, site web professionnel maroc, agence digitale casablanca, création site web casablanca, site web PME maroc, landing page maroc"/>
   <meta name="theme-color" content="#050505"/>
@@ -28,7 +28,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://studioweb.ma/"/>
-  <meta property="og:title" content="StudioWeb — Agence Web Maroc | Sites Professionnels à partir de 1990 MAD"/>
+  <meta property="og:title" content="StudioWeb | Agence Web Maroc — Création Site Web, dès 1990 MAD"/>
   <meta property="og:description" content="Création de sites web professionnels pour PME marocaines. Livraison 72h, SEO inclus, à partir de 1990 MAD."/>
   <meta property="og:image" content="https://studioweb.ma/og-image.png"/>
   <meta property="og:image:width" content="1200"/>
@@ -38,7 +38,7 @@
   <meta property="og:site_name" content="StudioWeb"/>
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="StudioWeb — Agence Web Maroc | Sites Professionnels à partir de 1990 MAD"/>
+  <meta name="twitter:title" content="StudioWeb | Agence Web Maroc — Création Site Web, dès 1990 MAD"/>
   <meta name="twitter:description" content="Création de sites web professionnels pour PME marocaines. Livraison 72h, SEO inclus, à partir de 1990 MAD."/>
   <meta name="twitter:image" content="https://studioweb.ma/og-image.png"/>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23050505'/%3E%3Ctext x='20' y='27' text-anchor='middle' font-family='system-ui' font-weight='800' font-size='15' fill='%2300D4FF'%3ESW%3C/text%3E%3C/svg%3E"/>
@@ -682,6 +682,27 @@
   /* ── FOCUS ── */
   *:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px;}
 
+  /* ── LANG SWITCH ── */
+  .lang-switch{
+    display:flex;align-items:center;
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+    border-radius:50px;overflow:hidden;flex-shrink:0;
+  }
+  .lang-switch button{
+    background:none;border:none;padding:7px 13px;
+    color:rgba(255,255,255,.45);cursor:none;
+    font-size:11px;font-weight:700;letter-spacing:.8px;
+    font-family:'Space Grotesk',sans-serif;
+    transition:color .2s,background .2s;line-height:1;
+  }
+  .lang-switch button.active{
+    background:var(--blue);color:#000;border-radius:50px;
+  }
+  .lang-switch button:hover:not(.active){color:rgba(255,255,255,.8);}
+  @media(max-width:1024px){
+    .lang-switch button{cursor:auto;}
+  }
+
   /* ═══════════════════════════════════════════
      RESPONSIVE
   ═══════════════════════════════════════════ */
@@ -731,7 +752,7 @@
 <!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MK8XCJRJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
 
 <!-- SKIP NAV -->
-<a href="#s-hero" style="position:absolute;left:-9999px;top:4px;z-index:9999;background:var(--blue);color:#000;padding:8px 16px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;" onfocus="this.style.left='4px'" onblur="this.style.left='-9999px'">Passer au contenu</a>
+<a href="#s-hero" style="position:absolute;left:-9999px;top:4px;z-index:9999;background:var(--blue);color:#000;padding:8px 16px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;" onfocus="this.style.left='4px'" onblur="this.style.left='-9999px'" data-i18n="skip">Passer au contenu</a>
 
 <!-- ──────────────────────────────────────────
      INTRO CINÉMATIQUE
@@ -740,7 +761,7 @@
   <div class="intro-glow" id="iglow"></div>
   <div class="intro-logo" id="ilogo">Studio<span>Web</span></div>
   <div class="intro-line" id="iline"></div>
-  <div class="intro-tag" id="itag">Agence Digitale Premium · Maroc</div>
+  <div class="intro-tag" id="itag" data-i18n="intro-tag">Agence Digitale Premium · Maroc</div>
 </div>
 
 <!-- ──────────────────────────────────────────
@@ -759,12 +780,16 @@
   <ul class="nav-links" role="list">
     <li><a href="#s-services">Services</a></li>
     <li><a href="#s-portfolio">Portfolio</a></li>
-    <li><a href="#s-stats">Résultats</a></li>
-    <li><a href="#s-tarifs">Tarifs</a></li>
+    <li><a href="#s-stats" data-i18n="nav-results">Résultats</a></li>
+    <li><a href="#s-tarifs" data-i18n="nav-pricing">Tarifs</a></li>
     <li><a href="#s-blog">Blog</a></li>
     <li><a href="#s-contact">Contact</a></li>
   </ul>
-  <button class="nav-cta" onclick="document.getElementById('s-contact').scrollIntoView({behavior:'smooth'})">Démarrer →</button>
+  <button class="nav-cta" data-i18n="nav-cta" onclick="document.getElementById('s-contact').scrollIntoView({behavior:'smooth'})">Démarrer →</button>
+  <div class="lang-switch" id="langSwitch" aria-label="Langue / Language">
+    <button id="btnFr" class="active" onclick="setLang('fr')">FR</button>
+    <button id="btnEn" onclick="setLang('en')">EN</button>
+  </div>
   <button class="ham" id="hamBtn" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
@@ -774,12 +799,16 @@
 <div class="mob-menu" id="mobMenu" role="dialog" aria-label="Menu mobile">
   <a href="#s-services" class="mm-l">Services</a>
   <a href="#s-portfolio" class="mm-l">Portfolio</a>
-  <a href="#s-stats" class="mm-l">Résultats</a>
-  <a href="#s-testimonials" class="mm-l">Témoignages</a>
-  <a href="#s-tarifs" class="mm-l">Tarifs</a>
+  <a href="#s-stats" class="mm-l" data-i18n="nav-results">Résultats</a>
+  <a href="#s-testimonials" class="mm-l" data-i18n="testi-tag">Témoignages</a>
+  <a href="#s-tarifs" class="mm-l" data-i18n="nav-pricing">Tarifs</a>
   <a href="#s-blog" class="mm-l">Blog</a>
   <a href="#s-contact" class="mm-l">Contact</a>
-  <button class="btn-p" style="width:240px" onclick="closeMob();document.getElementById('s-contact').scrollIntoView({behavior:'smooth'})">Créer mon projet</button>
+  <button class="btn-p" style="width:240px" data-i18n="mob-project" onclick="closeMob();document.getElementById('s-contact').scrollIntoView({behavior:'smooth'})">Créer mon projet</button>
+  <div class="lang-switch" style="margin-top:8px;" aria-label="Langue / Language">
+    <button id="btnFrMob" class="active" onclick="setLang('fr')">FR</button>
+    <button id="btnEnMob" onclick="setLang('en')">EN</button>
+  </div>
 </div>
 
 <!-- ──────────────────────────────────────────
@@ -790,16 +819,16 @@
   <!-- HERO -->
   <section class="scene-section" id="s-hero" aria-label="Hero">
     <div class="hero-inner">
-      <div class="hero-badge" id="hbadge"><div class="badge-ping"></div>Expériences Web du Futur</div>
+      <div class="hero-badge" id="hbadge"><div class="badge-ping"></div><span data-i18n="hero-badge">Expériences Web du Futur</span></div>
       <h1 class="hero-title" id="htitle">
-        <span class="line"><span>Nous créons les</span></span>
+        <span class="line"><span data-i18n="hero-line1">Nous créons les</span></span>
         <span class="line"><span class="grad-text">expériences web</span></span>
-        <span class="line"><span>du futur</span></span>
+        <span class="line"><span data-i18n="hero-line3">du futur</span></span>
       </h1>
-      <p class="hero-sub" id="hsub">Agence web au Maroc — sites premium, interfaces innovantes, livraison en 72h.</p>
+      <p class="hero-sub" id="hsub" data-i18n="hero-sub">Agence web au Maroc — sites premium, interfaces innovantes, livraison en 72h.</p>
       <div class="hero-btns" id="hbtns">
-        <button class="btn-p magnetic" onclick="document.getElementById('s-contact').scrollIntoView({behavior:'smooth'})">Créer mon projet</button>
-        <button class="btn-s magnetic" onclick="document.getElementById('s-portfolio').scrollIntoView({behavior:'smooth'})">Explorer nos réalisations</button>
+        <button class="btn-p magnetic" data-i18n="hero-btn1" onclick="document.getElementById('s-contact').scrollIntoView({behavior:'smooth'})">Créer mon projet</button>
+        <button class="btn-s magnetic" data-i18n="hero-btn2" onclick="document.getElementById('s-portfolio').scrollIntoView({behavior:'smooth'})">Explorer nos réalisations</button>
       </div>
     </div>
   </section>
@@ -809,15 +838,15 @@
     <div class="services-layout">
       <div class="services-left">
         <div class="sec-tag reveal">Services</div>
-        <h2 class="sec-title reveal">Ce que nous<br/>créons pour vous</h2>
-        <p class="sec-sub reveal">Des solutions digitales complètes — de la conception à la mise en ligne, avec une obsession pour l'excellence.</p>
+        <h2 class="sec-title reveal" data-i18n-html="svc-title">Ce que nous<br/>créons pour vous</h2>
+        <p class="sec-sub reveal" data-i18n="svc-sub">Des solutions digitales complètes — de la conception à la mise en ligne, avec une obsession pour l'excellence.</p>
       </div>
       <div class="services-cards">
-        <div class="svc reveal"><div class="svc-num">01</div><div class="svc-top"><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><h3>Sites vitrines</h3></div><p>Un site élégant qui inspire confiance et génère des prospects qualifiés. Livraison en 72 heures.</p></div>
-        <div class="svc reveal"><div class="svc-num">02</div><div class="svc-top"><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg></div><h3>E-commerce</h3></div><p>Boutiques performantes avec tunnel d'achat optimisé et paiements sécurisés.</p></div>
-        <div class="svc reveal"><div class="svc-num">03</div><div class="svc-top"><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><h3>Applications web</h3></div><p>Web apps modernes — portails clients, SaaS, outils métier. Stack React + Next.js.</p></div>
-        <div class="svc reveal"><div class="svc-num">04</div><div class="svc-top"><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><h3>SEO & Performance</h3></div><p>Score PageSpeed 98+, stratégie SEO complète, positionnement Google garanti.</p></div>
-        <div class="svc reveal"><div class="svc-num">05</div><div class="svc-top"><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Maintenance</h3></div><p>Support dédié, mises à jour, sauvegardes automatiques et sécurité 24h/24.</p></div>
+        <div class="svc reveal"><div class="svc-num">01</div><div class="svc-top"><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><h3 data-i18n="svc01">Sites vitrines</h3></div><p data-i18n="svc01-desc">Un site élégant qui inspire confiance et génère des prospects qualifiés. Livraison en 72 heures.</p></div>
+        <div class="svc reveal"><div class="svc-num">02</div><div class="svc-top"><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg></div><h3>E-commerce</h3></div><p data-i18n="svc02-desc">Boutiques performantes avec tunnel d'achat optimisé et paiements sécurisés.</p></div>
+        <div class="svc reveal"><div class="svc-num">03</div><div class="svc-top"><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><h3 data-i18n="svc03">Applications web</h3></div><p data-i18n="svc03-desc">Web apps modernes — portails clients, SaaS, outils métier. Stack React + Next.js.</p></div>
+        <div class="svc reveal"><div class="svc-num">04</div><div class="svc-top"><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><h3>SEO &amp; Performance</h3></div><p data-i18n="svc04-desc">Score PageSpeed 98+, stratégie SEO complète, positionnement Google garanti.</p></div>
+        <div class="svc reveal"><div class="svc-num">05</div><div class="svc-top"><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Maintenance</h3></div><p data-i18n="svc05-desc">Support dédié, mises à jour, sauvegardes automatiques et sécurité 24h/24.</p></div>
       </div>
     </div>
   </section>
@@ -825,8 +854,8 @@
   <!-- PORTFOLIO -->
   <section class="scene-section" id="s-portfolio" aria-label="Portfolio" style="flex-direction:column;align-items:flex-start;padding-top:80px;">
     <div class="sec-tag reveal">Portfolio</div>
-    <h2 class="sec-title reveal">Nos dernières<br/>réalisations</h2>
-    <p class="sec-sub reveal">Chaque projet est une nouvelle aventure — design premium, résultats mesurables.</p>
+    <h2 class="sec-title reveal" data-i18n-html="port-title">Nos dernières<br/>réalisations</h2>
+    <p class="sec-sub reveal" data-i18n="port-sub">Chaque projet est une nouvelle aventure — design premium, résultats mesurables.</p>
     <div class="portfolio-grid">
       <a class="port-card reveal" href="https://allojardin.ma" target="_blank" rel="noopener" aria-label="Voir le site Allo Jardin (nouvel onglet)">
         <div class="port-bg" style="background:linear-gradient(135deg,#04241a,#0a7a4d,#10B981);height:260px;">
@@ -837,7 +866,7 @@
         </div>
         <div class="port-border"></div><div class="port-glass"></div>
         <div class="port-visit"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></div>
-        <div class="port-info"><h4>Allo Jardin</h4><span>Jardinage & entretien · allojardin.ma</span></div>
+        <div class="port-info"><h4>Allo Jardin</h4><span data-i18n="port1-sub">Jardinage &amp; entretien · allojardin.ma</span></div>
       </a>
       <a class="port-card reveal" href="https://tahoexport.com" target="_blank" rel="noopener" aria-label="Voir le site Tahoexport (nouvel onglet)">
         <div class="port-bg" style="background:linear-gradient(135deg,#001a33,#0369A1,#00D4FF);height:260px;">
@@ -859,7 +888,7 @@
         </div>
         <div class="port-border"></div><div class="port-glass"></div>
         <div class="port-visit"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></div>
-        <div class="port-info"><h4>Leads</h4><span>Génération de leads · leads.ma</span></div>
+        <div class="port-info"><h4>Leads</h4><span data-i18n="port3-sub">Génération de leads · leads.ma</span></div>
       </a>
     </div>
   </section>
@@ -867,26 +896,26 @@
   <!-- STATS -->
   <section class="scene-section" id="s-stats" aria-label="Statistiques" style="flex-direction:column;">
     <div class="stats-inner">
-      <div class="sec-tag reveal" style="justify-content:center">Résultats</div>
-      <h2 class="sec-title reveal" style="text-align:center">Des chiffres<br/>qui parlent</h2>
+      <div class="sec-tag reveal" style="justify-content:center" data-i18n="stats-tag">Résultats</div>
+      <h2 class="sec-title reveal" style="text-align:center" data-i18n-html="stats-title">Des chiffres<br/>qui parlent</h2>
       <div class="stats-grid reveal">
-        <div class="stat-box"><div class="stat-n" data-target="40" data-suffix="+">40+</div><div class="stat-l">Clients satisfaits</div></div>
-        <div class="stat-box"><div class="stat-n" data-target="72" data-suffix="h">72h</div><div class="stat-l">Livraison Essentiel</div></div>
-        <div class="stat-box"><div class="stat-n" data-target="98" data-suffix="">98</div><div class="stat-l">Score PageSpeed</div></div>
-        <div class="stat-box"><div class="stat-n" data-val="4.9★">4.9★</div><div class="stat-l">Note Google</div></div>
+        <div class="stat-box"><div class="stat-n" data-target="40" data-suffix="+">40+</div><div class="stat-l" data-i18n="stat01">Clients satisfaits</div></div>
+        <div class="stat-box"><div class="stat-n" data-target="72" data-suffix="h">72h</div><div class="stat-l" data-i18n="stat02">Livraison Essentiel</div></div>
+        <div class="stat-box"><div class="stat-n" data-target="98" data-suffix="">98</div><div class="stat-l" data-i18n="stat03">Score PageSpeed</div></div>
+        <div class="stat-box"><div class="stat-n" data-val="4.9★">4.9★</div><div class="stat-l" data-i18n="stat04">Note Google</div></div>
       </div>
     </div>
   </section>
 
   <!-- TESTIMONIALS -->
   <section class="scene-section" id="s-testimonials" aria-label="Témoignages" style="flex-direction:column;align-items:flex-start;padding-top:80px;">
-    <div class="sec-tag reveal">Témoignages</div>
-    <h2 class="sec-title reveal">Ils nous font<br/>confiance</h2>
+    <div class="sec-tag reveal" data-i18n="testi-tag">Témoignages</div>
+    <h2 class="sec-title reveal" data-i18n-html="testi-title">Ils nous font<br/>confiance</h2>
     <div class="testi-clip reveal">
     <div class="testi-track" id="tTrack">
-      <div class="testi-card lit"><div class="stars">★★★★★</div><p class="testi-q">« Depuis le lancement du site, notre volume de leads a vraiment décollé. L'interface est claire, rapide, et les prospects convertissent bien mieux qu'avant. Un investissement qui se rentabilise vite. »</p><div class="testi-author"><div class="tav">ZK</div><div><div class="tname">Zakaria</div><div class="trole">Fondateur, Leads.ma</div></div></div></div>
-      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-q">« Les demandes de devis ont triplé depuis la mise en ligne. Le site reflète parfaitement notre sérieux et nos clients nous en parlent spontanément. Très satisfait du résultat. »</p><div class="testi-author"><div class="tav">MO</div><div><div class="tname">Mostafa</div><div class="trole">Fondateur, Allo Jardin · allojardin.ma</div></div></div></div>
-      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-q">« Un site professionnel qui inspire confiance à nos partenaires internationaux. Nos échanges commerciaux se sont fluidifiés depuis le lancement. Je recommande vivement. »</p><div class="testi-author"><div class="tav">FD</div><div><div class="tname">Fouad</div><div class="trole">Directeur, Tahoexport · tahoexport.com</div></div></div></div>
+      <div class="testi-card lit"><div class="stars">★★★★★</div><p class="testi-q">« Depuis le lancement du site, notre volume de leads a vraiment décollé. L'interface est claire, rapide, et les prospects convertissent bien mieux qu'avant. Un investissement qui se rentabilise vite. »</p><div class="testi-author"><div class="tav">ZK</div><div><div class="tname">Zakaria</div><div class="trole" data-i18n="testi1-role">Fondateur, Leads.ma</div></div></div></div>
+      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-q">« Les demandes de devis ont triplé depuis la mise en ligne. Le site reflète parfaitement notre sérieux et nos clients nous en parlent spontanément. Très satisfait du résultat. »</p><div class="testi-author"><div class="tav">MO</div><div><div class="tname">Mostafa</div><div class="trole" data-i18n="testi2-role">Fondateur, Allo Jardin · allojardin.ma</div></div></div></div>
+      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-q">« Un site professionnel qui inspire confiance à nos partenaires internationaux. Nos échanges commerciaux se sont fluidifiés depuis le lancement. Je recommande vivement. »</p><div class="testi-author"><div class="tav">FD</div><div><div class="tname">Fouad</div><div class="trole" data-i18n="testi3-role">Directeur, Tahoexport · tahoexport.com</div></div></div></div>
     </div>
     </div>
     <div class="testi-nav"><div class="tdot on" onclick="goT(0)"></div><div class="tdot" onclick="goT(1)"></div><div class="tdot" onclick="goT(2)"></div></div>
@@ -894,58 +923,58 @@
 
   <!-- TARIFS -->
   <section class="scene-section" id="s-tarifs" aria-label="Tarifs" style="flex-direction:column;align-items:flex-start;padding-top:80px;">
-    <div class="sec-tag reveal">Tarifs</div>
-    <h2 class="sec-title reveal">Des formules<br/>transparentes</h2>
-    <p class="sec-sub reveal">Pas de surprise. Des tarifs clairs, sans frais cachés.</p>
+    <div class="sec-tag reveal" data-i18n="tarif-tag">Tarifs</div>
+    <h2 class="sec-title reveal" data-i18n-html="tarif-title">Des formules<br/>transparentes</h2>
+    <p class="sec-sub reveal" data-i18n="tarif-sub">Pas de surprise. Des tarifs clairs, sans frais cachés.</p>
     <div class="tarifs-grid">
 
       <div class="tarif-card reveal">
-        <div class="tarif-name">Essentiel</div>
+        <div class="tarif-name" data-i18n="tarif1-name">Essentiel</div>
         <div class="tarif-price">1 990 <span>MAD</span></div>
-        <div class="tarif-sub">Projet livré clé en main</div>
+        <div class="tarif-sub" data-i18n="tarif1-sub">Projet livré clé en main</div>
         <div class="tarif-sep"></div>
         <ul class="tarif-feats">
-          <li>Site vitrine jusqu'à 5 pages</li>
-          <li>Design responsive mobile</li>
-          <li>SEO de base inclus</li>
-          <li>Formulaire de contact</li>
-          <li>Livraison en 72 heures</li>
-          <li>1 mois de support</li>
+          <li data-i18n="tarif1-f1">Site vitrine jusqu'à 5 pages</li>
+          <li data-i18n="tarif1-f2">Design responsive mobile</li>
+          <li data-i18n="tarif1-f3">SEO de base inclus</li>
+          <li data-i18n="tarif1-f4">Formulaire de contact</li>
+          <li data-i18n="tarif1-f5">Livraison en 72 heures</li>
+          <li data-i18n="tarif1-f6">1 mois de support</li>
         </ul>
-        <button class="tarif-cta outline" onclick="document.getElementById('s-contact').scrollIntoView({behavior:'smooth'})">Démarrer →</button>
+        <button class="tarif-cta outline" data-i18n="tarif1-cta" onclick="document.getElementById('s-contact').scrollIntoView({behavior:'smooth'})">Démarrer →</button>
       </div>
 
       <div class="tarif-card featured reveal">
-        <div class="tarif-badge"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:13px;height:13px;flex-shrink:0"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm2 3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2H7z"/></svg> Populaire</div>
-        <div class="tarif-name">Premium</div>
+        <div class="tarif-badge"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:13px;height:13px;flex-shrink:0"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm2 3a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2H7z"/></svg> <span data-i18n="tarif-badge">Populaire</span></div>
+        <div class="tarif-name" data-i18n="tarif2-name">Premium</div>
         <div class="tarif-price">4 990 <span>MAD</span></div>
-        <div class="tarif-sub">Projet livré clé en main</div>
+        <div class="tarif-sub" data-i18n="tarif2-sub">Projet livré clé en main</div>
         <div class="tarif-sep"></div>
         <ul class="tarif-feats">
-          <li>Jusqu'à 10 pages + blog</li>
-          <li>Animations &amp; effets premium</li>
-          <li>SEO avancé + Google Analytics</li>
-          <li>E-commerce jusqu'à 50 produits</li>
-          <li>Livraison en 10 jours</li>
-          <li>3 mois de support</li>
+          <li data-i18n="tarif2-f1">Jusqu'à 10 pages + blog</li>
+          <li data-i18n="tarif2-f2">Animations &amp; effets premium</li>
+          <li data-i18n="tarif2-f3">SEO avancé + Google Analytics</li>
+          <li data-i18n="tarif2-f4">E-commerce jusqu'à 50 produits</li>
+          <li data-i18n="tarif2-f5">Livraison en 10 jours</li>
+          <li data-i18n="tarif2-f6">3 mois de support</li>
         </ul>
-        <button class="tarif-cta solid" onclick="document.getElementById('s-contact').scrollIntoView({behavior:'smooth'})">Démarrer →</button>
+        <button class="tarif-cta solid" data-i18n="tarif2-cta" onclick="document.getElementById('s-contact').scrollIntoView({behavior:'smooth'})">Démarrer →</button>
       </div>
 
       <div class="tarif-card reveal">
-        <div class="tarif-name">Sur Mesure</div>
-        <div class="tarif-price" style="font-size:clamp(22px,2.8vw,34px);">Sur devis</div>
-        <div class="tarif-sub">Projet analysé sous 24h</div>
+        <div class="tarif-name" data-i18n="tarif3-name">Sur Mesure</div>
+        <div class="tarif-price" style="font-size:clamp(22px,2.8vw,34px);" data-i18n="tarif3-price">Sur devis</div>
+        <div class="tarif-sub" data-i18n="tarif3-sub">Projet analysé sous 24h</div>
         <div class="tarif-sep"></div>
         <ul class="tarif-feats">
-          <li>Pages &amp; fonctionnalités illimitées</li>
-          <li>Intégrations API &amp; back-office</li>
-          <li>E-commerce avancé</li>
-          <li>Formation équipe incluse</li>
-          <li>Support 6 mois dédié</li>
-          <li>Accompagnement stratégique</li>
+          <li data-i18n="tarif3-f1">Pages &amp; fonctionnalités illimitées</li>
+          <li data-i18n="tarif3-f2">Intégrations API &amp; back-office</li>
+          <li data-i18n="tarif3-f3">E-commerce avancé</li>
+          <li data-i18n="tarif3-f4">Formation équipe incluse</li>
+          <li data-i18n="tarif3-f5">Support 6 mois dédié</li>
+          <li data-i18n="tarif3-f6">Accompagnement stratégique</li>
         </ul>
-        <button class="tarif-cta outline" onclick="document.getElementById('s-contact').scrollIntoView({behavior:'smooth'})">Nous contacter →</button>
+        <button class="tarif-cta outline" data-i18n="tarif3-cta" onclick="document.getElementById('s-contact').scrollIntoView({behavior:'smooth'})">Nous contacter →</button>
       </div>
 
     </div>
@@ -954,8 +983,8 @@
   <!-- BLOG -->
   <section class="scene-section" id="s-blog" aria-label="Blog" style="flex-direction:column;align-items:flex-start;padding-top:80px;padding-bottom:20px;">
     <div class="sec-tag reveal">Blog</div>
-    <h2 class="sec-title reveal">Ressources &amp;<br/>Insights</h2>
-    <p class="sec-sub reveal">Conseils concrets et données de marché pour développer votre présence en ligne au Maroc.</p>
+    <h2 class="sec-title reveal" data-i18n-html="blog-title">Ressources &amp;<br/>Insights</h2>
+    <p class="sec-sub reveal" data-i18n="blog-sub">Conseils concrets et données de marché pour développer votre présence en ligne au Maroc.</p>
     <div class="blog-list">
 
       <a href="blog-digital-maroc-2026.html" class="blog-item reveal" aria-label="Lire : L'état du digital au Maroc en 2026">
@@ -971,10 +1000,10 @@
           </div>
         </div>
         <div class="blog-body">
-          <div class="blog-cat" style="color:#f59e0b;background:rgba(245,158,11,.1);">Marché Marocain</div>
-          <div class="blog-title">L'état du digital au Maroc en 2026 : chiffres clés pour les PME</div>
-          <div class="blog-excerpt">E-commerce, réseaux sociaux, mobile — où en est le Maroc numérique ? Ce que tout entrepreneur doit savoir avant de lancer son site.</div>
-          <div class="blog-meta">5 min de lecture</div>
+          <div class="blog-cat" style="color:#f59e0b;background:rgba(245,158,11,.1);" data-i18n="blog1-cat">Marché Marocain</div>
+          <div class="blog-title" data-i18n="blog1-title">L'état du digital au Maroc en 2026 : chiffres clés pour les PME</div>
+          <div class="blog-excerpt" data-i18n="blog1-excerpt">E-commerce, réseaux sociaux, mobile — où en est le Maroc numérique ? Ce que tout entrepreneur doit savoir avant de lancer son site.</div>
+          <div class="blog-meta" data-i18n="blog1-meta">5 min de lecture</div>
         </div>
         <div class="blog-arrow" aria-hidden="true">→</div>
       </a>
@@ -991,10 +1020,10 @@
           </div>
         </div>
         <div class="blog-body">
-          <div class="blog-cat" style="color:#10b981;background:rgba(16,185,129,.1);">Conseils</div>
-          <div class="blog-title">5 erreurs de site web qui font fuir vos visiteurs (et comment les corriger)</div>
-          <div class="blog-excerpt">Lenteur, design daté, absence de CTA clair — ces erreurs coûtent des clients chaque jour. Tour d'horizon avec des solutions concrètes.</div>
-          <div class="blog-meta">4 min de lecture</div>
+          <div class="blog-cat" style="color:#10b981;background:rgba(16,185,129,.1);" data-i18n="blog2-cat">Conseils</div>
+          <div class="blog-title" data-i18n="blog2-title">5 erreurs de site web qui font fuir vos visiteurs (et comment les corriger)</div>
+          <div class="blog-excerpt" data-i18n="blog2-excerpt">Lenteur, design daté, absence de CTA clair — ces erreurs coûtent des clients chaque jour. Tour d'horizon avec des solutions concrètes.</div>
+          <div class="blog-meta" data-i18n="blog2-meta">4 min de lecture</div>
         </div>
         <div class="blog-arrow" aria-hidden="true">→</div>
       </a>
@@ -1012,10 +1041,10 @@
           </div>
         </div>
         <div class="blog-body">
-          <div class="blog-cat" style="color:#a78bfa;background:rgba(167,139,250,.1);">Conseils</div>
-          <div class="blog-title">Ce que doit absolument contenir une bonne landing page en 2026</div>
-          <div class="blog-excerpt">Hero, preuves sociales, CTA, formulaire — les éléments indispensables d'une page qui convertit, expliqués simplement.</div>
-          <div class="blog-meta">6 min de lecture</div>
+          <div class="blog-cat" style="color:#a78bfa;background:rgba(167,139,250,.1);" data-i18n="blog3-cat">Conseils</div>
+          <div class="blog-title" data-i18n="blog3-title">Ce que doit absolument contenir une bonne landing page en 2026</div>
+          <div class="blog-excerpt" data-i18n="blog3-excerpt">Hero, preuves sociales, CTA, formulaire — les éléments indispensables d'une page qui convertit, expliqués simplement.</div>
+          <div class="blog-meta" data-i18n="blog3-meta">6 min de lecture</div>
         </div>
         <div class="blog-arrow" aria-hidden="true">→</div>
       </a>
@@ -1031,10 +1060,10 @@
           </div>
         </div>
         <div class="blog-body">
-          <div class="blog-cat" style="color:#a78bfa;background:rgba(167,139,250,.1);">Tarifs &amp; Budget</div>
-          <div class="blog-title">Combien coûte un site web au Maroc en 2026 ?</div>
-          <div class="blog-excerpt">Vitrine, e-commerce, app web — tous les tarifs réels du marché marocain, les pièges à éviter et les 5 questions à poser avant de signer.</div>
-          <div class="blog-meta">6 min de lecture</div>
+          <div class="blog-cat" style="color:#a78bfa;background:rgba(167,139,250,.1);" data-i18n="blog4-cat">Tarifs &amp; Budget</div>
+          <div class="blog-title" data-i18n="blog4-title">Combien coûte un site web au Maroc en 2026 ?</div>
+          <div class="blog-excerpt" data-i18n="blog4-excerpt">Vitrine, e-commerce, app web — tous les tarifs réels du marché marocain, les pièges à éviter et les 5 questions à poser avant de signer.</div>
+          <div class="blog-meta" data-i18n="blog4-meta">6 min de lecture</div>
         </div>
         <div class="blog-arrow" aria-hidden="true">→</div>
       </a>
@@ -1054,10 +1083,10 @@
           </div>
         </div>
         <div class="blog-body">
-          <div class="blog-cat" style="color:#00D4FF;background:rgba(0,212,255,.1);">Tendances 2026</div>
-          <div class="blog-title">IA et sites web en 2026 : ce que ça change pour les PME marocaines</div>
-          <div class="blog-excerpt">Chatbots, SEO automatisé, personnalisation — comment l'intelligence artificielle transforme les sites web et ce que vous pouvez faire dès maintenant.</div>
-          <div class="blog-meta">7 min de lecture</div>
+          <div class="blog-cat" style="color:#00D4FF;background:rgba(0,212,255,.1);" data-i18n="blog5-cat">Tendances 2026</div>
+          <div class="blog-title" data-i18n="blog5-title">IA et sites web en 2026 : ce que ça change pour les PME marocaines</div>
+          <div class="blog-excerpt" data-i18n="blog5-excerpt">Chatbots, SEO automatisé, personnalisation — comment l'intelligence artificielle transforme les sites web et ce que vous pouvez faire dès maintenant.</div>
+          <div class="blog-meta" data-i18n="blog5-meta">7 min de lecture</div>
         </div>
         <div class="blog-arrow" aria-hidden="true">→</div>
       </a>
@@ -1067,45 +1096,45 @@
 
   <!-- CONTACT -->
   <section class="scene-section" id="s-contact" aria-label="Contact" style="flex-direction:column;align-items:flex-start;padding-top:80px;padding-bottom:80px;">
-    <div class="sec-tag reveal">Contact</div>
-    <h2 class="sec-title reveal">Lançons votre<br/>projet</h2>
+    <div class="sec-tag reveal" data-i18n="cont-tag">Contact</div>
+    <h2 class="sec-title reveal" data-i18n-html="cont-title">Lançons votre<br/>projet</h2>
     <div class="contact-grid">
       <div class="terminal reveal">
         <div class="term-bar">
           <div class="term-dot" style="background:#FF5F57"></div>
           <div class="term-dot" style="background:#FEBC2E"></div>
           <div class="term-dot" style="background:#28C840"></div>
-          <div class="term-title">// Démarrons votre projet ensemble</div>
+          <div class="term-title" data-i18n="term-title">// Démarrons votre projet ensemble</div>
         </div>
         <div class="term-body">
-          <div class="term-prompt">Nouveau projet · Devis gratuit sous 24h</div>
+          <div class="term-prompt" data-i18n="term-prompt">Nouveau projet · Devis gratuit sous 24h</div>
           <form class="cform" id="cform" novalidate>
             <div class="form-row">
-              <div class="fg"><label for="f-prenom">Prénom</label><input id="f-prenom" name="firstname" type="text" placeholder="Votre prénom" required autocomplete="given-name"/></div>
-              <div class="fg"><label for="f-nom">Nom</label><input id="f-nom" name="lastname" type="text" placeholder="Votre nom" required autocomplete="family-name"/></div>
+              <div class="fg"><label for="f-prenom" data-i18n="label-firstname">Prénom</label><input id="f-prenom" name="firstname" type="text" placeholder="Votre prénom" data-i18n-placeholder="ph-firstname" required autocomplete="given-name"/></div>
+              <div class="fg"><label for="f-nom" data-i18n="label-lastname">Nom</label><input id="f-nom" name="lastname" type="text" placeholder="Votre nom" data-i18n-placeholder="ph-lastname" required autocomplete="family-name"/></div>
             </div>
-            <div class="fg"><label for="f-email">Email</label><input id="f-email" name="email" type="email" placeholder="vous@exemple.com" required autocomplete="email"/></div>
-            <div class="fg"><label for="f-tel">Téléphone</label><input id="f-tel" name="phone" type="tel" placeholder="+212 6 00 00 00 00" autocomplete="tel"/></div>
+            <div class="fg"><label for="f-email">Email</label><input id="f-email" name="email" type="email" placeholder="vous@exemple.com" data-i18n-placeholder="ph-email" required autocomplete="email"/></div>
+            <div class="fg"><label for="f-tel" data-i18n="label-phone">Téléphone</label><input id="f-tel" name="phone" type="tel" placeholder="+212 6 00 00 00 00" data-i18n-placeholder="ph-phone" autocomplete="tel"/></div>
             <div class="fg">
-              <label for="f-type">Type de projet</label>
+              <label for="f-type" data-i18n="label-type">Type de projet</label>
               <select id="f-type" name="type" aria-label="Type de projet">
-                <option>Site vitrine</option><option>E-commerce</option>
-                <option>Application web</option><option>Landing page</option>
-                <option>Refonte</option><option>Autre</option>
+                <option data-i18n="opt-vitrine">Site vitrine</option><option data-i18n="opt-ecomm">E-commerce</option>
+                <option data-i18n="opt-app">Application web</option><option data-i18n="opt-landing">Landing page</option>
+                <option data-i18n="opt-refonte">Refonte</option><option data-i18n="opt-autre">Autre</option>
               </select>
             </div>
-            <div class="fg"><label for="f-msg">Message</label><textarea id="f-msg" name="message" placeholder="Décrivez votre vision…" required></textarea></div>
-            <button type="submit" class="fsub">Initialiser le projet →</button>
+            <div class="fg"><label for="f-msg" data-i18n="label-msg">Message</label><textarea id="f-msg" name="message" placeholder="Décrivez votre vision…" data-i18n-placeholder="ph-msg" required></textarea></div>
+            <button type="submit" class="fsub" data-i18n="btn-submit">Initialiser le projet →</button>
             <div id="fmsg">✓ Message envoyé. Réponse sous 24h.</div>
           </form>
         </div>
       </div>
       <div class="cinfo reveal">
-        <h3>Votre vision mérite<br/>le meilleur</h3>
-        <p>Réponse garantie sous 24h. Premier échange offert, sans engagement. Tarifs transparents, sans frais cachés.</p>
-        <div class="cdet"><div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.07 13.6 19.79 19.79 0 011 4.93 2 2 0 012.84 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><div><div class="ct">+212 6 60 76 13 13</div><div class="cs">WhatsApp disponible</div></div></div>
-        <div class="cdet"><div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="ct">designstudioweb@icloud.com</div><div class="cs">Réponse sous 24h</div></div></div>
-        <div class="cdet"><div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div><div><div class="ct">Casablanca · Rabat · Marrakech</div><div class="cs">Maroc & international</div></div></div>
+        <h3 data-i18n-html="cinfo-title">Votre vision mérite<br/>le meilleur</h3>
+        <p data-i18n="cinfo-desc">Réponse garantie sous 24h. Premier échange offert, sans engagement. Tarifs transparents, sans frais cachés.</p>
+        <div class="cdet"><div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.07 13.6 19.79 19.79 0 011 4.93 2 2 0 012.84 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><div><div class="ct">+212 6 60 76 13 13</div><div class="cs" data-i18n="wa-label">WhatsApp disponible</div></div></div>
+        <div class="cdet"><div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="ct">designstudioweb@icloud.com</div><div class="cs" data-i18n="email-label">Réponse sous 24h</div></div></div>
+        <div class="cdet"><div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div><div><div class="ct">Casablanca · Rabat · Marrakech</div><div class="cs" data-i18n="loc-label">Maroc &amp; international</div></div></div>
       </div>
     </div>
   </section>
@@ -1114,7 +1143,7 @@
 
 <footer role="contentinfo">
   <div class="flogo">Studio<span>Web</span></div>
-  <div class="fcopy">© 2026 StudioWeb Maroc. Tous droits réservés.</div>
+  <div class="fcopy" data-i18n="fcopy">© 2026 StudioWeb Maroc. Tous droits réservés.</div>
   <div class="flinks">
     <a href="#s-services">Services</a>
     <a href="#s-portfolio">Portfolio</a>
@@ -1785,7 +1814,7 @@ document.getElementById('cform').addEventListener('submit',async function(e){
   const btn=e.target.querySelector('.fsub');
   const msg=document.getElementById('fmsg');
   btn.disabled=true;
-  btn.textContent='Envoi en cours…';
+  btn.textContent=I18N[currentLang]['form-sending']||'Envoi en cours…';
   const fd=new FormData(e.target);
   const name=(fd.get('firstname')||'').trim()+' '+(fd.get('lastname')||'').trim();
   try{
@@ -1804,7 +1833,7 @@ document.getElementById('cform').addEventListener('submit',async function(e){
     });
     const data=await res.json();
     if(data.success){
-      msg.textContent='✓ Message envoyé. Réponse sous 24h.';
+      msg.textContent=I18N[currentLang]['form-success']||'✓ Message envoyé. Réponse sous 24h.';
       msg.style.color='';
       msg.style.display='block';
       e.target.reset();
@@ -1813,13 +1842,13 @@ document.getElementById('cform').addEventListener('submit',async function(e){
       throw new Error(data.message);
     }
   }catch(err){
-    msg.textContent='✗ Erreur d\'envoi. Contactez-nous par email.';
+    msg.textContent=I18N[currentLang]['form-error']||'✗ Erreur d\'envoi. Contactez-nous par email.';
     msg.style.color='#ff6b6b';
     msg.style.display='block';
     setTimeout(()=>{msg.style.display='none';msg.style.color='';},5000);
   }finally{
     btn.disabled=false;
-    btn.textContent='Initialiser le projet →';
+    btn.textContent=I18N[currentLang]['form-reset']||'Initialiser le projet →';
   }
 });
 
@@ -1837,6 +1866,206 @@ hamBtn.addEventListener('click',()=>{
 });
 document.querySelectorAll('.mm-l').forEach(a=>a.addEventListener('click',closeMob));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMob();});
+
+/* ══════════════════════════════════════
+   INTERNATIONALISATION FR / EN
+══════════════════════════════════════ */
+window.I18N={
+  fr:{
+    'skip':'Passer au contenu',
+    'intro-tag':'Agence Digitale Premium · Maroc',
+    'nav-results':'Résultats','nav-pricing':'Tarifs','nav-cta':'Démarrer →',
+    'mob-project':'Créer mon projet','testi-tag':'Témoignages',
+    'hero-badge':'Expériences Web du Futur',
+    'hero-line1':'Nous créons les','hero-line3':'du futur',
+    'hero-sub':'Agence web au Maroc — sites premium, interfaces innovantes, livraison en 72h.',
+    'hero-btn1':'Créer mon projet','hero-btn2':'Explorer nos réalisations',
+    'svc-title':'Ce que nous<br/>créons pour vous',
+    'svc-sub':'Des solutions digitales complètes — de la conception à la mise en ligne, avec une obsession pour l\'excellence.',
+    'svc01':'Sites vitrines',
+    'svc01-desc':'Un site élégant qui inspire confiance et génère des prospects qualifiés. Livraison en 72 heures.',
+    'svc02-desc':'Boutiques performantes avec tunnel d\'achat optimisé et paiements sécurisés.',
+    'svc03':'Applications web',
+    'svc03-desc':'Web apps modernes — portails clients, SaaS, outils métier. Stack React + Next.js.',
+    'svc04-desc':'Score PageSpeed 98+, stratégie SEO complète, positionnement Google garanti.',
+    'svc05-desc':'Support dédié, mises à jour, sauvegardes automatiques et sécurité 24h/24.',
+    'port-title':'Nos dernières<br/>réalisations',
+    'port-sub':'Chaque projet est une nouvelle aventure — design premium, résultats mesurables.',
+    'port1-sub':'Jardinage & entretien · allojardin.ma',
+    'port3-sub':'Génération de leads · leads.ma',
+    'stats-tag':'Résultats','stats-title':'Des chiffres<br/>qui parlent',
+    'stat01':'Clients satisfaits','stat02':'Livraison Essentiel','stat03':'Score PageSpeed','stat04':'Note Google',
+    'testi-title':'Ils nous font<br/>confiance',
+    'testi1-role':'Fondateur, Leads.ma',
+    'testi2-role':'Fondateur, Allo Jardin · allojardin.ma',
+    'testi3-role':'Directeur, Tahoexport · tahoexport.com',
+    'tarif-tag':'Tarifs','tarif-title':'Des formules<br/>transparentes',
+    'tarif-sub':'Pas de surprise. Des tarifs clairs, sans frais cachés.',
+    'tarif1-name':'Essentiel','tarif1-sub':'Projet livré clé en main',
+    'tarif1-f1':'Site vitrine jusqu\'à 5 pages','tarif1-f2':'Design responsive mobile',
+    'tarif1-f3':'SEO de base inclus','tarif1-f4':'Formulaire de contact',
+    'tarif1-f5':'Livraison en 72 heures','tarif1-f6':'1 mois de support','tarif1-cta':'Démarrer →',
+    'tarif-badge':'Populaire','tarif2-name':'Premium','tarif2-sub':'Projet livré clé en main',
+    'tarif2-f1':'Jusqu\'à 10 pages + blog','tarif2-f2':'Animations & effets premium',
+    'tarif2-f3':'SEO avancé + Google Analytics','tarif2-f4':'E-commerce jusqu\'à 50 produits',
+    'tarif2-f5':'Livraison en 10 jours','tarif2-f6':'3 mois de support','tarif2-cta':'Démarrer →',
+    'tarif3-name':'Sur Mesure','tarif3-price':'Sur devis','tarif3-sub':'Projet analysé sous 24h',
+    'tarif3-f1':'Pages & fonctionnalités illimitées','tarif3-f2':'Intégrations API & back-office',
+    'tarif3-f3':'E-commerce avancé','tarif3-f4':'Formation équipe incluse',
+    'tarif3-f5':'Support 6 mois dédié','tarif3-f6':'Accompagnement stratégique','tarif3-cta':'Nous contacter →',
+    'blog-title':'Ressources &<br/>Insights',
+    'blog-sub':'Conseils concrets et données de marché pour développer votre présence en ligne au Maroc.',
+    'blog1-cat':'Marché Marocain',
+    'blog1-title':'L\'état du digital au Maroc en 2026 : chiffres clés pour les PME',
+    'blog1-excerpt':'E-commerce, réseaux sociaux, mobile — où en est le Maroc numérique ? Ce que tout entrepreneur doit savoir avant de lancer son site.',
+    'blog1-meta':'5 min de lecture',
+    'blog2-cat':'Conseils',
+    'blog2-title':'5 erreurs de site web qui font fuir vos visiteurs (et comment les corriger)',
+    'blog2-excerpt':'Lenteur, design daté, absence de CTA clair — ces erreurs coûtent des clients chaque jour. Tour d\'horizon avec des solutions concrètes.',
+    'blog2-meta':'4 min de lecture',
+    'blog3-cat':'Conseils',
+    'blog3-title':'Ce que doit absolument contenir une bonne landing page en 2026',
+    'blog3-excerpt':'Hero, preuves sociales, CTA, formulaire — les éléments indispensables d\'une page qui convertit, expliqués simplement.',
+    'blog3-meta':'6 min de lecture',
+    'blog4-cat':'Tarifs & Budget',
+    'blog4-title':'Combien coûte un site web au Maroc en 2026 ?',
+    'blog4-excerpt':'Vitrine, e-commerce, app web — tous les tarifs réels du marché marocain, les pièges à éviter et les 5 questions à poser avant de signer.',
+    'blog4-meta':'6 min de lecture',
+    'blog5-cat':'Tendances 2026',
+    'blog5-title':'IA et sites web en 2026 : ce que ça change pour les PME marocaines',
+    'blog5-excerpt':'Chatbots, SEO automatisé, personnalisation — comment l\'intelligence artificielle transforme les sites web et ce que vous pouvez faire dès maintenant.',
+    'blog5-meta':'7 min de lecture',
+    'cont-tag':'Contact','cont-title':'Lançons votre<br/>projet',
+    'term-title':'// Démarrons votre projet ensemble',
+    'term-prompt':'Nouveau projet · Devis gratuit sous 24h',
+    'label-firstname':'Prénom','label-lastname':'Nom','label-phone':'Téléphone',
+    'label-type':'Type de projet','label-msg':'Message',
+    'ph-firstname':'Votre prénom','ph-lastname':'Votre nom',
+    'ph-email':'vous@exemple.com','ph-phone':'+212 6 00 00 00 00','ph-msg':'Décrivez votre vision…',
+    'opt-vitrine':'Site vitrine','opt-ecomm':'E-commerce','opt-app':'Application web',
+    'opt-landing':'Landing page','opt-refonte':'Refonte','opt-autre':'Autre',
+    'btn-submit':'Initialiser le projet →',
+    'cinfo-title':'Votre vision mérite<br/>le meilleur',
+    'cinfo-desc':'Réponse garantie sous 24h. Premier échange offert, sans engagement. Tarifs transparents, sans frais cachés.',
+    'wa-label':'WhatsApp disponible','email-label':'Réponse sous 24h','loc-label':'Maroc & international',
+    'fcopy':'© 2026 StudioWeb Maroc. Tous droits réservés.',
+    'form-sending':'Envoi en cours…','form-success':'✓ Message envoyé. Réponse sous 24h.',
+    'form-error':'✗ Erreur d\'envoi. Contactez-nous par email.','form-reset':'Initialiser le projet →',
+  },
+  en:{
+    'skip':'Skip to content',
+    'intro-tag':'Premium Digital Agency · Morocco',
+    'nav-results':'Results','nav-pricing':'Pricing','nav-cta':'Get started →',
+    'mob-project':'Start my project','testi-tag':'Testimonials',
+    'hero-badge':'Web Experiences of the Future',
+    'hero-line1':'We build the','hero-line3':'of the future',
+    'hero-sub':'Web agency in Morocco — premium sites, innovative interfaces, delivered in 72h.',
+    'hero-btn1':'Start my project','hero-btn2':'View our work',
+    'svc-title':'What we<br/>build for you',
+    'svc-sub':'Complete digital solutions — from concept to launch, with an obsession for excellence.',
+    'svc01':'Showcase websites',
+    'svc01-desc':'An elegant site that builds trust and generates qualified leads. Delivered in 72 hours.',
+    'svc02-desc':'High-performing online stores with optimized checkout and secure payments.',
+    'svc03':'Web applications',
+    'svc03-desc':'Modern web apps — client portals, SaaS, business tools. React + Next.js stack.',
+    'svc04-desc':'PageSpeed score 98+, complete SEO strategy, guaranteed Google ranking.',
+    'svc05-desc':'Dedicated support, updates, automatic backups and 24/7 security.',
+    'port-title':'Our latest<br/>projects',
+    'port-sub':'Every project is a new adventure — premium design, measurable results.',
+    'port1-sub':'Gardening & maintenance · allojardin.ma',
+    'port3-sub':'Lead generation · leads.ma',
+    'stats-tag':'Results','stats-title':'Numbers that<br/>speak for themselves',
+    'stat01':'Happy clients','stat02':'Essential delivery','stat03':'PageSpeed Score','stat04':'Google Rating',
+    'testi-title':'They trust<br/>us',
+    'testi1-role':'Founder, Leads.ma',
+    'testi2-role':'Founder, Allo Jardin · allojardin.ma',
+    'testi3-role':'Director, Tahoexport · tahoexport.com',
+    'tarif-tag':'Pricing','tarif-title':'Clear<br/>transparent plans',
+    'tarif-sub':'No surprises. Clear pricing, no hidden fees.',
+    'tarif1-name':'Essential','tarif1-sub':'Project delivered turnkey',
+    'tarif1-f1':'Showcase site up to 5 pages','tarif1-f2':'Responsive mobile design',
+    'tarif1-f3':'Basic SEO included','tarif1-f4':'Contact form',
+    'tarif1-f5':'Delivery in 72 hours','tarif1-f6':'1 month of support','tarif1-cta':'Get started →',
+    'tarif-badge':'Popular','tarif2-name':'Premium','tarif2-sub':'Project delivered turnkey',
+    'tarif2-f1':'Up to 10 pages + blog','tarif2-f2':'Premium animations & effects',
+    'tarif2-f3':'Advanced SEO + Google Analytics','tarif2-f4':'E-commerce up to 50 products',
+    'tarif2-f5':'Delivery in 10 days','tarif2-f6':'3 months of support','tarif2-cta':'Get started →',
+    'tarif3-name':'Custom','tarif3-price':'On quote','tarif3-sub':'Project analyzed within 24h',
+    'tarif3-f1':'Unlimited pages & features','tarif3-f2':'API & back-office integrations',
+    'tarif3-f3':'Advanced e-commerce','tarif3-f4':'Team training included',
+    'tarif3-f5':'6 months dedicated support','tarif3-f6':'Strategic consulting','tarif3-cta':'Contact us →',
+    'blog-title':'Resources &<br/>Insights',
+    'blog-sub':'Concrete advice and market data to grow your online presence in Morocco.',
+    'blog1-cat':'Moroccan Market',
+    'blog1-title':'The state of digital in Morocco 2026: key figures for SMEs',
+    'blog1-excerpt':'E-commerce, social media, mobile — where does digital Morocco stand? What every entrepreneur needs to know before launching their site.',
+    'blog1-meta':'5 min read',
+    'blog2-cat':'Tips',
+    'blog2-title':'5 website mistakes that drive visitors away (and how to fix them)',
+    'blog2-excerpt':'Slow loading, outdated design, missing CTA — these mistakes cost clients every day. An overview with concrete solutions.',
+    'blog2-meta':'4 min read',
+    'blog3-cat':'Tips',
+    'blog3-title':'What a good landing page must contain in 2026',
+    'blog3-excerpt':'Hero, social proof, CTA, form — the essential elements of a page that converts, explained simply.',
+    'blog3-meta':'6 min read',
+    'blog4-cat':'Pricing & Budget',
+    'blog4-title':'How much does a website cost in Morocco in 2026?',
+    'blog4-excerpt':'Showcase, e-commerce, web app — all real prices on the Moroccan market, pitfalls to avoid and 5 questions to ask before signing.',
+    'blog4-meta':'6 min read',
+    'blog5-cat':'Trends 2026',
+    'blog5-title':'AI and websites in 2026: what it changes for Moroccan SMEs',
+    'blog5-excerpt':'Chatbots, automated SEO, personalization — how artificial intelligence is transforming websites and what you can do right now.',
+    'blog5-meta':'7 min read',
+    'cont-tag':'Contact','cont-title':"Let's launch<br/>your project",
+    'term-title':"// Let's start your project together",
+    'term-prompt':'New project · Free quote within 24h',
+    'label-firstname':'First name','label-lastname':'Last name','label-phone':'Phone',
+    'label-type':'Project type','label-msg':'Message',
+    'ph-firstname':'Your first name','ph-lastname':'Your last name',
+    'ph-email':'you@example.com','ph-phone':'+212 6 00 00 00 00','ph-msg':'Describe your vision…',
+    'opt-vitrine':'Showcase website','opt-ecomm':'E-commerce','opt-app':'Web application',
+    'opt-landing':'Landing page','opt-refonte':'Redesign','opt-autre':'Other',
+    'btn-submit':'Initialize project →',
+    'cinfo-title':'Your vision deserves<br/>the best',
+    'cinfo-desc':'Response guaranteed within 24h. First consultation free, no commitment. Transparent pricing, no hidden fees.',
+    'wa-label':'WhatsApp available','email-label':'Response within 24h','loc-label':'Morocco & international',
+    'fcopy':'© 2026 StudioWeb Maroc. All rights reserved.',
+    'form-sending':'Sending…','form-success':'✓ Message sent. Response within 24h.',
+    'form-error':'✗ Send error. Contact us by email.','form-reset':'Initialize project →',
+  }
+};
+
+window.currentLang=localStorage.getItem('sw-lang')||'fr';
+
+window.setLang=function(lang){
+  window.currentLang=lang;
+  localStorage.setItem('sw-lang',lang);
+  document.documentElement.lang=lang==='en'?'en':'fr';
+  const t=I18N[lang];
+  // textContent
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.dataset.i18n;
+    if(t[k]!==undefined) el.textContent=t[k];
+  });
+  // innerHTML (elements with <br/> etc.)
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+    const k=el.dataset.i18nHtml;
+    if(t[k]!==undefined) el.innerHTML=t[k];
+  });
+  // placeholders
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+    const k=el.dataset.i18nPlaceholder;
+    if(t[k]!==undefined) el.placeholder=t[k];
+  });
+  // toggle button state
+  ['btnFr','btnEn','btnFrMob','btnEnMob'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.classList.toggle('active', el.id.toLowerCase().includes(lang));
+  });
+}
+
+// init on load
+setLang(currentLang);
 
 });// DOMContentLoaded
 </script>
