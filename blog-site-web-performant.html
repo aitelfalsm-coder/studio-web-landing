@@ -18,7 +18,7 @@
   <meta property="og:locale" content="fr_MA"/>
   <meta property="og:site_name" content="StudioWeb Maroc"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Comment Créer un Site Web Performant en 2026 : Guide Complet","description":"Stratégie, contenu, design UX, SEO, sécurité, maintenance : le guide complet pour créer un site web performant qui attire du trafic qualifié et convertit.","author":{"@type":"Organization","name":"StudioWeb Maroc","url":"https://studioweb.ma"},"publisher":{"@type":"Organization","name":"StudioWeb Maroc","url":"https://studioweb.ma"},"datePublished":"2026-06-08","dateModified":"2026-06-08","url":"https://studioweb.ma/blog-site-web-performant.html","inLanguage":"fr","keywords":"créer site web performant, sécurité site web, SEO, maintenance, design UX"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Comment Créer un Site Web Performant en 2026 : Guide Complet","description":"Stratégie, contenu, design UX, SEO, sécurité, maintenance : le guide complet pour créer un site web performant qui attire du trafic qualifié et convertit.","author":{"@type":"Organization","name":"StudioWeb Maroc","url":"https://studioweb.ma"},"publisher":{"@type":"Organization","name":"StudioWeb Maroc","url":"https://studioweb.ma"},"datePublished":"2026-06-08","dateModified":"2026-06-08","url":"https://studioweb.ma/blog-site-web-performant","inLanguage":"fr","keywords":"créer site web performant, sécurité site web, SEO, maintenance, design UX"}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -62,15 +62,22 @@
     .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
     .btn-primary{display:inline-block;background:linear-gradient(135deg,var(--blue),var(--violet));color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;padding:14px 28px;border-radius:50px;font-size:14px;}
     .btn-secondary{display:inline-block;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.2);font-family:'Space Grotesk',sans-serif;font-weight:600;padding:14px 28px;border-radius:50px;font-size:14px;}
+    .related-articles{margin-top:48px;padding-top:36px;border-top:1px solid rgba(255,255,255,.08);}
+    .related-articles>h3{font-size:17px;font-weight:700;margin-bottom:16px;}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+    .related-card{display:flex;flex-direction:column;gap:6px;padding:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;transition:border-color .2s;}
+    .related-card:hover{border-color:var(--blue);}
+    .related-cat{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);}
+    .related-title{font-size:14px;font-weight:600;color:#fff;line-height:1.4;}
     @media(max-width:640px){nav{padding:14px 20px;}.article-wrap{padding:40px 20px 60px;}.cta-btns{flex-direction:column;align-items:center;}}
   </style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MK8XCJRJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <nav>
-  <a href="index.html" class="nav-logo">Studio<span>Web</span></a>
-  <a href="index.html#s-blog" class="nav-back">&larr; Retour au blog</a>
-  <button class="nav-cta" onclick="location.href='index.html#s-contact'">Démarrer mon projet</button>
+  <a href="/" class="nav-logo">Studio<span>Web</span></a>
+  <a href="/#s-blog" class="nav-back">&larr; Retour au blog</a>
+  <button class="nav-cta" onclick="location.href='/#s-contact'">Démarrer mon projet</button>
 </nav>
 
 <article class="article-wrap">
@@ -206,8 +213,25 @@
     <h3>Prêt à créer un site performant ?</h3>
     <p>Téléchargez notre checklist complète de création de site web ou demandez un audit gratuit pour évaluer l'état actuel de votre site et obtenir des recommandations personnalisées.</p>
     <div class="cta-btns">
-      <a href="index.html#s-contact" class="btn-primary">Demander un audit gratuit &rarr;</a>
-      <a href="index.html#s-contact" class="btn-secondary">Discuter de mon projet</a>
+      <a href="/#s-contact" class="btn-primary">Demander un audit gratuit &rarr;</a>
+      <a href="/#s-contact" class="btn-secondary">Discuter de mon projet</a>
+    </div>
+  </div>
+  <div class="related-articles">
+    <h3>Articles connexes</h3>
+    <div class="related-grid">
+      <a href="/blog-erreurs-site-web" class="related-card">
+        <span class="related-cat">Optimisation</span>
+        <span class="related-title">5 erreurs qui font fuir vos visiteurs</span>
+      </a>
+      <a href="/blog-ia-site-web-maroc" class="related-card">
+        <span class="related-cat">Tendances</span>
+        <span class="related-title">IA et sites web en 2026 : impact PME</span>
+      </a>
+      <a href="/blog-prix-site-web-maroc" class="related-card">
+        <span class="related-cat">Budget</span>
+        <span class="related-title">Prix d'un site web au Maroc en 2026</span>
+      </a>
     </div>
   </div>
 </article>

@@ -60,6 +60,13 @@
     .usage-num{display:inline-block;font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:11px;color:var(--blue);background:rgba(0,212,255,.1);border-radius:6px;padding:2px 8px;margin-bottom:10px;letter-spacing:1px;}
     .callout{background:rgba(0,212,255,.06);border-left:3px solid var(--blue);border-radius:0 12px 12px 0;padding:18px 20px;margin:28px 0;font-size:15px;color:rgba(255,255,255,.8);}
     .callout strong{color:var(--blue);}
+    .related-articles{margin-top:48px;padding-top:36px;border-top:1px solid rgba(255,255,255,.08);}
+    .related-articles>h3{font-size:17px;font-weight:700;margin-bottom:16px;}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+    .related-card{display:flex;flex-direction:column;gap:6px;padding:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;transition:border-color .2s;}
+    .related-card:hover{border-color:var(--blue);}
+    .related-cat{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);}
+    .related-title{font-size:14px;font-weight:600;color:#fff;line-height:1.4;}
     @media(max-width:640px){nav{padding:14px 20px;}.article-wrap{padding:40px 20px 60px;}}
   </style>
 </head>
@@ -149,6 +156,23 @@
     <h3>Un site pensé pour 2026</h3>
     <p>Nous intégrons les meilleures pratiques IA dès la création de votre site — chatbot, SEO optimisé, analytics configuré.</p>
     <a href="/#s-contact">Démarrer mon projet →</a>
+  </div>
+  <div class="related-articles">
+    <h3>Articles connexes</h3>
+    <div class="related-grid">
+      <a href="/blog-digital-maroc-2026" class="related-card">
+        <span class="related-cat">Marché</span>
+        <span class="related-title">Digital au Maroc en 2026 : chiffres clés</span>
+      </a>
+      <a href="/blog-site-web-performant" class="related-card">
+        <span class="related-cat">Performance</span>
+        <span class="related-title">Créer un site web performant en 2026</span>
+      </a>
+      <a href="/blog-landing-page-2026" class="related-card">
+        <span class="related-cat">Conversion</span>
+        <span class="related-title">Landing page efficace : 5 éléments clés</span>
+      </a>
+    </div>
   </div>
 </article>
 </body>

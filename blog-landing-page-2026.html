@@ -18,7 +18,7 @@
   <meta property="og:site_name" content="StudioWeb Maroc"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="robots" content="index, follow"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Landing Page Efficace en 2026 : 5 Éléments Indispensables pour Convertir","description":"Les 5 blocs indispensables pour une landing page qui convertit : hero, preuve sociale, CTA, témoignages, formulaire.","author":{"@type":"Organization","name":"StudioWeb Maroc","url":"https://studioweb.ma"},"publisher":{"@type":"Organization","name":"StudioWeb Maroc","url":"https://studioweb.ma"},"datePublished":"2026-06-04","dateModified":"2026-06-04","url":"https://studioweb.ma/blog-landing-page-2026.html","inLanguage":"fr","keywords":"landing page, conversion, site web professionnel maroc"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Landing Page Efficace en 2026 : 5 Éléments Indispensables pour Convertir","description":"Les 5 blocs indispensables pour une landing page qui convertit : hero, preuve sociale, CTA, témoignages, formulaire.","author":{"@type":"Organization","name":"StudioWeb Maroc","url":"https://studioweb.ma"},"publisher":{"@type":"Organization","name":"StudioWeb Maroc","url":"https://studioweb.ma"},"datePublished":"2026-06-04","dateModified":"2026-06-04","url":"https://studioweb.ma/blog-landing-page-2026","inLanguage":"fr","keywords":"landing page, conversion, site web professionnel maroc"}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -52,15 +52,22 @@
     .article-cta h3{font-size:22px;font-weight:800;margin-bottom:8px;}
     .article-cta p{font-size:15px;color:rgba(255,255,255,.55);margin-bottom:24px;}
     .article-cta a{display:inline-block;background:linear-gradient(135deg,var(--blue),var(--violet));color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;padding:14px 32px;border-radius:50px;font-size:15px;}
+    .related-articles{margin-top:48px;padding-top:36px;border-top:1px solid rgba(255,255,255,.08);}
+    .related-articles>h3{font-size:17px;font-weight:700;margin-bottom:16px;}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+    .related-card{display:flex;flex-direction:column;gap:6px;padding:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;transition:border-color .2s;}
+    .related-card:hover{border-color:var(--blue);}
+    .related-cat{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);}
+    .related-title{font-size:14px;font-weight:600;color:#fff;line-height:1.4;}
     @media(max-width:640px){nav{padding:14px 20px;}.article-wrap{padding:40px 20px 60px;}.element-block{flex-direction:column;}}
   </style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MK8XCJRJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
 <nav>
-  <a href="index.html" class="nav-logo">Studio<span>Web</span></a>
-  <a href="index.html#s-blog" class="nav-back">&larr; Retour au blog</a>
-  <button class="nav-cta" onclick="location.href='index.html#s-contact'">Demarrer mon projet</button>
+  <a href="/" class="nav-logo">Studio<span>Web</span></a>
+  <a href="/#s-blog" class="nav-back">&larr; Retour au blog</a>
+  <button class="nav-cta" onclick="location.href='/#s-contact'">Demarrer mon projet</button>
 </nav>
 <article class="article-wrap">
   <div class="article-cat">Conseils</div>
@@ -89,7 +96,24 @@
   <div class="article-cta">
     <h3>Votre landing page convertit-elle ?</h3>
     <p>On concoit des pages structurees pour convertir, livrees en 14 jours, a partir de 1990 MAD.</p>
-    <a href="index.html#s-contact">Voir nos formules &rarr;</a>
+    <a href="/#s-contact">Voir nos formules &rarr;</a>
+  </div>
+  <div class="related-articles">
+    <h3>Articles connexes</h3>
+    <div class="related-grid">
+      <a href="/blog-erreurs-site-web" class="related-card">
+        <span class="related-cat">Optimisation</span>
+        <span class="related-title">5 erreurs qui font fuir vos visiteurs</span>
+      </a>
+      <a href="/blog-prix-site-web-maroc" class="related-card">
+        <span class="related-cat">Budget</span>
+        <span class="related-title">Prix d'un site web au Maroc en 2026</span>
+      </a>
+      <a href="/blog-ia-site-web-maroc" class="related-card">
+        <span class="related-cat">Tendances</span>
+        <span class="related-title">IA et sites web en 2026 : impact PME</span>
+      </a>
+    </div>
   </div>
 </article>
 </body>
