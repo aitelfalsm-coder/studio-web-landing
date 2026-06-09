@@ -751,6 +751,117 @@
   @supports(padding:max(0px)){
     nav{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right));}
   }
+
+  /* ═══ HERO PRE-LOAD (visible avant Three.js, disparaît après) ═══ */
+  #hero-pre{
+    position:absolute;inset:0;z-index:0!important;
+    pointer-events:none;overflow:hidden;
+    opacity:0;animation:hpre-in .8s ease forwards;
+    transition:opacity 2s ease;
+  }
+  .three-ready #hero-pre{opacity:0!important;transition:opacity 2s ease;}
+  @keyframes hpre-in{from{opacity:0}to{opacity:1}}
+
+  /* Orbes lumineux flottants */
+  .hp-orb{position:absolute;border-radius:50%;filter:blur(70px);will-change:transform;}
+  .hp-orb1{
+    width:clamp(300px,45vw,600px);height:clamp(300px,45vw,600px);
+    background:radial-gradient(circle,rgba(0,212,255,.18) 0%,transparent 70%);
+    top:-10%;left:10%;
+    animation:hporb1 14s ease-in-out infinite alternate;
+  }
+  .hp-orb2{
+    width:clamp(250px,38vw,500px);height:clamp(250px,38vw,500px);
+    background:radial-gradient(circle,rgba(123,97,255,.15) 0%,transparent 70%);
+    bottom:0;right:5%;
+    animation:hporb2 18s ease-in-out infinite alternate;
+  }
+  .hp-orb3{
+    width:clamp(150px,22vw,280px);height:clamp(150px,22vw,280px);
+    background:radial-gradient(circle,rgba(112,240,255,.12) 0%,transparent 70%);
+    top:45%;left:55%;
+    animation:hporb3 10s ease-in-out infinite alternate;
+  }
+  @keyframes hporb1{from{transform:translate(0,0) scale(1)}to{transform:translate(35px,25px) scale(1.08)}}
+  @keyframes hporb2{from{transform:translate(0,0) scale(1)}to{transform:translate(-25px,18px) scale(1.06)}}
+  @keyframes hporb3{from{transform:translate(0,0)}to{transform:translate(-18px,-22px)}}
+
+  /* Grille perspective */
+  .hp-grid{
+    position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(0,212,255,.07) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(0,212,255,.07) 1px,transparent 1px);
+    background-size:80px 80px;
+    -webkit-mask-image:radial-gradient(ellipse 75% 75% at 50% 50%,black 0%,transparent 100%);
+    mask-image:radial-gradient(ellipse 75% 75% at 50% 50%,black 0%,transparent 100%);
+    animation:hp-grid-drift 20s linear infinite;
+  }
+  @keyframes hp-grid-drift{from{background-position:0 0}to{background-position:0 80px}}
+
+  /* Particules ponctuelles (box-shadow trick) */
+  .hp-particles{position:absolute;inset:0;}
+  .hp-particles::before,.hp-particles::after{
+    content:'';position:absolute;width:2px;height:2px;border-radius:50%;
+    animation:hp-twinkle 4s ease-in-out infinite;
+  }
+  .hp-particles::before{
+    background:rgba(0,212,255,.9);top:22%;left:18%;
+    box-shadow:
+      140px 60px 0 rgba(0,212,255,.6),
+      280px 140px 0 rgba(123,97,255,.5),
+      60px 200px 0 rgba(0,212,255,.4),
+      400px 80px 0 rgba(123,97,255,.5),
+      500px 180px 0 rgba(0,212,255,.4),
+      330px 260px 0 rgba(123,97,255,.3),
+      180px 310px 0 rgba(0,212,255,.4),
+      450px 300px 0 rgba(123,97,255,.3),
+      90px 370px 0 rgba(0,212,255,.3),
+      370px 380px 0 rgba(123,97,255,.4),
+      240px 420px 0 rgba(0,212,255,.3),
+      520px 420px 0 rgba(123,97,255,.2);
+  }
+  .hp-particles::after{
+    background:rgba(123,97,255,.8);top:8%;right:22%;animation-delay:-2s;
+    box-shadow:
+      -120px 90px 0 rgba(0,212,255,.5),
+      -240px 160px 0 rgba(123,97,255,.4),
+      -70px 260px 0 rgba(0,212,255,.4),
+      -310px 100px 0 rgba(123,97,255,.4),
+      -180px 330px 0 rgba(0,212,255,.3),
+      -400px 220px 0 rgba(123,97,255,.3),
+      -50px 390px 0 rgba(0,212,255,.3),
+      -280px 390px 0 rgba(123,97,255,.2),
+      -460px 310px 0 rgba(0,212,255,.2);
+  }
+  @keyframes hp-twinkle{
+    0%,100%{opacity:.5}
+    50%{opacity:1}
+  }
+
+  /* Anneau central pulsant */
+  .hp-ring{
+    position:absolute;
+    top:50%;left:50%;
+    width:clamp(180px,20vw,260px);height:clamp(180px,20vw,260px);
+    margin-top:calc(clamp(180px,20vw,260px)/-2);
+    margin-left:calc(clamp(180px,20vw,260px)/-2);
+    border-radius:50%;
+    border:1px solid rgba(0,212,255,.2);
+    animation:hp-ring-pulse 3s ease-in-out infinite;
+  }
+  .hp-ring::before{
+    content:'';position:absolute;inset:20px;
+    border-radius:50%;border:1px solid rgba(123,97,255,.15);
+    animation:hp-ring-pulse 3s ease-in-out infinite reverse;
+  }
+  @keyframes hp-ring-pulse{
+    0%,100%{transform:scale(1);opacity:.6}
+    50%{transform:scale(1.06);opacity:1}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .hp-orb,.hp-grid,.hp-particles::before,.hp-particles::after,.hp-ring{animation:none;}
+  }
   </style>
 </head>
 <body>
@@ -823,6 +934,14 @@
 
   <!-- HERO -->
   <section class="scene-section" id="s-hero" aria-label="Hero">
+    <div id="hero-pre" aria-hidden="true">
+      <div class="hp-orb hp-orb1"></div>
+      <div class="hp-orb hp-orb2"></div>
+      <div class="hp-orb hp-orb3"></div>
+      <div class="hp-grid"></div>
+      <div class="hp-particles"></div>
+      <div class="hp-ring"></div>
+    </div>
     <div class="hero-inner">
       <div class="hero-badge" id="hbadge"><div class="badge-ping"></div><span data-i18n="hero-badge">Expériences Web du Futur</span></div>
       <h1 class="hero-title" id="htitle">
@@ -1272,6 +1391,7 @@ setTimeout(_loadThree,3000);
 });
 
 function initThreeJS(){
+document.body.classList.add('three-ready');
 /* ══════════════════════════════════════
    THREE.JS — RENDERER + SCENE + CAMERA
 ══════════════════════════════════════ */
